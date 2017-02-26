@@ -1,5 +1,6 @@
 # SEPT-Project
-amirhomayoon.ashrafzadeh@rmit.edu.au
-Aydan Schwartz - s3448344
 
-s3487033@student.rmit.edu.au Brett Taylor s3487033
+Aydan Schwartz - s3448344
+David Stagg - s3450308
+Brett Taylor - s3487033
+Joshua Pirie - s3605761
