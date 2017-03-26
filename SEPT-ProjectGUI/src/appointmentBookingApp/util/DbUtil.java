@@ -7,6 +7,15 @@ import java.sql.*;
  */
 public class DbUtil {
 	private static Connection connection;
+	private static String driver = "com.mysql.jdbc.Driver";
+	private static String url = "jdbc:mysql://localhost:3306/bookingsystem";
+	private static String user = "root";
+	private static String password = "pass";
+
+//	String url = "jdbc:mysql://jimpi27.arges.feralhosting.com:31337/bookingsystem";
+//	String user = "sept";
+//	String password = "septdb17";
+
 	
 	/**
 	 * Opens connection to the database.
@@ -16,11 +25,7 @@ public class DbUtil {
 		
 		try
 		  {
-		   String driver = "com.mysql.jdbc.Driver";
-		   String url = "jdbc:mysql://localhost:3306/bookingsystem";
-		   String user = "root";
-		   String password = "pass";
-		   
+
 		   Class.forName(driver);
 		   
 		   connection = DriverManager.getConnection(url, user, password);
@@ -53,23 +58,7 @@ public class DbUtil {
 	}
 	
 
-	/**
-	 * Used in generating a new customerID, this is done by counting the number of already existing customers.
-	 * @return
-	 */
-	public static int getUserCount(){
-    	ResultSet resultSet;
-		try {
-			resultSet = DbUtil.getNewStatment().executeQuery("SELECT COUNT(username) AS total FROM customers");
-			if(resultSet.next()){
-				System.out.println("total: "+ resultSet.getInt("total"));
-				return resultSet.getInt("total");
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return 0;
-	}
+
 	
 	/**
 	 * adds new customer to the database.
