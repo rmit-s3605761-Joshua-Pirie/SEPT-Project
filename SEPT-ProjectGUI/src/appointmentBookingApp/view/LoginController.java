@@ -8,6 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -45,21 +46,30 @@ public class LoginController {
 	private void handleView() throws SQLException{
 		ResultSet resultSet;
         String querySQL;
-		System.out.println("Username: " + username.getText().toUpperCase());
-		System.out.println("Password: " + password.getText());
+        String sqlUsername = username.getText().toUpperCase();
+		String sqlPassword = password.getText();
+		System.out.println("SQLUsername1: " + sqlUsername);
+		System.out.println("SQLPassword1: " + sqlPassword);
 
-		querySQL = "SELECT*FROM customer WHERE Username = '" + username.getText().toUpperCase() + "' AND Password = '" + password.getText() + "'";
-		resultSet = DbUtil.getNewStatment().executeQuery(querySQL);
+		querySQL = "SELECT*FROM customer WHERE Username=? AND Password=?";
+		PreparedStatement pstmt = DbUtil.getConnection().prepareStatement(querySQL);
+		pstmt.setString(1,sqlUsername);
+		pstmt.setString(2,sqlPassword);
+		resultSet = pstmt.executeQuery();
 		if(!resultSet.next()){
 			System.out.println("Not customer login");
-			querySQL = "SELECT*FROM businessowner WHERE Username = '" + username.getText().toUpperCase()
-					+ "' AND Password = '" + password.getText() + "'";
-			resultSet = DbUtil.getNewStatment().executeQuery(querySQL);
+			querySQL = "SELECT*FROM businessowner WHERE Username=? AND Password=?";
+			pstmt = DbUtil.getConnection().prepareStatement(querySQL);
+			pstmt.setString(1,sqlUsername);
+			pstmt.setString(2,sqlPassword);
+			resultSet = pstmt.executeQuery();
 			if(!resultSet.next()){
 				System.out.println("Not business owner login");
-				querySQL = "SELECT*FROM staff WHERE Username = '" + username.getText().toUpperCase()
-						+ "' AND Password = '" + password.getText() + "'";
-				resultSet = DbUtil.getNewStatment().executeQuery(querySQL);
+				querySQL = "SELECT*FROM staff WHERE Username=? AND Password=?";
+				pstmt = DbUtil.getConnection().prepareStatement(querySQL);
+				pstmt.setString(1,sqlUsername);
+				pstmt.setString(2,sqlPassword);
+				resultSet = pstmt.executeQuery();
 				if(!resultSet.next()){
 					System.out.println("Not staff login");
 					errorMessage.setText("Username/Password is incorrect");
