@@ -35,7 +35,7 @@ public class LoginController {
         errorMessage.setText("");
         username.setPromptText("username");
         password.setPromptText("password");
-        
+
     }
 
 	/**
