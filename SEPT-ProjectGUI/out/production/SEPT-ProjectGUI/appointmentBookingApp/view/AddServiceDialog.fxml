@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appointmentBookingApp.view.AddServiceDialogController">
    <children>
       <GridPane prefHeight="100.0" prefWidth="300.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>
@@ -46,8 +46,8 @@
       </GridPane>
       <ButtonBar layoutX="100.0" layoutY="110.0">
         <buttons>
-            <Button fx:id="add" mnemonicParsing="false" prefWidth="75.0" text="Add" />
-            <Button fx:id="cancel" mnemonicParsing="false" text="Cancel" />
+            <Button fx:id="add" mnemonicParsing="false" onAction="#handleAdd" prefWidth="75.0" text="Add" />
+            <Button fx:id="cancel" mnemonicParsing="false" onAction="#handleCancel" text="Cancel" />
         </buttons>
       </ButtonBar>
    </children>
