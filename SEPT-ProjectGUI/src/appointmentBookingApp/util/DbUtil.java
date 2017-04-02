@@ -76,5 +76,28 @@ public class DbUtil {
 			e.printStackTrace();
 		}
 	}
-	
+
+	public static boolean userExists(String userType, String username) {
+		String sql = "SELECT COUNT(*) AS total FROM " + userType + " WHERE " + userType + ".Username = " + username;
+		try {
+			ResultSet rs = DbUtil.getNewStatment().executeQuery(sql);
+			if(rs.getInt("total") > 0) {
+				return true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	public static Array getEmpAvailability(String username) {
+		String sql = "SELECT * AS availability FROM availability WHERE availability.Username = " + username;
+		try {
+			ResultSet rs = DbUtil.getNewStatment().executeQuery(sql);
+			return rs.getArray("availability");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 }

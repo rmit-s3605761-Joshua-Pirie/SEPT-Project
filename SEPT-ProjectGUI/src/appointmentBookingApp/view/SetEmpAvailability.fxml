@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <GridPane prefHeight="80.0" prefWidth="300.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
          <columnConstraints>
@@ -26,7 +26,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Label text="Staff ID:" GridPane.halignment="RIGHT">
+            <Label text="Staff Username:" GridPane.halignment="RIGHT">
                <padding>
                   <Insets right="10.0" />
                </padding>
@@ -36,7 +36,7 @@
                   <Insets right="10.0" />
                </padding>
             </Label>
-            <TextField fx:id="staffID" GridPane.columnIndex="1">
+            <TextField fx:id="username" GridPane.columnIndex="1">
                <GridPane.margin>
                   <Insets left="10.0" right="20.0" />
                </GridPane.margin>
@@ -61,8 +61,8 @@
       </GridPane>
       <ButtonBar layoutX="80.0" layoutY="250.0" prefHeight="40.0" prefWidth="200.0">
          <buttons>
-            <Button fx:id="add" mnemonicParsing="false" prefWidth="75.0" text="Add" />
-            <Button fx:id="cancel" mnemonicParsing="false" prefWidth="75.0" text="Cancel" />
+            <Button fx:id="add" mnemonicParsing="false" onAction="#handleAdd" prefWidth="75.0" text="Add" />
+            <Button fx:id="cancel" mnemonicParsing="false" onAction="#handleCancel" prefWidth="75.0" text="Cancel" />
          </buttons>
       </ButtonBar>
       <GridPane layoutY="130.0" prefWidth="300.0">
