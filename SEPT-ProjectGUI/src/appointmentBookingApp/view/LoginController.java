@@ -3,11 +3,14 @@ package appointmentBookingApp.view;
 import appointmentBookingApp.MainApp;
 import appointmentBookingApp.util.DbUtil;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
+import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -23,14 +26,16 @@ public class LoginController {
     @FXML
     private PasswordField password;
     @FXML
-    private Button login;
-    @FXML
     private Label errorMessage;
 
-	
-	/**
-	 *Initialize on controller load. 
-	 */
+    private MainApp mainApp;
+    //Allow for the control of the main app.
+    public void setMainApp(MainApp mainApp) {
+        this.mainApp = mainApp;
+    }
+    /**
+     *Initialize on controller load.
+     */
 	public void initialize() {
         errorMessage.setText("");
         username.setPromptText("username");
@@ -40,7 +45,7 @@ public class LoginController {
 
 	/**
 	 * Called to verify login and determine which user view is to be shown.
-	 * @throws SQLException
+	 * @throws SQLException produces stack trace.
 	 */
 	@FXML
 	private void handleView() throws SQLException{
@@ -80,10 +85,16 @@ public class LoginController {
 			}
 			else{
 				System.out.println("Business Owner Login success");
+				mainApp.showBusinessHomepage();
 			}
 		}
 		else{
 			System.out.println("Customer Login success");
 		}
 	}
+
+
+    public void showBusinessHomepage() {
+        mainApp.showBusinessHomepage();
+    }
 }

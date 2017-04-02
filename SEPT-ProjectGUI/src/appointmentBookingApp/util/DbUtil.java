@@ -23,21 +23,14 @@ public class DbUtil {
 	 */
 	public static Statement databaseConnect(){
 		
-		try
-		  {
-
+		try {
 		   Class.forName(driver);
-		   
 		   connection = DriverManager.getConnection(url, user, password);
 		   System.out.println("connected...");
-		   Statement statment = connection.createStatement();
-		   return statment;
-		   
-		  }
-		  catch(Exception e)
-		  {
-		   System.out.println(e);
-		  }
+		   return connection.createStatement();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 		  return null;		
 	}
 	
@@ -53,8 +46,7 @@ public class DbUtil {
 	 * @throws SQLException
 	 */
 	public static Statement getNewStatment() throws SQLException{
-		Statement statement = connection.createStatement();
-		return statement;
+		return connection.createStatement();
 	}
 	
 
@@ -69,7 +61,7 @@ public class DbUtil {
 	 * @param phone
 	 */
 	public static void addCustomerToDB(String username, String password, String address, String name, String phone){
-		String sql = "INSERT INTO customers VALUES ('" + username + "', '" + password + "', '" + address + "', '" + name + "', '" + phone + "')";
+		String sql = "INSERT INTO customer VALUES ('" + username + "', '" + password + "', '" + address + "', '" + name + "', '" + phone + "')";
 		try {
 			DbUtil.getNewStatment().executeUpdate(sql);
 		} catch (SQLException e) {
