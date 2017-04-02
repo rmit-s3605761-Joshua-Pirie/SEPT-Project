@@ -10,7 +10,7 @@
       <Button layoutX="75.0" layoutY="185.0" mnemonicParsing="false" prefWidth="150.0" text="Add Employee" />
       <Button layoutX="75.0" layoutY="230.0" mnemonicParsing="false" prefWidth="150.0" text="Update Employee Details" />
       <Button layoutX="75.0" layoutY="275.0" mnemonicParsing="false" prefWidth="150.0" text="Employee Availability" />
-      <Button layoutX="75.0" layoutY="320.0" mnemonicParsing="false" prefWidth="150.0" text="Logout" />
-      <Button fx:id="addService" layoutX="75.0" layoutY="345.0" mnemonicParsing="false" prefWidth="150.0" text="Add Service" />
+      <Button cancelButton="true" layoutX="75.0" layoutY="320.0" mnemonicParsing="false" onAction="#logout" prefWidth="150.0" text="Logout" />
+      <Button layoutX="75.0" layoutY="345.0" mnemonicParsing="false" onAction="#showAddServiceDialog" prefWidth="150.0" text="Add Service" />
    </children>
 </AnchorPane>

@@ -85,7 +85,7 @@ public class LoginController {
 			}
 			else{
 				System.out.println("Business Owner Login success");
-				showBusinessHomepage();
+				mainApp.showBusinessHomepage();
 			}
 		}
 		else{
@@ -95,12 +95,6 @@ public class LoginController {
 
 
     public void showBusinessHomepage() {
-        Parent root = null;
-        try {
-            root = FXMLLoader.load(getClass().getResource("view/BusinessHomepage.fxml"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        mainApp.primaryStage.getScene().setRoot(root);
+        mainApp.showBusinessHomepage();
     }
 }

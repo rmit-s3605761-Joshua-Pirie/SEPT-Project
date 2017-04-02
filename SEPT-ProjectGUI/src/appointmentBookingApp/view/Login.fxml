@@ -46,7 +46,7 @@
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
                   <Button fx:id="login" alignment="BOTTOM_CENTER" defaultButton="true" layoutX="99.0" layoutY="23.0" mnemonicParsing="false" onAction="#handleView" prefWidth="90.0" text="Login" />
-                  <Button layoutX="189.0" layoutY="23.0" mnemonicParsing="false" prefWidth="90.0" text="Register" />
+                  <Button layoutX="189.0" layoutY="23.0" mnemonicParsing="false" onAction="#showBusinessHomepage" prefWidth="90.0" text="Register" />
                   <Label fx:id="errorMessage" layoutX="13.0" layoutY="6.0" />
                </children>
             </AnchorPane>

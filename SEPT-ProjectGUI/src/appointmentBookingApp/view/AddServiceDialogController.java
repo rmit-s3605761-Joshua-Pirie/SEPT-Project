@@ -10,7 +10,6 @@ import javafx.stage.Stage;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Time;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -38,24 +37,30 @@ public class AddServiceDialogController {
      */
     public void setDialogStage(Stage dialogStage) { this.dialogStage = dialogStage; }
 
+    /**
+     * Returns true if the user clicked Add, false otherwise.
+     *
+     * @return
+     */
+    public boolean isAddClicked() {
+        return addClicked;
+    }
+
     @FXML
     public void handleAdd() throws SQLException {
         if(isValid()){
             String service = serviceName.getText().toUpperCase();
-            Time myTime = Time.valueOf(duration.getText());
+            String myTime = duration.getText();
             String insertSQL;
             insertSQL = "INSERT INTO services VALUES (?,?)";
             PreparedStatement pstmt = DbUtil.getConnection().prepareStatement(insertSQL);
             pstmt.setString(1,service);
-            pstmt.setTime(2,myTime);
+            pstmt.setString(2,myTime);
             pstmt.executeUpdate();
 
             addClicked = true;
             dialogStage.close();
         }
-
-
-
     }
 
     /**
@@ -69,12 +74,13 @@ public class AddServiceDialogController {
     private boolean isValid(){
         String errorMessage = "";
         String service = serviceName.getText().toUpperCase();
+        String duration = this.duration.getText().toUpperCase();
 
         if(service.length() == 0){
             errorMessage += "Please define a service you wish to add.\n";
         }
 
-        String querySQL = "";
+        String querySQL = "SELECT service FROM services WHERE service=?";
         ResultSet resultSet;
         PreparedStatement pstmt;
         try {
@@ -90,11 +96,16 @@ public class AddServiceDialogController {
 
 
         DateFormat timeFormat = new SimpleDateFormat("hh:mm");
-        try {
-            timeFormat.parse(duration.getText().toUpperCase());
-        } catch (ParseException e) {
-            errorMessage += "Time field is in the incorrect format\n";
+        if(duration.length() == 0){
+            errorMessage += "Duration field cannot be empty.\n";
+        }else{
+            try {
+                timeFormat.parse(duration);
+            } catch (ParseException e) {
+                errorMessage += "Time field is in the incorrect format\n";
+            }
         }
+
 
         if (errorMessage.length() == 0) {
             return true;
