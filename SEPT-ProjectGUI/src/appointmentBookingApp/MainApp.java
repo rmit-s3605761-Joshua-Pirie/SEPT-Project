@@ -48,7 +48,6 @@ public class MainApp extends Application {
 
     }
     public void showBusinessHomepage() {
-        System.out.println("Test line 1");
         Parent root = null;
         try {
             FXMLLoader loader = new FXMLLoader();

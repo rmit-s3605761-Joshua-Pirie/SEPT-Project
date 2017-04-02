@@ -35,29 +35,22 @@ public class AddServiceDialogController {
     /**
      * Sets the stage of this dialog.
      */
-    public void setDialogStage(Stage dialogStage) { this.dialogStage = dialogStage; }
+    void setDialogStage(Stage dialogStage) { this.dialogStage = dialogStage; }
 
     /**
-     * Returns true if the user clicked Add, false otherwise.
-     *
-     * @return
+     * @return Returns true if the user clicked Add, false otherwise.
      */
-    public boolean isAddClicked() {
+    boolean isAddClicked() {
         return addClicked;
     }
 
     @FXML
     public void handleAdd() throws SQLException {
-        if(isValid()){
-            String service = serviceName.getText().toUpperCase();
-            String myTime = duration.getText();
-            String insertSQL;
-            insertSQL = "INSERT INTO services VALUES (?,?)";
-            PreparedStatement pstmt = DbUtil.getConnection().prepareStatement(insertSQL);
-            pstmt.setString(1,service);
-            pstmt.setString(2,myTime);
-            pstmt.executeUpdate();
-
+        String service = serviceName.getText().toUpperCase();
+        String duration = this.duration.getText();
+        boolean useAlertBox = true;
+        if(isValid(service, duration, useAlertBox)){
+            addServiceToDB(service, duration);
             addClicked = true;
             dialogStage.close();
         }
@@ -71,13 +64,12 @@ public class AddServiceDialogController {
         dialogStage.close();
     }
 
-    private boolean isValid(){
+    public boolean isValid(String service, String duration, boolean useAlertBox){
         String errorMessage = "";
-        String service = serviceName.getText().toUpperCase();
-        String duration = this.duration.getText().toUpperCase();
 
         if(service.length() == 0){
             errorMessage += "Please define a service you wish to add.\n";
+//            System.err.println("Please define a service you wish to add.");
         }
 
         String querySQL = "SELECT service FROM services WHERE service=?";
@@ -89,6 +81,7 @@ public class AddServiceDialogController {
             resultSet = pstmt.executeQuery();
             if(resultSet.next()){
                 errorMessage += "Service already exists.\n";
+//                System.err.println("Service already exists.");
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -98,11 +91,13 @@ public class AddServiceDialogController {
         DateFormat timeFormat = new SimpleDateFormat("hh:mm");
         if(duration.length() == 0){
             errorMessage += "Duration field cannot be empty.\n";
+//            System.err.println("Duration field cannot be empty.");
         }else{
             try {
                 timeFormat.parse(duration);
             } catch (ParseException e) {
-                errorMessage += "Time field is in the incorrect format\n";
+                errorMessage += "Time field is in the incorrect format.\n";
+//                System.err.println("Time field is in the incorrect format.");
             }
         }
 
@@ -110,15 +105,31 @@ public class AddServiceDialogController {
         if (errorMessage.length() == 0) {
             return true;
         } else {
-            // Show the error message.
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.initOwner(dialogStage);
-            alert.setTitle("Invalid Fields");
-            alert.setHeaderText("Please correct invalid fields");
-            alert.setContentText(errorMessage);
+            if(useAlertBox){
+                // Show the error message.
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.initOwner(dialogStage);
+                alert.setTitle("Invalid Fields");
+                alert.setHeaderText("Please correct invalid fields");
+                alert.setContentText(errorMessage);
 
-            alert.showAndWait();
+                alert.showAndWait();
+            }
+            return false;
+        }
+    }
 
+    public boolean addServiceToDB(String service, String duration){
+        try {
+            String insertSQL = "INSERT INTO services VALUES (?,?)";
+            PreparedStatement pstmt = DbUtil.getConnection().prepareStatement(insertSQL);
+            pstmt.setString(1,service);
+            pstmt.setString(2,duration);
+            pstmt.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+//            e.printStackTrace();
+            System.err.println("Failed to add SERVICE to database");
             return false;
         }
     }
