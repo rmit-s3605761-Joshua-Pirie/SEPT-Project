@@ -41,10 +41,26 @@ public class SetEmpAvailabilityController {
     public void handleAdd() {
         String usernameStr = username.getText();
         if(DbUtil.userExists("staff", usernameStr)) {
-            Array availability = DbUtil.getEmpAvailability(usernameStr);
+
+
             addClicked = true;
             dialogStage.close();
         }
+        else
+            System.err.println("User does not exist.");
+    }
+
+    @FXML
+    public void handleDay() {
+        String usernameStr = username.getText();
+        if(DbUtil.userExists("staff", usernameStr)) {
+
+
+            addClicked = true;
+            dialogStage.close();
+        }
+        else
+            System.err.println("User does not exist.");
     }
 
     /**

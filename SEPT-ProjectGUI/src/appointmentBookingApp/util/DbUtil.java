@@ -1,6 +1,7 @@
 package appointmentBookingApp.util;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 /**
  * Utilities class that handles connections to the database.
@@ -8,13 +9,13 @@ import java.sql.*;
 public class DbUtil {
 	private static Connection connection;
 	private static String driver = "com.mysql.jdbc.Driver";
-	private static String url = "jdbc:mysql://localhost:3306/bookingsystem";
-	private static String user = "root";
-	private static String password = "pass";
+	// private static String url = "jdbc:mysql://localhost:3306/bookingsystem";
+	// private static String user = "root";
+	// private static String password = "pass";
 
-//	String url = "jdbc:mysql://jimpi27.arges.feralhosting.com:31337/bookingsystem";
-//	String user = "sept";
-//	String password = "septdb17";
+	private static String url = "jdbc:mysql://jimpi27.arges.feralhosting.com:31337/bookingsystem";
+	private static String user = "sept";
+	private static String password = "septdb17";
 
 	
 	/**
@@ -70,10 +71,11 @@ public class DbUtil {
 	}
 
 	public static boolean userExists(String userType, String username) {
-		String sql = "SELECT COUNT(*) AS total FROM " + userType + " WHERE " + userType + ".Username = " + username;
+		String sql = "SELECT COUNT(*) FROM " + userType + " WHERE " + userType + ".Username='" + username + "'";
 		try {
 			ResultSet rs = DbUtil.getNewStatment().executeQuery(sql);
-			if(rs.getInt("total") > 0) {
+			rs.next();
+			if(rs.getInt(1) > 0) {
 				return true;
 			}
 		} catch (SQLException e) {
@@ -82,14 +84,12 @@ public class DbUtil {
 		return false;
 	}
 
-	public static Array getEmpAvailability(String username) {
-		String sql = "SELECT * AS availability FROM availability WHERE availability.Username = " + username;
+	public static void setEmpAvailability(String username, ArrayList<ArrayList<ArrayList<Time>>> times) {
+		String sql = "DELETE * FROM availability WHERE availability.Username='" + username + "'";
 		try {
-			ResultSet rs = DbUtil.getNewStatment().executeQuery(sql);
-			return rs.getArray("availability");
+			DbUtil.getNewStatment().executeUpdate(sql);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return null;
 	}
 }
