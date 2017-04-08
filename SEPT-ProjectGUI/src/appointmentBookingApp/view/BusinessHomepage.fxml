@@ -5,8 +5,9 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appointmentBookingApp.view.BusinessHomepageController">
    <children>
-      <Button layoutX="75.0" layoutY="140.0" mnemonicParsing="false" prefWidth="150.0" text="Review Appointments" />
       <Button layoutX="75.0" layoutY="95.0" mnemonicParsing="false" prefWidth="150.0" text="Create Appointment" />
+      <Button layoutX="75.0" layoutY="120.0" mnemonicParsing="false" onAction="#showUpcomingBookings" prefWidth="150.0" text="Upcoming Appointments" />
+      <Button layoutX="75.0" layoutY="145.0" mnemonicParsing="false" onAction="#showBookingHistory" prefWidth="150.0" text="Appointment History" />
       <Button layoutX="75.0" layoutY="185.0" mnemonicParsing="false" prefWidth="150.0" text="Add Employee" />
       <Button layoutX="75.0" layoutY="230.0" mnemonicParsing="false" prefWidth="150.0" text="Update Employee Details" />
       <Button layoutX="75.0" layoutY="275.0" mnemonicParsing="false" prefWidth="150.0" text="Employee Availability" />

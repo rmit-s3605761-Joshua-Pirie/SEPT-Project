@@ -7,29 +7,27 @@ import java.sql.*;
  */
 public class DbUtil {
 	private static Connection connection;
-	private static String driver = "com.mysql.jdbc.Driver";
-	private static String url = "jdbc:mysql://localhost:3306/bookingsystem";
-	private static String user = "root";
-	private static String password = "pass";
-
-//	String url = "jdbc:mysql://jimpi27.arges.feralhosting.com:31337/bookingsystem";
-//	String user = "sept";
-//	String password = "septdb17";
-
-	
 	/**
 	 * Opens connection to the database.
 	 * @return
 	 */
 	public static Statement databaseConnect(){
-		
+
+		String driver = "com.mysql.jdbc.Driver";
+//		String url = "jdbc:mysql://localhost:3306/bookingsystem?useSSL=false";
+//		String user = "root";
+//		String password = "pass";
+
+		String url = "jdbc:mysql://jimpi27.arges.feralhosting.com:31337/bookingsystem";
+		String user = "sept";
+		String password = "septdb17";
 		try {
-		   Class.forName(driver);
-		   connection = DriverManager.getConnection(url, user, password);
-		   System.out.println("connected...");
-		   return connection.createStatement();
+		   	Class.forName(driver);
+		   	connection = DriverManager.getConnection(url, user, password);
+		   	System.out.println("connected...");
+		   	return connection.createStatement();
 		}catch(Exception e){
-			e.printStackTrace();
+//			e.printStackTrace();
 		}
 		  return null;		
 	}
