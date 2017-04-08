@@ -2,13 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/appointmentBookingApp/view/BookingHistoryController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/appointmentBookingApp/view/BookingHistoryListController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/appointmentBookingApp/view/UpcomingBookingsController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/appointmentBookingApp/view/UpcomingBookingsListController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SEPT-ProjectGUI/appointmentBookingApp/util/DbUtil.class" afterPath="$PROJECT_DIR$/out/production/SEPT-ProjectGUI/appointmentBookingApp/util/DbUtil.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SEPT-ProjectGUI/appointmentBookingApp/view/BookingHistoryController.class" afterPath="$PROJECT_DIR$/out/production/SEPT-ProjectGUI/appointmentBookingApp/view/BookingHistoryController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SEPT-ProjectGUI/appointmentBookingApp/view/BusinessHomepageController.class" afterPath="$PROJECT_DIR$/out/production/SEPT-ProjectGUI/appointmentBookingApp/view/BusinessHomepageController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SEPT-ProjectGUI/appointmentBookingApp/view/BookingHistory.fxml" afterPath="$PROJECT_DIR$/out/production/SEPT-ProjectGUI/appointmentBookingApp/view/BookingHistory.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SEPT-ProjectGUI/appointmentBookingApp/view/BookingHistoryList.fxml" afterPath="$PROJECT_DIR$/out/production/SEPT-ProjectGUI/appointmentBookingApp/view/BookingHistoryList.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/appointmentBookingApp/util/DbUtil.java" afterPath="$PROJECT_DIR$/src/appointmentBookingApp/util/DbUtil.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/appointmentBookingApp/view/BookingHistory.fxml" afterPath="$PROJECT_DIR$/src/appointmentBookingApp/view/BookingHistory.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/appointmentBookingApp/view/BookingHistoryController.java" afterPath="$PROJECT_DIR$/src/appointmentBookingApp/view/BookingHistoryController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/appointmentBookingApp/view/BookingHistoryList.fxml" afterPath="$PROJECT_DIR$/src/appointmentBookingApp/view/BookingHistoryList.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/appointmentBookingApp/view/BusinessHomepage.fxml" afterPath="$PROJECT_DIR$/src/appointmentBookingApp/view/BusinessHomepage.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/appointmentBookingApp/view/BusinessHomepageController.java" afterPath="$PROJECT_DIR$/src/appointmentBookingApp/view/BusinessHomepageController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/appointmentBookingApp/view/UpcomingBookings.fxml" afterPath="$PROJECT_DIR$/src/appointmentBookingApp/view/UpcomingBookings.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/appointmentBookingApp/view/UpcomingBookingsList.fxml" afterPath="$PROJECT_DIR$/src/appointmentBookingApp/view/UpcomingBookingsList.fxml" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -75,33 +85,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="525">
-      <file leaf-file-name="MainApp.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/MainApp.java">
+      <file leaf-file-name="BusinessHomepageController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/view/BusinessHomepageController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="27">
-              <caret line="31" column="21" lean-forward="false" selection-start-line="31" selection-start-column="21" selection-end-line="31" selection-end-column="46" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AddServiceDialogController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/view/AddServiceDialogController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="196">
-              <caret line="20" column="9" lean-forward="true" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
+            <state relative-caret-position="263">
+              <caret line="24" column="38" lean-forward="false" selection-start-line="24" selection-start-column="38" selection-end-line="24" selection-end-column="38" />
               <folding>
-                <element signature="docComment;method#initialize#0;class#AddServiceDialogController#0" expanded="false" />
-                <element signature="method#initialize#0;class#AddServiceDialogController#0" expanded="false" />
-                <element signature="docComment;method#setDialogStage#0;class#AddServiceDialogController#0" expanded="false" />
-                <element signature="method#setDialogStage#0;class#AddServiceDialogController#0" expanded="false" />
-                <element signature="docComment;method#isAddClicked#0;class#AddServiceDialogController#0" expanded="false" />
-                <element signature="method#handleAdd#0;class#AddServiceDialogController#0" expanded="false" />
-                <element signature="docComment;method#handleCancel#0;class#AddServiceDialogController#0" expanded="false" />
-                <element signature="method#isValid#0;class#AddServiceDialogController#0" expanded="false" />
-                <element signature="method#addServiceToDB#0;class#AddServiceDialogController#0" expanded="false" />
-                <marker date="1491126837091" expanded="false" signature="1946:1990" ph="SELECT servi... services" />
-                <marker date="1491126837091" expanded="false" signature="3660:3693" ph="INSERT INTO services... " />
+                <element signature="docComment;class#BusinessHomepageController#0" expanded="false" />
+                <element signature="method#showUpcomingBookings#0;class#BusinessHomepageController#0" expanded="false" />
+                <element signature="method#showBookingHistory#0;class#BusinessHomepageController#0" expanded="false" />
+                <element signature="method#showAddServiceDialog#0;class#BusinessHomepageController#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -110,24 +103,47 @@
       <file leaf-file-name="BookingHistoryController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/view/BookingHistoryController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="15" column="43" lean-forward="false" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
+            <state relative-caret-position="128">
+              <caret line="17" column="4" lean-forward="true" selection-start-line="17" selection-start-column="4" selection-end-line="64" selection-end-column="5" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="docComment;class#BookingHistoryController#0" expanded="false" />
+                <element signature="docComment;method#setDialogStage#0;class#BookingHistoryController#0" expanded="false" />
+                <element signature="method#setDialogStage#0;class#BookingHistoryController#0" expanded="false" />
                 <element signature="docComment;method#handleCancel#0;class#BookingHistoryController#0" expanded="false" />
-                <element signature="e#440#441#0" expanded="true" />
-                <element signature="e#475#476#0" expanded="true" />
+                <element signature="method#showBookingHistoryList#0;class#BookingHistoryController#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BusinessHomepageController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/view/BusinessHomepageController.java">
+      <file leaf-file-name="UpcomingBookingsController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/view/UpcomingBookingsController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="41" column="45" lean-forward="true" selection-start-line="41" selection-start-column="45" selection-end-line="41" selection-end-column="45" />
-              <folding />
+            <state relative-caret-position="506">
+              <caret line="38" column="42" lean-forward="false" selection-start-line="38" selection-start-column="42" selection-end-line="38" selection-end-column="42" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="docComment;method#setDialogStage#0;class#UpcomingBookingsController#0" expanded="false" />
+                <element signature="method#setDialogStage#0;class#UpcomingBookingsController#0" expanded="false" />
+                <element signature="docComment;method#handleCancel#0;class#UpcomingBookingsController#0" expanded="false" />
+                <element signature="method#showUpcomingBookingsList#0;class#UpcomingBookingsController#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UpcomingBookingsListController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/view/UpcomingBookingsListController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="134">
+              <caret line="9" column="45" lean-forward="true" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
+              <folding>
+                <element signature="docComment;class#UpcomingBookingsListController#0" expanded="false" />
+                <element signature="docComment;method#setDialogStage#0;class#UpcomingBookingsListController#0" expanded="false" />
+                <element signature="method#setDialogStage#0;class#UpcomingBookingsListController#0" expanded="false" />
+                <element signature="docComment;method#handleCancel#0;class#UpcomingBookingsListController#0" expanded="false" />
+                <element signature="method#setDayTime#0;class#UpcomingBookingsListController#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -147,6 +163,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>controller</find>
+      <find>addClicked</find>
     </findStrings>
   </component>
   <component name="FindManager">
@@ -180,7 +197,11 @@
         <option value="$PROJECT_DIR$/src/appointmentBookingApp/view/AddServiceDialogController.java" />
         <option value="$PROJECT_DIR$/src/appointmentBookingApp/tests/AddServiceDialogControllerTest.java" />
         <option value="$PROJECT_DIR$/src/appointmentBookingApp/util/DbUtil.java" />
+        <option value="$PROJECT_DIR$/src/appointmentBookingApp/view/BookingHistoryList.fxml" />
         <option value="$PROJECT_DIR$/src/appointmentBookingApp/view/BookingHistoryController.java" />
+        <option value="$PROJECT_DIR$/src/appointmentBookingApp/view/BookingHistoryListController.java" />
+        <option value="$PROJECT_DIR$/src/appointmentBookingApp/view/UpcomingBookingsListController.java" />
+        <option value="$PROJECT_DIR$/src/appointmentBookingApp/view/UpcomingBookingsController.java" />
         <option value="$PROJECT_DIR$/src/appointmentBookingApp/view/BusinessHomepageController.java" />
       </list>
     </option>
@@ -462,7 +483,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="js.eslint.eslintPackage" value="" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../RMIT/2016Sem2/SEF-BackUps/SEF-ProjectGUI_Final" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../RMIT/2016Sem2/SEF-BackUps/SEF-ProjectGUI_Final/SEF-ProjectGUI" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
   </component>
@@ -976,7 +997,7 @@
       <workItem from="1491105178331" duration="16674000" />
       <workItem from="1491136625706" duration="518000" />
       <workItem from="1491172718068" duration="3946000" />
-      <workItem from="1491177763277" duration="3602000" />
+      <workItem from="1491177763277" duration="10099000" />
     </task>
     <servers />
   </component>
@@ -1013,7 +1034,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="106289000" />
+    <option name="totallyTimeSpent" value="112786000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-12" y="-12" width="2184" height="1394" extended-state="6" />
@@ -1108,52 +1129,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/view/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="20" column="9" lean-forward="false" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
-          <folding>
-            <element signature="e#867#868#0" expanded="false" />
-            <element signature="e#905#906#0" expanded="false" />
-            <marker date="1490858482808" expanded="true" signature="1580:1632" ph="SELECT*FROM customer... " />
-            <marker date="1490858482808" expanded="true" signature="1903:1960" ph="SELECT*FROM businessowner... " />
-            <marker date="1490858482808" expanded="true" signature="2226:2275" ph="SELECT*FROM staff... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/view/CustomerHomepage.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/view/BusinessHomepage.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/util/DbUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1215">
-          <caret line="47" column="4" lean-forward="false" selection-start-line="47" selection-start-column="4" selection-end-line="47" selection-end-column="4" />
-          <folding>
-            <marker date="1491612585080" expanded="true" signature="1427:1547" ph="INSERT INTO customers... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/MainApp.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
@@ -1167,8 +1142,7 @@
         <state relative-caret-position="540">
           <caret line="20" column="9" lean-forward="false" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
           <folding>
-            <element signature="e#867#868#0" expanded="false" />
-            <element signature="e#905#906#0" expanded="false" />
+            <element signature="imports" expanded="true" />
             <marker date="1490858482808" expanded="true" signature="1580:1632" ph="SELECT*FROM customer... " />
             <marker date="1490858482808" expanded="true" signature="1903:1960" ph="SELECT*FROM businessowner... " />
             <marker date="1490858482808" expanded="true" signature="2226:2275" ph="SELECT*FROM staff... " />
@@ -1193,7 +1167,7 @@
         <state relative-caret-position="1215">
           <caret line="47" column="4" lean-forward="false" selection-start-line="47" selection-start-column="4" selection-end-line="47" selection-end-column="4" />
           <folding>
-            <marker date="1491612585080" expanded="true" signature="1427:1547" ph="INSERT INTO customers... " />
+            <marker date="1491616162382" expanded="true" signature="1430:1550" ph="INSERT INTO customers... " />
           </folding>
         </state>
       </provider>
@@ -1211,8 +1185,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#867#868#0" expanded="false" />
-            <element signature="e#905#906#0" expanded="false" />
+            <element signature="imports" expanded="true" />
             <marker date="1490858482808" expanded="true" signature="1580:1632" ph="SELECT*FROM customer... " />
             <marker date="1490858482808" expanded="true" signature="1903:1960" ph="SELECT*FROM businessowner... " />
             <marker date="1490858482808" expanded="true" signature="2226:2275" ph="SELECT*FROM staff... " />
@@ -1225,7 +1198,7 @@
         <state relative-caret-position="1215">
           <caret line="47" column="4" lean-forward="false" selection-start-line="47" selection-start-column="4" selection-end-line="47" selection-end-column="4" />
           <folding>
-            <marker date="1491612585080" expanded="true" signature="1427:1547" ph="INSERT INTO customers... " />
+            <marker date="1491616162382" expanded="true" signature="1430:1550" ph="INSERT INTO customers... " />
           </folding>
         </state>
       </provider>
@@ -1243,8 +1216,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#867#868#0" expanded="false" />
-            <element signature="e#905#906#0" expanded="false" />
+            <element signature="imports" expanded="true" />
             <marker date="1490858482808" expanded="true" signature="1580:1632" ph="SELECT*FROM customer... " />
             <marker date="1490858482808" expanded="true" signature="1903:1960" ph="SELECT*FROM businessowner... " />
             <marker date="1490858482808" expanded="true" signature="2226:2275" ph="SELECT*FROM staff... " />
@@ -1257,7 +1229,7 @@
         <state relative-caret-position="1215">
           <caret line="47" column="4" lean-forward="true" selection-start-line="47" selection-start-column="4" selection-end-line="47" selection-end-column="4" />
           <folding>
-            <marker date="1491612585080" expanded="true" signature="1427:1547" ph="INSERT INTO customers... " />
+            <marker date="1491616162382" expanded="true" signature="1430:1550" ph="INSERT INTO customers... " />
           </folding>
         </state>
       </provider>
@@ -1275,8 +1247,7 @@
         <state relative-caret-position="783">
           <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
           <folding>
-            <element signature="e#867#868#0" expanded="false" />
-            <element signature="e#905#906#0" expanded="false" />
+            <element signature="imports" expanded="true" />
             <marker date="1490858482808" expanded="true" signature="1580:1632" ph="SELECT*FROM customer... " />
             <marker date="1490858482808" expanded="true" signature="1903:1960" ph="SELECT*FROM businessowner... " />
             <marker date="1490858482808" expanded="true" signature="2226:2275" ph="SELECT*FROM staff... " />
@@ -1289,7 +1260,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1491612585080" expanded="true" signature="1427:1547" ph="INSERT INTO customers... " />
+            <marker date="1491616162382" expanded="true" signature="1430:1550" ph="INSERT INTO customers... " />
           </folding>
         </state>
       </provider>
@@ -1436,20 +1407,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/view/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="771">
-          <caret line="93" column="5" lean-forward="false" selection-start-line="93" selection-start-column="5" selection-end-line="93" selection-end-column="5" />
-          <folding>
-            <element signature="e#867#868#0" expanded="false" />
-            <element signature="e#905#906#0" expanded="false" />
-            <marker date="1490858482808" expanded="true" signature="1580:1632" ph="SELECT*FROM customer... " />
-            <marker date="1490858482808" expanded="true" signature="1903:1960" ph="SELECT*FROM businessowner... " />
-            <marker date="1490858482808" expanded="true" signature="2226:2275" ph="SELECT*FROM staff... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/tests/AddServicesTest.java" />
     <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/tests/AddServiceDialogControllerTest.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1465,16 +1422,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/util/DbUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="11" column="14" lean-forward="true" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
-          <folding>
-            <marker date="1491612585080" expanded="true" signature="1427:1547" ph="INSERT INTO customers... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/view/BookingHistory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -1483,38 +1430,43 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/view/BookingHistoryController.java">
+    <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/util/DbUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="15" column="43" lean-forward="false" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
+        <state relative-caret-position="162">
+          <caret line="15" column="48" lean-forward="true" selection-start-line="15" selection-start-column="48" selection-end-line="15" selection-end-column="48" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;method#handleCancel#0;class#BookingHistoryController#0" expanded="false" />
-            <element signature="e#440#441#0" expanded="true" />
-            <element signature="e#475#476#0" expanded="true" />
+            <marker date="1491616162382" expanded="true" signature="1430:1550" ph="INSERT INTO customers... " />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/MainApp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
-          <caret line="31" column="21" lean-forward="false" selection-start-line="31" selection-start-column="21" selection-end-line="31" selection-end-column="46" />
+        <state relative-caret-position="373">
+          <caret line="60" column="12" lean-forward="true" selection-start-line="60" selection-start-column="12" selection-end-line="60" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/view/BookingHistoryList.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="17" column="58" lean-forward="false" selection-start-line="17" selection-start-column="58" selection-end-line="17" selection-end-column="58" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/view/AddServiceDialogController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="20" column="9" lean-forward="true" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
+        <state relative-caret-position="192">
+          <caret line="32" column="5" lean-forward="true" selection-start-line="26" selection-start-column="4" selection-end-line="32" selection-end-column="5" />
           <folding>
             <element signature="docComment;method#initialize#0;class#AddServiceDialogController#0" expanded="false" />
             <element signature="method#initialize#0;class#AddServiceDialogController#0" expanded="false" />
-            <element signature="docComment;method#setDialogStage#0;class#AddServiceDialogController#0" expanded="false" />
-            <element signature="method#setDialogStage#0;class#AddServiceDialogController#0" expanded="false" />
             <element signature="docComment;method#isAddClicked#0;class#AddServiceDialogController#0" expanded="false" />
-            <element signature="method#handleAdd#0;class#AddServiceDialogController#0" expanded="false" />
             <element signature="docComment;method#handleCancel#0;class#AddServiceDialogController#0" expanded="false" />
             <element signature="method#isValid#0;class#AddServiceDialogController#0" expanded="false" />
             <element signature="method#addServiceToDB#0;class#AddServiceDialogController#0" expanded="false" />
@@ -1524,11 +1476,84 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/view/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="30" column="28" lean-forward="true" selection-start-line="30" selection-start-column="28" selection-end-line="30" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1490858482808" expanded="true" signature="1580:1632" ph="SELECT*FROM customer... " />
+            <marker date="1490858482808" expanded="true" signature="1903:1960" ph="SELECT*FROM businessowner... " />
+            <marker date="1490858482808" expanded="true" signature="2226:2275" ph="SELECT*FROM staff... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/view/BookingHistoryListController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="857">
+          <caret line="35" column="5" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="35" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;method#handleCancel#0;class#BookingHistoryListController#0" expanded="false" />
+            <element signature="e#545#546#0" expanded="true" />
+            <element signature="e#580#581#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/view/BookingHistoryController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="17" column="4" lean-forward="true" selection-start-line="17" selection-start-column="4" selection-end-line="64" selection-end-column="5" />
+          <folding>
+            <element signature="docComment;class#BookingHistoryController#0" expanded="false" />
+            <element signature="docComment;method#setDialogStage#0;class#BookingHistoryController#0" expanded="false" />
+            <element signature="method#setDialogStage#0;class#BookingHistoryController#0" expanded="false" />
+            <element signature="docComment;method#handleCancel#0;class#BookingHistoryController#0" expanded="false" />
+            <element signature="method#showBookingHistoryList#0;class#BookingHistoryController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/view/BusinessHomepageController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="41" column="45" lean-forward="true" selection-start-line="41" selection-start-column="45" selection-end-line="41" selection-end-column="45" />
-          <folding />
+        <state relative-caret-position="263">
+          <caret line="24" column="38" lean-forward="false" selection-start-line="24" selection-start-column="38" selection-end-line="24" selection-end-column="38" />
+          <folding>
+            <element signature="docComment;class#BusinessHomepageController#0" expanded="false" />
+            <element signature="method#showUpcomingBookings#0;class#BusinessHomepageController#0" expanded="false" />
+            <element signature="method#showBookingHistory#0;class#BusinessHomepageController#0" expanded="false" />
+            <element signature="method#showAddServiceDialog#0;class#BusinessHomepageController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/view/UpcomingBookingsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="38" column="42" lean-forward="false" selection-start-line="38" selection-start-column="42" selection-end-line="38" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;method#setDialogStage#0;class#UpcomingBookingsController#0" expanded="false" />
+            <element signature="method#setDialogStage#0;class#UpcomingBookingsController#0" expanded="false" />
+            <element signature="docComment;method#handleCancel#0;class#UpcomingBookingsController#0" expanded="false" />
+            <element signature="method#showUpcomingBookingsList#0;class#UpcomingBookingsController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/view/UpcomingBookingsListController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="9" column="45" lean-forward="true" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
+          <folding>
+            <element signature="docComment;class#UpcomingBookingsListController#0" expanded="false" />
+            <element signature="docComment;method#setDialogStage#0;class#UpcomingBookingsListController#0" expanded="false" />
+            <element signature="method#setDialogStage#0;class#UpcomingBookingsListController#0" expanded="false" />
+            <element signature="docComment;method#handleCancel#0;class#UpcomingBookingsListController#0" expanded="false" />
+            <element signature="method#setDayTime#0;class#UpcomingBookingsListController#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

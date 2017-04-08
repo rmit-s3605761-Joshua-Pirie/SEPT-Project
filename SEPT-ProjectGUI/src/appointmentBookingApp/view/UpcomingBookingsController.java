@@ -13,8 +13,7 @@ import java.io.IOException;
 /**
  * Created by Aydan on 8/04/2017.
  */
-public class BookingHistoryController {
-
+public class UpcomingBookingsController {
     private Stage dialogStage;
     private MainApp mainApp;
     private String day, sTime;
@@ -37,21 +36,21 @@ public class BookingHistoryController {
     }
 
     @FXML
-    public void showBookingHistoryList(){
+    public void showUpcomingBookingsList(){
         try {
             // Load the fxml file and create a new stage for the popup dialog.
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(MainApp.class.getResource("view/BookingHistoryList.fxml"));
-            AnchorPane BookingHistoryList = (AnchorPane) loader.load();
+            loader.setLocation(MainApp.class.getResource("view/UpcomingBookingsList.fxml"));
+            AnchorPane UpcomingBookingsList = (AnchorPane) loader.load();
             // Create the dialog Stage.
             Stage dialogStage = new Stage();
             dialogStage.setTitle("Booking History");
             dialogStage.initModality(Modality.WINDOW_MODAL);
             dialogStage.initOwner(mainApp.getPrimaryStage());
-            Scene scene = new Scene(BookingHistoryList);
+            Scene scene = new Scene(UpcomingBookingsList);
             dialogStage.setScene(scene);
 
-            BookingHistoryListController controller = loader.getController();
+            UpcomingBookingsListController controller = loader.getController();
             controller.setDialogStage(dialogStage);
             day = "Monday";
             sTime = "09:00";

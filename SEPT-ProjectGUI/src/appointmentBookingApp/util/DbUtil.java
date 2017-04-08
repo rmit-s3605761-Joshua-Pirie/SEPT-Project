@@ -14,13 +14,13 @@ public class DbUtil {
 	public static Statement databaseConnect(){
 
 		String driver = "com.mysql.jdbc.Driver";
-		String url = "jdbc:mysql://localhost:3306/bookingsystem?useSSL=false";
-		String user = "root";
-		String password = "pass";
+//		String url = "jdbc:mysql://localhost:3306/bookingsystem?useSSL=false";
+//		String user = "root";
+//		String password = "pass";
 
-//	String url = "jdbc:mysql://jimpi27.arges.feralhosting.com:31337/bookingsystem";
-//	String user = "sept";
-//	String password = "septdb17";
+		String url = "jdbc:mysql://jimpi27.arges.feralhosting.com:31337/bookingsystem";
+		String user = "sept";
+		String password = "septdb17";
 		try {
 		   	Class.forName(driver);
 		   	connection = DriverManager.getConnection(url, user, password);

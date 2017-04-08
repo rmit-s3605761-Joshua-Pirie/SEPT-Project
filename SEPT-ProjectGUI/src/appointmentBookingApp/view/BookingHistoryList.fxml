@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="400.0" minWidth="500.0" prefHeight="462.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMeldaBot.view.AppointmentListStaffViewController">
+<AnchorPane minHeight="400.0" minWidth="500.0" prefHeight="462.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appointmentBookingApp.view.BookingHistoryListController">
    <children>
       <TextField layoutX="337.0" layoutY="66.0" prefHeight="25.0" prefWidth="149.0" promptText="Filter by StaffID" />
       <TextField layoutX="14.0" layoutY="66.0" prefHeight="25.0" prefWidth="149.0" promptText="Filter by Service" />
@@ -19,7 +19,7 @@
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefWidth="485.0">
                <children>
-                  <TableView fx:id="appointmentTable" onMousePressed="#handleRowSelect" prefWidth="485.0">
+                  <TableView fx:id="appointmentTable" prefWidth="485.0">
                     <columns>
                       <TableColumn fx:id="timeColumn" minWidth="100.0" prefWidth="117.0" text="Time" />
                         <TableColumn fx:id="lawyerColumn" minWidth="88.5" prefWidth="124.0" text="Service" />
@@ -33,7 +33,7 @@
       </ScrollPane>
       <ButtonBar layoutY="422.0" prefHeight="40.0" prefWidth="500.0">
         <buttons>
-            <Button fx:id="submit" mnemonicParsing="false" onAction="#handleClose" prefHeight="25.0" prefWidth="100.0" text="Close" />
+            <Button fx:id="submit" mnemonicParsing="false" onAction="#handleCancel" prefHeight="25.0" prefWidth="100.0" text="Close" />
         </buttons>
          <opaqueInsets>
             <Insets />
@@ -42,7 +42,7 @@
             <Insets right="15.0" />
          </padding>
       </ButtonBar>
-      <Label layoutX="91.0" layoutY="17.0" text="Tuesday 13/04 12:30-13:00">
+      <Label fx:id="title" alignment="CENTER" contentDisplay="CENTER" layoutX="92.0" layoutY="14.0" text="Tuesday 13/04 12:30-13:00" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="25.0" />
          </font>

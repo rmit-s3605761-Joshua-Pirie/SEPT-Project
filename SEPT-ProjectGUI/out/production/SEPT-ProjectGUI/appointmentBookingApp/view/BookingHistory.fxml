@@ -59,7 +59,7 @@
                         <RowConstraints minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Button minHeight="50.0" minWidth="80.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="80.0" text="Bookings: 0&#10;Booked: 0&#10;Free: 0" textAlignment="CENTER">
+                        <Button minHeight="50.0" minWidth="80.0" mnemonicParsing="false" onAction="#showBookingHistoryList" prefHeight="50.0" prefWidth="80.0" text="Bookings: 0&#10;Booked: 0&#10;Free: 0" textAlignment="CENTER">
                            <font>
                               <Font size="10.0" />
                            </font>
@@ -322,7 +322,7 @@
       </ScrollPane>
       <ButtonBar layoutY="360.0" prefHeight="40.0" prefWidth="630.0">
         <buttons>
-            <Button mnemonicParsing="false" text="Back" />
+            <Button mnemonicParsing="false" onAction="#handleCancel" text="Back" />
         </buttons>
          <padding>
             <Insets right="15.0" />
