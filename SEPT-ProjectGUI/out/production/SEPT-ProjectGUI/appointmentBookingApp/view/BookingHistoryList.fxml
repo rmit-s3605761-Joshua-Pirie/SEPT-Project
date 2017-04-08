@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane minHeight="400.0" minWidth="500.0" prefHeight="462.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMeldaBot.view.AppointmentListStaffViewController">
+   <children>
+      <TextField layoutX="337.0" layoutY="66.0" prefHeight="25.0" prefWidth="149.0" promptText="Filter by StaffID" />
+      <TextField layoutX="14.0" layoutY="66.0" prefHeight="25.0" prefWidth="149.0" promptText="Filter by Service" />
+      <ScrollPane hbarPolicy="NEVER" layoutY="103.0" prefHeight="319.0" prefWidth="500.0" vbarPolicy="ALWAYS">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefWidth="485.0">
+               <children>
+                  <TableView fx:id="appointmentTable" onMousePressed="#handleRowSelect" prefWidth="485.0">
+                    <columns>
+                      <TableColumn fx:id="timeColumn" minWidth="100.0" prefWidth="117.0" text="Time" />
+                        <TableColumn fx:id="lawyerColumn" minWidth="88.5" prefWidth="124.0" text="Service" />
+                        <TableColumn fx:id="customerColumn" minWidth="61.0" prefWidth="122.5" text="Customer" />
+                        <TableColumn fx:id="sessionColumn" minWidth="40.5" prefWidth="120.5" text="Employee" />
+                    </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+      <ButtonBar layoutY="422.0" prefHeight="40.0" prefWidth="500.0">
+        <buttons>
+            <Button fx:id="submit" mnemonicParsing="false" onAction="#handleClose" prefHeight="25.0" prefWidth="100.0" text="Close" />
+        </buttons>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <padding>
+            <Insets right="15.0" />
+         </padding>
+      </ButtonBar>
+      <Label layoutX="91.0" layoutY="17.0" text="Tuesday 13/04 12:30-13:00">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+      <TextField layoutX="176.0" layoutY="66.0" prefHeight="25.0" prefWidth="149.0" promptText="Filter by Customer" />
+   </children>
+</AnchorPane>
