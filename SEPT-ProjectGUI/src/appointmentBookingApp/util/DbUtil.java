@@ -46,25 +46,10 @@ public class DbUtil {
 	public static Statement getNewStatment() throws SQLException{
 		return connection.createStatement();
 	}
-	
 
 
-	
-	/**
-	 * adds new customer to the database.
-	 * @param username
-	 * @param password
-	 * @param address
-	 * @param name
-	 * @param phone
-	 */
-	public static void addCustomerToDB(String username, String password, String address, String name, String phone){
-		String sql = "INSERT INTO customer VALUES ('" + username + "', '" + password + "', '" + address + "', '" + name + "', '" + phone + "')";
-		try {
-			DbUtil.getNewStatment().executeUpdate(sql);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}
+
+
+
 	
 }

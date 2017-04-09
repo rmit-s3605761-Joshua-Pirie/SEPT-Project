@@ -5,10 +5,14 @@ import appointmentBookingApp.util.DbUtil;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.PreparedStatement;
@@ -70,7 +74,7 @@ public class LoginController {
 			resultSet = pstmt.executeQuery();
 			if(!resultSet.next()){
 				System.out.println("Not business owner login");
-				querySQL = "SELECT*FROM staff WHERE username=? AND password=?";
+				querySQL = "SELECT*FROM staff WHERE staffID=? AND password=?";
 				pstmt = DbUtil.getConnection().prepareStatement(querySQL);
 				pstmt.setString(1,sqlUsername);
 				pstmt.setString(2,sqlPassword);
@@ -97,4 +101,28 @@ public class LoginController {
     public void showBusinessHomepage() {
         mainApp.showBusinessHomepage();
     }
+
+    public void showRegisterCustomer(){
+		try {
+			// Load the fxml file and create a new stage for the popup dialog.
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(MainApp.class.getResource("view/RegisterCustomer.fxml"));
+			AnchorPane RegisterCustomer = (AnchorPane) loader.load();
+			// Create the dialog Stage.
+			Stage dialogStage = new Stage();
+			dialogStage.setTitle("Register Customer");
+			dialogStage.initModality(Modality.WINDOW_MODAL);
+			dialogStage.initOwner(mainApp.getPrimaryStage());
+			Scene scene = new Scene(RegisterCustomer);
+			dialogStage.setScene(scene);
+
+			RegisterCustomerController controller = loader.getController();
+			controller.setDialogStage(dialogStage);
+
+			// Show the dialog and wait until the user closes it
+			dialogStage.showAndWait();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 }

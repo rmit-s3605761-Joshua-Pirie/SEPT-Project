@@ -9,7 +9,9 @@
       <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact" />
       <secret-storage>master_key</secret-storage>
       <user-name>sept</user-name>
+      <introspection-schemas>*:bookingsystem</introspection-schemas>
       <resolve-scope>bookingsystem:</resolve-scope>
+      <unqualified-resolve-schemas>bookingsystem:</unqualified-resolve-schemas>
     </data-source>
   </component>
 </project>
