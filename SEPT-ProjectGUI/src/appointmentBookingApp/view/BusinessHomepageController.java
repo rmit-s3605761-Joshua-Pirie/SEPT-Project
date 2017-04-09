@@ -30,7 +30,7 @@ public class BusinessHomepageController {
             AnchorPane UpcomingBookings = (AnchorPane) loader.load();
             // Create the dialog Stage.
             Stage dialogStage = new Stage();
-            dialogStage.setTitle("Booking History");
+            dialogStage.setTitle("Upcoming Booking");
             dialogStage.initModality(Modality.WINDOW_MODAL);
             dialogStage.initOwner(mainApp.getPrimaryStage());
             Scene scene = new Scene(UpcomingBookings);
