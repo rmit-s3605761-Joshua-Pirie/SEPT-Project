@@ -56,21 +56,21 @@ public class LoginController {
 		System.out.println("SQLUsername1: " + sqlUsername);
 		System.out.println("SQLPassword1: " + sqlPassword);
 
-		querySQL = "SELECT*FROM customer WHERE Username=? AND Password=?";
+		querySQL = "SELECT*FROM customer WHERE username=? AND password=?";
 		PreparedStatement pstmt = DbUtil.getConnection().prepareStatement(querySQL);
 		pstmt.setString(1,sqlUsername);
 		pstmt.setString(2,sqlPassword);
 		resultSet = pstmt.executeQuery();
 		if(!resultSet.next()){
 			System.out.println("Not customer login");
-			querySQL = "SELECT*FROM businessowner WHERE Username=? AND Password=?";
+			querySQL = "SELECT*FROM businessowner WHERE username=? AND password=?";
 			pstmt = DbUtil.getConnection().prepareStatement(querySQL);
 			pstmt.setString(1,sqlUsername);
 			pstmt.setString(2,sqlPassword);
 			resultSet = pstmt.executeQuery();
 			if(!resultSet.next()){
 				System.out.println("Not business owner login");
-				querySQL = "SELECT*FROM staff WHERE Username=? AND Password=?";
+				querySQL = "SELECT*FROM staff WHERE username=? AND password=?";
 				pstmt = DbUtil.getConnection().prepareStatement(querySQL);
 				pstmt.setString(1,sqlUsername);
 				pstmt.setString(2,sqlPassword);

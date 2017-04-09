@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="MySQL - bookingsystem@localhost" uuid="229b9bb0-e01f-4e89-bc52-6c9fffe2988b">
+    <data-source source="LOCAL" name="bookingsystem@jimpi27.arges.feralhosting.com" uuid="175e06d0-8021-4d7a-8c12-8e2fc6a786ea">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/bookingsystem</jdbc-url>
+      <jdbc-url>jdbc:mysql://jimpi27.arges.feralhosting.com:31337/bookingsystem</jdbc-url>
       <driver-properties>
         <property name="autoReconnect" value="true" />
         <property name="zeroDateTimeBehavior" value="convertToNull" />
