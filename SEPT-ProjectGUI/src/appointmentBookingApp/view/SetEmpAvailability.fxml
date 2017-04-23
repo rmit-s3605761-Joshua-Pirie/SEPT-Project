@@ -47,13 +47,13 @@
                </GridPane.margin>
                 <items>
                     <FXCollections fx:factory="observableArrayList">
-                        <String fx:value="Sunday" />
                         <String fx:value="Monday" />
                         <String fx:value="Tuesday" />
                         <String fx:value="Wednesday" />
                         <String fx:value="Thursday" />
                         <String fx:value="Friday" />
                         <String fx:value="Saturday" />
+                        <String fx:value="Sunday" />
                     </FXCollections>
                 </items>
             </ComboBox>

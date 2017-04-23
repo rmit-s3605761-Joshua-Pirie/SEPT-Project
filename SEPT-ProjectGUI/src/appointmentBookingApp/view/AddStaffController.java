@@ -8,7 +8,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ResourceBundle;
 
+import appointmentBookingApp.util.Alerts;
 import appointmentBookingApp.util.DbUtil;
+import appointmentBookingApp.util.Validators;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -54,6 +56,9 @@ public class AddStaffController {
 			alert.setContentText("Please fill in all fields.");
 
 			alert.showAndWait();
+		}
+		else if(!Validators.validate(PhoneTxtBx.getText(), "phone")){
+			Alerts.error("Error", "Invalid Phone Number", "please re enter your phone number");
 		}
 		else{
 			String firstName = FirstNameTxtBx.getText();
