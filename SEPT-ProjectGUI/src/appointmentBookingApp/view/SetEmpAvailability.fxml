@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appointmentBookingApp.view.SetEmpAvailabilityController">
    <children>
       <GridPane prefHeight="80.0" prefWidth="300.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
          <columnConstraints>
@@ -36,12 +36,12 @@
                   <Insets right="10.0" />
                </padding>
             </Label>
-            <TextField fx:id="staffID" GridPane.columnIndex="1">
+            <TextField fx:id="staffID" promptText="Enter Staff ID" GridPane.columnIndex="1">
                <GridPane.margin>
                   <Insets left="10.0" right="20.0" />
                </GridPane.margin>
             </TextField>
-            <ComboBox fx:id="dayCombo" prefWidth="150.0" promptText="Choose Day" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <ComboBox fx:id="dayCombo" onAction="#handleDay" prefWidth="150.0" promptText="Choose Day" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets left="10.0" right="20.0" />
                </GridPane.margin>
@@ -61,8 +61,8 @@
       </GridPane>
       <ButtonBar layoutX="80.0" layoutY="250.0" prefHeight="40.0" prefWidth="200.0">
          <buttons>
-            <Button fx:id="add" mnemonicParsing="false" prefWidth="75.0" text="Add" />
-            <Button fx:id="cancel" mnemonicParsing="false" prefWidth="75.0" text="Cancel" />
+            <Button fx:id="add" mnemonicParsing="false" onAction="#handleAdd" prefWidth="75.0" text="Add" />
+            <Button fx:id="cancel" mnemonicParsing="false" onAction="#handleCancel" prefWidth="75.0" text="Cancel" />
          </buttons>
       </ButtonBar>
       <GridPane layoutY="130.0" prefWidth="300.0">
@@ -78,46 +78,46 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <CheckBox mnemonicParsing="false" text="8am" GridPane.halignment="LEFT">
+            <CheckBox fx:id="toggle8" mnemonicParsing="false" onAction="#handleToggle" text="8am" GridPane.halignment="LEFT">
                <GridPane.margin>
                   <Insets left="30.0" />
                </GridPane.margin></CheckBox>
-            <CheckBox mnemonicParsing="false" text="9am" GridPane.halignment="LEFT" GridPane.rowIndex="1">
+            <CheckBox fx:id="toggle9" mnemonicParsing="false" onAction="#handleToggle" text="9am" GridPane.halignment="LEFT" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets left="30.0" />
                </GridPane.margin></CheckBox>
-            <CheckBox mnemonicParsing="false" text="12pm" GridPane.columnIndex="1" GridPane.halignment="LEFT">
+            <CheckBox fx:id="toggle12" mnemonicParsing="false" onAction="#handleToggle" text="12pm" GridPane.columnIndex="1" GridPane.halignment="LEFT">
                <GridPane.margin>
                   <Insets left="30.0" />
                </GridPane.margin></CheckBox>
-            <CheckBox mnemonicParsing="false" text="10am" GridPane.halignment="LEFT" GridPane.rowIndex="2">
+            <CheckBox fx:id="toggle10" mnemonicParsing="false" onAction="#handleToggle" text="10am" GridPane.halignment="LEFT" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets left="30.0" />
                </GridPane.margin></CheckBox>
-            <CheckBox mnemonicParsing="false" text="11am" GridPane.halignment="LEFT" GridPane.rowIndex="3">
+            <CheckBox fx:id="toggle11" mnemonicParsing="false" onAction="#handleToggle" text="11am" GridPane.halignment="LEFT" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets left="30.0" />
                </GridPane.margin></CheckBox>
-            <CheckBox mnemonicParsing="false" text="1pm" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1">
+            <CheckBox fx:id="toggle13" mnemonicParsing="false" onAction="#handleToggle" text="1pm" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets left="30.0" />
                </GridPane.margin></CheckBox>
-            <CheckBox mnemonicParsing="false" text="4pm" GridPane.columnIndex="2" GridPane.halignment="LEFT">
+            <CheckBox fx:id="toggle16" mnemonicParsing="false" onAction="#handleToggle" text="4pm" GridPane.columnIndex="2" GridPane.halignment="LEFT">
                <GridPane.margin>
                   <Insets left="30.0" />
                </GridPane.margin>
             </CheckBox>
-            <CheckBox mnemonicParsing="false" text="5pm" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="1">
+            <CheckBox fx:id="toggle17" mnemonicParsing="false" onAction="#handleToggle" text="5pm" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets left="30.0" />
                </GridPane.margin>
             </CheckBox>
-            <CheckBox mnemonicParsing="false" text="2pm" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="2">
+            <CheckBox fx:id="toggle14" mnemonicParsing="false" onAction="#handleToggle" text="2pm" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets left="30.0" />
                </GridPane.margin>
             </CheckBox>
-            <CheckBox mnemonicParsing="false" text="3pm" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="3">
+            <CheckBox fx:id="toggle15" mnemonicParsing="false" onAction="#handleToggle" text="3pm" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets left="30.0" />
                </GridPane.margin>
