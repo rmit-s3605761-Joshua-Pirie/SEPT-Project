@@ -2,21 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/SEPT-ProjectGUI/appointmentBookingApp/model/Availability.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/SEPT-ProjectGUI/appointmentBookingApp/model/Day.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/SEPT-ProjectGUI/appointmentBookingApp/tests/SetEmpAvailabilityControllerTest.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/SEPT-ProjectGUI/appointmentBookingApp/view/SetEmpAvailabilityController.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/appointmentBookingApp/model/Availability.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/appointmentBookingApp/model/Day.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/appointmentBookingApp/tests/SetEmpAvailabilityControllerTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/appointmentBookingApp/view/SetEmpAvailabilityController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SEPT-ProjectGUI/appointmentBookingApp/view/BusinessHomepageController.class" afterPath="$PROJECT_DIR$/out/production/SEPT-ProjectGUI/appointmentBookingApp/view/BusinessHomepageController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SEPT-ProjectGUI/appointmentBookingApp/view/BusinessHomepage.fxml" afterPath="$PROJECT_DIR$/out/production/SEPT-ProjectGUI/appointmentBookingApp/view/BusinessHomepage.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SEPT-ProjectGUI/appointmentBookingApp/view/SetEmpAvailability.fxml" afterPath="$PROJECT_DIR$/out/production/SEPT-ProjectGUI/appointmentBookingApp/view/SetEmpAvailability.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/appointmentBookingApp/view/BusinessHomepage.fxml" afterPath="$PROJECT_DIR$/src/appointmentBookingApp/view/BusinessHomepage.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/appointmentBookingApp/view/BusinessHomepageController.java" afterPath="$PROJECT_DIR$/src/appointmentBookingApp/view/BusinessHomepageController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/appointmentBookingApp/view/SetEmpAvailability.fxml" afterPath="$PROJECT_DIR$/src/appointmentBookingApp/view/SetEmpAvailability.fxml" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -113,8 +99,21 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="7" column="11" lean-forward="false" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
+            <state relative-caret-position="812">
+              <caret line="28" column="13" lean-forward="false" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BookingHistoryList.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/view/BookingHistoryList.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="339">
+              <caret line="17" column="58" lean-forward="false" selection-start-line="17" selection-start-column="58" selection-end-line="17" selection-end-column="58" />
               <folding />
             </state>
           </provider>
@@ -202,7 +201,6 @@
         <option value="$PROJECT_DIR$/src/appointmentBookingApp/view/Controller.java" />
         <option value="$PROJECT_DIR$/src/appointmentBookingApp/view/Login.fxml" />
         <option value="$PROJECT_DIR$/src/appointmentBookingApp/view/BusinessOwnerHomepage.fxml" />
-        <option value="$PROJECT_DIR$/src/appointmentBookingApp/view/BusinessHomepage.fxml" />
         <option value="$PROJECT_DIR$/src/appointmentBookingApp/view/AddEmployee.fxml" />
         <option value="$PROJECT_DIR$/src/appointmentBookingApp/view/SetEmpAvailability.fxml" />
         <option value="$PROJECT_DIR$/src/appointmentBookingApp/view/AddServiceController.java" />
@@ -228,6 +226,7 @@
         <option value="$PROJECT_DIR$/src/appointmentBookingApp/view/ReviewAppointments.fxml" />
         <option value="$PROJECT_DIR$/src/appointmentBookingApp/view/BookingHistoryController.java" />
         <option value="$PROJECT_DIR$/src/appointmentBookingApp/view/createAppointmentController.java" />
+        <option value="$PROJECT_DIR$/src/appointmentBookingApp/view/BusinessHomepage.fxml" />
       </list>
     </option>
   </component>
@@ -1186,7 +1185,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="171817000" />
+    <option name="totallyTimeSpent" value="172815000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-12" y="-12" width="3384" height="1844" extended-state="6" />
@@ -1206,7 +1205,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27380952" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17470238" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962963" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1366,16 +1365,6 @@
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/229b9bb0-e01f-4e89-bc52-6c9fffe2988b/console.sql" />
     <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/tests/AddServicesTest.java" />
     <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/view/BookingHistory.java" />
-    <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/view/BookingHistoryList.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="17" column="58" lean-forward="false" selection-start-line="17" selection-start-column="58" selection-end-line="17" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/175e06d0-8021-4d7a-8c12-8e2fc6a786ea/console.sql" />
     <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/view/RegisterCustomer.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
@@ -1456,8 +1445,8 @@
         <state relative-caret-position="1062">
           <caret line="110" column="31" lean-forward="false" selection-start-line="110" selection-start-column="12" selection-end-line="110" selection-end-column="31" />
           <folding>
-            <element signature="e#2801#2802#0" expanded="true" />
-            <element signature="e#2827#2828#0" expanded="true" />
+            <element signature="e#2801#2802#0" expanded="false" />
+            <element signature="e#2827#2828#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1467,8 +1456,8 @@
         <state relative-caret-position="1062">
           <caret line="107" column="31" lean-forward="false" selection-start-line="107" selection-start-column="12" selection-end-line="107" selection-end-column="31" />
           <folding>
-            <element signature="e#2930#2931#0" expanded="true" />
-            <element signature="e#2956#2957#0" expanded="true" />
+            <element signature="e#2930#2931#0" expanded="false" />
+            <element signature="e#2956#2957#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1557,27 +1546,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/model/Bookings.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1293">
-          <caret line="137" column="5" lean-forward="false" selection-start-line="137" selection-start-column="5" selection-end-line="137" selection-end-column="5" />
-          <folding>
-            <element signature="method#Bookings#0;class#Bookings#0" expanded="false" />
-            <element signature="method#Bookings#1;class#Bookings#0" expanded="false" />
-            <element signature="method#Bookings#2;class#Bookings#0" expanded="false" />
-            <element signature="method#setBookings#0;class#Bookings#0" expanded="false" />
-            <element signature="method#setBookings#1;class#Bookings#0" expanded="false" />
-            <element signature="e#4396#4450#0" expanded="false" />
-            <marker date="1491738053000" expanded="false" signature="2939:3148" ph="SELECT booki... bookings" />
-            <marker date="1491738053000" expanded="false" signature="3508:3547" ph="SELECT * FRO... customer" />
-            <marker date="1491738053000" expanded="false" signature="4902:5137" ph="SELECT booki... bookings" />
-            <marker date="1491738053000" expanded="false" signature="5205:5441" ph="SELECT booki... bookings" />
-            <marker date="1491738053000" expanded="false" signature="5478:5687" ph="SELECT booki... bookings" />
-            <marker date="1491738053000" expanded="false" signature="6058:6097" ph="SELECT * FRO... customer" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/view/UpcomingBookingsList.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
@@ -1650,13 +1618,45 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/model/Bookings.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1293">
+          <caret line="137" column="5" lean-forward="false" selection-start-line="137" selection-start-column="5" selection-end-line="137" selection-end-column="5" />
+          <folding>
+            <element signature="method#Bookings#0;class#Bookings#0" expanded="false" />
+            <element signature="method#Bookings#1;class#Bookings#0" expanded="false" />
+            <element signature="method#Bookings#2;class#Bookings#0" expanded="false" />
+            <element signature="method#setBookings#0;class#Bookings#0" expanded="false" />
+            <element signature="method#setBookings#1;class#Bookings#0" expanded="false" />
+            <element signature="e#4396#4450#0" expanded="false" />
+            <marker date="1491738053000" expanded="false" signature="2939:3148" ph="SELECT booki... bookings" />
+            <marker date="1491738053000" expanded="false" signature="3508:3547" ph="SELECT * FRO... customer" />
+            <marker date="1491738053000" expanded="false" signature="4902:5137" ph="SELECT booki... bookings" />
+            <marker date="1491738053000" expanded="false" signature="5205:5441" ph="SELECT booki... bookings" />
+            <marker date="1491738053000" expanded="false" signature="5478:5687" ph="SELECT booki... bookings" />
+            <marker date="1491738053000" expanded="false" signature="6058:6097" ph="SELECT * FRO... customer" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/view/BookingHistoryList.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="339">
+          <caret line="17" column="58" lean-forward="false" selection-start-line="17" selection-start-column="58" selection-end-line="17" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/view/BusinessHomepage.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="7" column="11" lean-forward="false" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
+        <state relative-caret-position="812">
+          <caret line="28" column="13" lean-forward="false" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
           <folding />
         </state>
       </provider>
