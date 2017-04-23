@@ -17,7 +17,7 @@
       <TextField fx:id="fStaffID" layoutX="60.0" layoutY="67.0" prefWidth="120.0" promptText="Filter by StaffID" />
       <TextField fx:id="fService" layoutX="190.0" layoutY="67.0" prefWidth="120.0" promptText="Filter by Day" />
       <TextField fx:id="fCustomer" layoutX="320.0" layoutY="67.0" prefWidth="120.0" promptText="Filter by Start Time" />
-      <ScrollPane focusTraversable="false" hbarPolicy="NEVER" layoutY="103.0" prefHeight="319.0" prefWidth="500.0" vbarPolicy="ALWAYS">
+      <ScrollPane focusTraversable="false" layoutY="103.0" prefHeight="319.0" prefWidth="500.0">
          <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefWidth="485.0">
                <children>
