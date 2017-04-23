@@ -10,6 +10,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 /**
  * Created by Aydan on 30/03/2017.
@@ -118,10 +119,13 @@ public class BusinessHomepageController {
             RemainingAvailabilityController controller = loader.getController();
             controller.setDialogStage(dialogStage);
             controller.setMainApp(mainApp);
+            controller.ini();
 
             // Show the dialog and wait until the user closes it
             dialogStage.showAndWait();
         } catch (IOException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
