@@ -15,12 +15,11 @@
    <children>
       <TextField fx:id="fStaffID" layoutX="60.0" layoutY="67.0" prefWidth="120.0" promptText="Filter by StaffID" />
       <TextField fx:id="fService" layoutX="190.0" layoutY="67.0" prefWidth="120.0" promptText="Filter by Day" />
-      <TextField fx:id="fCustomer" layoutX="320.0" layoutY="67.0" prefWidth="120.0" promptText="Filter by Start Time" />
       <ScrollPane focusTraversable="false" layoutY="103.0" prefHeight="319.0" prefWidth="500.0">
          <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefWidth="485.0">
                <children>
-                  <TableView fx:id="bookingTable" focusTraversable="false" prefWidth="485.0">
+                  <TableView fx:id="availabilityTable" focusTraversable="false" prefWidth="485.0">
                      <columns>
                         <TableColumn fx:id="staffIDColumn" minWidth="100.0" prefWidth="100.0" text="StaffID" />
                         <TableColumn fx:id="nameColumn" minWidth="100.0" prefWidth="100.0" text="Name" />
@@ -44,6 +43,7 @@
             <Insets right="15.0" />
          </padding>
       </ButtonBar>
+      <TextField fx:id="fCustomer" layoutX="320.0" layoutY="67.0" prefWidth="120.0" promptText="Filter by Start Time" />
       <Label fx:id="title" contentDisplay="CENTER" focusTraversable="false" layoutX="97.0" layoutY="14.0" text="Remaing Staff Availability" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="25.0" />

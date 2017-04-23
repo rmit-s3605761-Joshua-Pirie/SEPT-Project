@@ -24,11 +24,11 @@ public class AvailabilityList {
     private final StringProperty staffID;
     private final LocalTime startTime;
     private final LocalTime endTime;
-    private final int dayOfWeek;
+    private final Day dayOfWeek;
 
-    public AvailabilityList(String staffID, int dayOfWeek, String sTime, String eTime){
+    public AvailabilityList(String staffID, Day dayOfWeek, String sTime, String eTime){
         this.date = null;
-        this.day = null;
+        this.day = new SimpleStringProperty(dayOfWeek.toString());
         this.empName = null;
         this.sTime = new SimpleStringProperty(sTime);
         this.eTime = new SimpleStringProperty(eTime);
@@ -38,7 +38,7 @@ public class AvailabilityList {
         this.dayOfWeek = dayOfWeek;
     }
 
-    public AvailabilityList(String date, String day, String sTime, String eTime, String empName, String staffID, int dayOfWeek) {
+    public AvailabilityList(String date, String day, String sTime, String eTime, String empName, String staffID, Day dayOfWeek) {
         this.date = new SimpleStringProperty(date);
         this.day = new SimpleStringProperty(day);
         this.sTime = new SimpleStringProperty(sTime);
@@ -76,7 +76,7 @@ public class AvailabilityList {
         rs = pstmt.executeQuery();
         while (rs.next()){
             availableTimeRanges.add(new AvailabilityList(rs.getString("staffID"),
-                    rs.getInt("dayofWeek"),
+                    Day.values()[rs.getInt("dayofWeek")],
                     rs.getString("startTime"),
                     rs.getString("endTime")));
         }
@@ -85,7 +85,7 @@ public class AvailabilityList {
         rs = pstmt.executeQuery();
         while (rs.next()){
             bookingTimeRanges.add(new AvailabilityList(rs.getString("staffID"),
-                    rs.getInt("dayofWeek"),
+                    Day.values()[rs.getInt("dayofWeek")],
                     rs.getString("sTime"),
                     rs.getString("eTime")));
         }
@@ -98,14 +98,16 @@ public class AvailabilityList {
                         && availableTimeRange.getDayOfWeek() == bookingTimeRange.getDayOfWeek()){
                     if(bookingTimeRange.getStartTime().isAfter(availableTimeRange.getStartTime())
                             && bookingTimeRange.getStartTime().isBefore(availableTimeRange.getEndTime())) {
-                        remainingTimeRanges.add(new AvailabilityList(null, null,
+                        remainingTimeRanges.add(new AvailabilityList(null,
+                                availableTimeRange.getDayOfWeek().toString(),
                                 availableTimeRange.getStartTime().toString(),
                                 bookingTimeRange.getStartTime().toString(),
                                 null,
                                 availableTimeRange.getStaffID(),
                                 availableTimeRange.getDayOfWeek()));
                         if(bookingTimeRange.getEndTime().isBefore(availableTimeRange.getEndTime())){
-                            remainingTimeRanges.add(new AvailabilityList(null, null,
+                            remainingTimeRanges.add(new AvailabilityList(null,
+                                    availableTimeRange.getDayOfWeek().toString(),
                                     bookingTimeRange.getEndTime().toString(),
                                     availableTimeRange.getEndTime().toString(),
                                     null,
@@ -118,32 +120,18 @@ public class AvailabilityList {
                         remainingTimeRanges.add(availableTimeRange);
                     }
                 }else {
-//                    if(!availableTimeRange.getStaffID().equals(bookingTimeRange.getStaffID()))
                         remainingTimeRanges.add(availableTimeRange);
                 }
             }
             if(!remainingTimeRanges.isEmpty()){
-                System.out.println("modifying RA");
                 remainingAvailability.clear();
                 remainingAvailability.addAll(remainingTimeRanges);
             }
-            for(AvailabilityList print : remainingTimeRanges){
-                System.out.println(print.getStaffID()+" "+print.getsTime()+" "+print.geteTime()+" Day: "+print.getDayOfWeek());
-            }
-            System.out.println("TR:");
-            for(AvailabilityList print : toRemove){
-                System.out.println(print.getStaffID()+" "+print.getsTime()+" "+print.geteTime()+" Day: "+print.getDayOfWeek());
-            }
-//            toRemove.clear();
             availableTimeRanges.addAll(remainingTimeRanges);
             availableTimeRanges.removeAll(toRemove);
         }
 
-//        for(AvailabilityList filter : remainingTimeRanges){
-//            if(!remainingAvailability.contains(filter)){
-//                remainingAvailability.add(filter);
-//            }
-//        }
+
         System.out.println("RA");
         for(AvailabilityList print : remainingAvailability){
             System.out.println(print.getStaffID()+" "+print.getsTime()+" "+print.geteTime()+" Day: "+print.getDayOfWeek());
@@ -161,6 +149,14 @@ public class AvailabilityList {
 //        }
         return remainingAvailability;
     }
+
+//    public ObservableList<AvailabilityList> genDay(AvailabilityList remainingAvailability){
+//        for ()
+//        switch (remainingAvailability.getDayOfWeek()){
+//
+//        }
+//        return genDay();
+//    }
 
     public String getDay() {
         return day.get();
@@ -242,7 +238,9 @@ public class AvailabilityList {
         return endTime;
     }
 
-    public int getDayOfWeek() {
+    public Day getDayOfWeek() {
         return dayOfWeek;
     }
+
+
 }
