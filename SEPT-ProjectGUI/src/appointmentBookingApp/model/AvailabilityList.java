@@ -10,6 +10,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
@@ -26,24 +27,29 @@ public class AvailabilityList {
     private final LocalTime endTime;
     private final Day dayOfWeek;
 
-    public AvailabilityList(String staffID, Day dayOfWeek, String sTime, String eTime){
-        this.date = null;
-        this.day = new SimpleStringProperty(dayOfWeek.toString());
-        this.empName = null;
-        this.sTime = new SimpleStringProperty(sTime);
-        this.eTime = new SimpleStringProperty(eTime);
-        this.staffID = new SimpleStringProperty(staffID);
-        this.startTime = LocalTime.parse(sTime);
-        this.endTime = LocalTime.parse(eTime);
-        this.dayOfWeek = dayOfWeek;
+    public AvailabilityList(String staffID, Day dayOfWeek, String sTime, String eTime, String empName){
+        this(null, dayOfWeek.toString(), sTime, eTime, empName, staffID ,dayOfWeek);
+//        this.date = null;
+//        this.day = new SimpleStringProperty(dayOfWeek.toString());
+//        this.empName = new SimpleStringProperty(empName);
+//        this.sTime = new SimpleStringProperty(sTime);
+//        this.eTime = new SimpleStringProperty(eTime);
+//        this.staffID = new SimpleStringProperty(staffID);
+//        this.startTime = LocalTime.parse(sTime);
+//        this.endTime = LocalTime.parse(eTime);
+//        this.dayOfWeek = dayOfWeek;
+    }
+
+    public AvailabilityList(String staffID, Day dayOfWeek, String sTime, String eTime, String empName, String date){
+        this(date, dayOfWeek.toString(), sTime, eTime, empName, staffID ,dayOfWeek);
     }
 
     public AvailabilityList(String date, String day, String sTime, String eTime, String empName, String staffID, Day dayOfWeek) {
         this.date = new SimpleStringProperty(date);
         this.day = new SimpleStringProperty(day);
+        this.empName = new SimpleStringProperty(empName);
         this.sTime = new SimpleStringProperty(sTime);
         this.eTime = new SimpleStringProperty(eTime);
-        this.empName = new SimpleStringProperty(empName);
         this.staffID = new SimpleStringProperty(staffID);
         this.startTime = LocalTime.parse(sTime);
         this.endTime = LocalTime.parse(eTime);
@@ -55,6 +61,8 @@ public class AvailabilityList {
         String sql;
         PreparedStatement pstmt;
         ResultSet rs;
+        LocalDate date1 = LocalDate.now();
+        LocalDate date2 = date1.plusDays(6);
 
         ObservableList<AvailabilityList> remainingAvailability = FXCollections.observableArrayList();
         Set<AvailabilityList> availableTimeRanges = new LinkedHashSet<>();
@@ -71,23 +79,31 @@ public class AvailabilityList {
 //                "   AND availability.dayOfWeek = bookings.dayOfWeek " +
 //                "JOIN staff ON bookings.staffID = staff.staffID " +
 //                "WHERE (bookings.sTime between availability.startTime and availability.endTime)";
-        sql = "SELECT * FROM availability";
+        sql = "SELECT * FROM availability " +
+                "NATURAL JOIN staff";
         pstmt = DbUtil.getConnection().prepareStatement(sql);
         rs = pstmt.executeQuery();
         while (rs.next()){
             availableTimeRanges.add(new AvailabilityList(rs.getString("staffID"),
                     Day.values()[rs.getInt("dayofWeek")],
                     rs.getString("startTime"),
-                    rs.getString("endTime")));
+                    rs.getString("endTime"),
+                    rs.getString("firstName")));
         }
-        sql = "SELECT * FROM bookings";
+        sql = "SELECT * FROM bookings " +
+                "NATURAL JOIN staff " +
+                "WHERE date BETWEEN ? AND ?";
         pstmt = DbUtil.getConnection().prepareStatement(sql);
+        pstmt.setDate(1,Date.valueOf(date1));
+        pstmt.setDate(2,Date.valueOf(date2));
         rs = pstmt.executeQuery();
         while (rs.next()){
             bookingTimeRanges.add(new AvailabilityList(rs.getString("staffID"),
                     Day.values()[rs.getInt("dayofWeek")],
                     rs.getString("sTime"),
-                    rs.getString("eTime")));
+                    rs.getString("eTime"),
+                    rs.getString("firstName"),
+                    rs.getString("date")));
         }
 
         for(AvailabilityList bookingTimeRange : bookingTimeRanges) {
@@ -98,19 +114,19 @@ public class AvailabilityList {
                         && availableTimeRange.getDayOfWeek() == bookingTimeRange.getDayOfWeek()){
                     if(bookingTimeRange.getStartTime().isAfter(availableTimeRange.getStartTime())
                             && bookingTimeRange.getStartTime().isBefore(availableTimeRange.getEndTime())) {
-                        remainingTimeRanges.add(new AvailabilityList(null,
+                        remainingTimeRanges.add(new AvailabilityList(bookingTimeRange.getDate(),
                                 availableTimeRange.getDayOfWeek().toString(),
                                 availableTimeRange.getStartTime().toString(),
                                 bookingTimeRange.getStartTime().toString(),
-                                null,
+                                availableTimeRange.getEmpName(),
                                 availableTimeRange.getStaffID(),
                                 availableTimeRange.getDayOfWeek()));
                         if(bookingTimeRange.getEndTime().isBefore(availableTimeRange.getEndTime())){
-                            remainingTimeRanges.add(new AvailabilityList(null,
+                            remainingTimeRanges.add(new AvailabilityList(bookingTimeRange.getDate(),
                                     availableTimeRange.getDayOfWeek().toString(),
                                     bookingTimeRange.getEndTime().toString(),
                                     availableTimeRange.getEndTime().toString(),
-                                    null,
+                                    availableTimeRange.getEmpName(),
                                     availableTimeRange.getStaffID(),
                                     availableTimeRange.getDayOfWeek()));
                         }
@@ -134,29 +150,11 @@ public class AvailabilityList {
 
         System.out.println("RA");
         for(AvailabilityList print : remainingAvailability){
-            System.out.println(print.getStaffID()+" "+print.getsTime()+" "+print.geteTime()+" Day: "+print.getDayOfWeek());
+            System.out.println(print.getStaffID()+" "+print.getsTime()+" "+print.geteTime()+" Day: "+print.getDayOfWeek()+" Date: "+print.getDate());
         }
-//        while(rs.next())
-//        {
-//            System.out.println(rs.getString("day"));
-//            remainingAvailability.add(new AvailabilityList(rs.getString("date"),
-//                    rs.getString("day"),
-//                    rs.getString("service"),
-//                    rs.getString("sTime"),
-//                    rs.getString("firstName"),
-//                    rs.getString("staffID")));
-//
-//        }
+
         return remainingAvailability;
     }
-
-//    public ObservableList<AvailabilityList> genDay(AvailabilityList remainingAvailability){
-//        for ()
-//        switch (remainingAvailability.getDayOfWeek()){
-//
-//        }
-//        return genDay();
-//    }
 
     public String getDay() {
         return day.get();

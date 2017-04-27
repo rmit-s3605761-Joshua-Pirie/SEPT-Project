@@ -11,10 +11,16 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane focusTraversable="true" minHeight="400.0" minWidth="500.0" prefHeight="462.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appointmentBookingApp.view.RemainingAvailabilityController">
+<AnchorPane focusTraversable="true" minHeight="400.0" minWidth="500.0" prefHeight="462.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appointmentBookingApp.view.RemainingAvailabilityController">
    <children>
+      <Label fx:id="title" contentDisplay="CENTER" focusTraversable="false" layoutX="86.0" layoutY="14.0" text="Remaining Staff Availability" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
       <TextField fx:id="fStaffID" layoutX="60.0" layoutY="67.0" prefWidth="120.0" promptText="Filter by StaffID" />
-      <TextField fx:id="fService" layoutX="190.0" layoutY="67.0" prefWidth="120.0" promptText="Filter by Day" />
+      <TextField fx:id="fDay" layoutX="190.0" layoutY="67.0" prefWidth="120.0" promptText="Filter by Day" />
+      <TextField fx:id="fsTime" layoutX="320.0" layoutY="67.0" prefWidth="120.0" promptText="Filter by Start Time" />
       <ScrollPane focusTraversable="false" layoutY="103.0" prefHeight="319.0" prefWidth="500.0">
          <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefWidth="485.0">
@@ -43,11 +49,5 @@
             <Insets right="15.0" />
          </padding>
       </ButtonBar>
-      <TextField fx:id="fCustomer" layoutX="320.0" layoutY="67.0" prefWidth="120.0" promptText="Filter by Start Time" />
-      <Label fx:id="title" contentDisplay="CENTER" focusTraversable="false" layoutX="97.0" layoutY="14.0" text="Remaing Staff Availability" textAlignment="CENTER">
-         <font>
-            <Font name="System Bold" size="25.0" />
-         </font>
-      </Label>
    </children>
 </AnchorPane>

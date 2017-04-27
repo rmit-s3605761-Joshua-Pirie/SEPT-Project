@@ -3,8 +3,11 @@ package appointmentBookingApp.view;
 import appointmentBookingApp.MainApp;
 import appointmentBookingApp.model.AvailabilityList;
 import appointmentBookingApp.model.Bookings;
+import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -17,9 +20,9 @@ public class RemainingAvailabilityController {
     private Stage dialogStage;
     private MainApp mainApp;
     @FXML
-    private TextField fService;
+    private TextField fsTime;
     @FXML
-    private TextField fCustomer;
+    private TextField fDay;
     @FXML
     private TextField fStaffID;
     @FXML
@@ -35,6 +38,7 @@ public class RemainingAvailabilityController {
     @FXML
     private TableColumn<AvailabilityList, String> eTimeColumn;
     ObservableList<AvailabilityList> availability = FXCollections.observableArrayList();
+    FilteredList<AvailabilityList> filteredData = new FilteredList<>(availability, p -> true);
 
     //Allow for the control of the main app.
     public void setMainApp(MainApp mainApp) {
@@ -62,6 +66,22 @@ public class RemainingAvailabilityController {
         eTimeColumn.setCellValueFactory(cellData -> cellData.getValue().eTimeProperty());
         availability.setAll(AvailabilityList.remainingAvailability());
         availabilityTable.setItems(availability);
-//        filters();
+        filters();
+    }
+
+    public void filters() {
+        filteredData.predicateProperty().bind(Bindings.createObjectBinding(() ->
+                        availability -> availability.getStaffID().contains(fStaffID.getText().toUpperCase())
+                                && availability.getDay().contains(fDay.getText().toUpperCase())
+                                && availability.getsTime().contains(fsTime.getText()),
+
+                fStaffID.textProperty(),
+                fDay.textProperty(),
+                fsTime.textProperty()
+        ));
+
+        SortedList<AvailabilityList> sortedData = new SortedList<>(filteredData);
+        sortedData.comparatorProperty().bind(availabilityTable.comparatorProperty());
+        availabilityTable.setItems(sortedData);
     }
 }
