@@ -7,16 +7,21 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ResourceBundle;
 
+import appointmentBookingApp.util.Alerts;
 import appointmentBookingApp.util.DbUtil;
+import appointmentBookingApp.util.Validators;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+
+import static appointmentBookingApp.util.DbUtil.getConnection;
 
 
 public class RegisterCustomerController {
@@ -25,7 +30,10 @@ public class RegisterCustomerController {
 	private TextField UserName;
 	
 	@FXML
-	private TextField Password;
+	private PasswordField Password;
+
+	@FXML
+	private PasswordField Password2;
 	
 	@FXML
 	private TextField eMail;
@@ -52,13 +60,16 @@ public class RegisterCustomerController {
 
 	public void addCustomer(){
 		if(UserName.getText().trim().isEmpty() || Password.getText().trim().isEmpty() || eMail.getText().trim().isEmpty() || FirstName.getText().trim().isEmpty() || Surname.getText().trim().isEmpty() || Address.getText().trim().isEmpty() || Phone.getText().trim().isEmpty()){
-				Alert alert = new Alert(AlertType.ERROR);
-				alert.setTitle("Error");
-				alert.setHeaderText("Missing Information");
-				alert.setContentText("Please fill in all fields.");
-		
-				alert.showAndWait();
+			Alerts.error("Error", "Missing Information", "Please fill in all fields.");
 		}
+		else if(!Password.getText().equals(Password2.getText()))
+			Alerts.error("Error", "Passwords Do Not Match", "Please re enter passwords.");
+		else if(!Validators.validate(eMail.getText().trim(), "email"))
+			Alerts.error("Error", "Invalid E-Mail", "please re enter your email");
+		else if(userNameExists(UserName.getText()))
+			Alerts.error("Error", "Username already exists", "please choose another username");
+		else if(!Validators.validate(Phone.getText().trim(), "phone"))
+			Alerts.error("Error", "Invalid Phone Number", "please re enter your phone number");
 		else{
 			String UserNameSt = UserName.getText();
 			String PasswordSt = Password.getText();
@@ -68,20 +79,14 @@ public class RegisterCustomerController {
 			String AddressSt = Address.getText();
 			String PhoneSt = Phone.getText();
 			if(addToDB( UserNameSt, PasswordSt, FirstNameSt, SurnameSt, eMailSt, AddressSt, PhoneSt)){
-				Alert confirm = new Alert(AlertType.CONFIRMATION);
-				confirm.setTitle("Success");
-				confirm.setHeaderText("The information was added to the database");
-				confirm.setContentText("Click OK to continue");
-		
-				confirm.showAndWait();
+				Alerts.confirm("Success", "Customer Added to database.", "Click OK to continue");
 
-				dialogStage.close();
 			}
-				
-			
-			
+			else{
+				Alerts.error("Error", "There was a problem adding the customer to database", "Please contact your system administrator");
+			}
+			dialogStage.close();
 		}
-
 	}
 
 	
@@ -104,6 +109,26 @@ public class RegisterCustomerController {
 	    }
 	    return false;
 	}
+	private boolean userNameExists(String username){
+		String query = "SELECT COUNT(*) AS total FROM customer WHERE userName = '" + username +"'";
+		int count = 0;
+		Statement st;
+		try {
+			st = getConnection().createStatement();
+			ResultSet rs = st.executeQuery(query);
+			while (rs.next()) {
+				count = rs.getInt("total");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	if(count == 0)
+		return false;
+	else
+		return true;
+	}
+
+
 	@FXML
 	private void handleCancel() {
 		dialogStage.close();
