@@ -11,13 +11,12 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane focusTraversable="true" minHeight="400.0" minWidth="500.0" prefHeight="462.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane focusTraversable="true" minHeight="400.0" minWidth="500.0" prefHeight="462.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appointmentBookingApp.view.ReviewAppointmentsController">
    <children>
-      <TextField fx:id="fStaffID" layoutX="60.0" layoutY="67.0" prefWidth="120.0" promptText="Filter by Day" />
+      <TextField fx:id="fDay" layoutX="60.0" layoutY="67.0" prefWidth="120.0" promptText="Filter by Day" />
       <TextField fx:id="fService" layoutX="190.0" layoutY="67.0" prefWidth="120.0" promptText="Filter by Service" />
-      <TextField fx:id="fCustomer" layoutX="320.0" layoutY="67.0" prefWidth="120.0" promptText="Filter by Start Time" />
-      <ScrollPane focusTraversable="false" layoutY="103.0" prefHeight="319.0" prefWidth="500.0">
+      <TextField fx:id="fStartTime" layoutX="320.0" layoutY="67.0" prefWidth="120.0" promptText="Filter by Start Time" />
+      <ScrollPane focusTraversable="false" layoutY="103.0" prefHeight="319.0" prefWidth="500.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="103.0">
          <content>
             <AnchorPane>
                <children>
@@ -37,7 +36,7 @@
       </ScrollPane>
       <ButtonBar layoutY="422.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <buttons>
-            <Button defaultButton="true" mnemonicParsing="false" onAction="#handleCancel" prefHeight="25.0" prefWidth="100.0" text="Close" />
+            <Button defaultButton="true" mnemonicParsing="false" onAction="#close" prefHeight="25.0" prefWidth="100.0" text="Close" />
          </buttons>
          <opaqueInsets>
             <Insets />

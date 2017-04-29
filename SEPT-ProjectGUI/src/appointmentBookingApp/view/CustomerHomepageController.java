@@ -63,7 +63,6 @@ public class CustomerHomepageController {
 
 //            BookAppointmentController controller = loader.getController();
 //            controller.setDialogStage(dialogStage);
-//            controller.setMainApp(mainApp);
 
             // Show the dialog and wait until the user closes it
             dialogStage.showAndWait();
@@ -89,12 +88,13 @@ public class CustomerHomepageController {
 
             ReviewAppointmentsController controller = loader.getController();
             controller.setDialogStage(dialogStage);
-            controller.setMainApp(mainApp);
-            controller.ini();
+            controller.ini(user);
 
             // Show the dialog and wait until the user closes it
             dialogStage.showAndWait();
         } catch (IOException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
@@ -116,7 +116,6 @@ public class CustomerHomepageController {
 
 //            UpdateDetailsController controller = loader.getController();
 //            controller.setDialogStage(dialogStage);
-//            controller.setMainApp(mainApp);
 
             // Show the dialog and wait until the user closes it
             dialogStage.showAndWait();
