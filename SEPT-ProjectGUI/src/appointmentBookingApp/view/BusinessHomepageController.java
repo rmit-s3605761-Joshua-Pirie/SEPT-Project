@@ -10,6 +10,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 /**
  * Created by Aydan on 30/03/2017.
@@ -100,10 +101,41 @@ public class BusinessHomepageController {
         }
     }
 
+    @FXML
+    public void showRemainingAvailability(){
+        try {
+            // Load the fxml file and create a new stage for the popup dialog.
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainApp.class.getResource("view/RemainingAvailability.fxml"));
+            AnchorPane RemainingAvailability = (AnchorPane) loader.load();
+            // Create the dialog Stage.
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Booking History");
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            dialogStage.initOwner(mainApp.getPrimaryStage());
+            Scene scene = new Scene(RemainingAvailability);
+            dialogStage.setScene(scene);
+
+            RemainingAvailabilityController controller = loader.getController();
+            controller.setDialogStage(dialogStage);
+            controller.setMainApp(mainApp);
+            controller.ini();
+
+            // Show the dialog and wait until the user closes it
+            dialogStage.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
     public void logout(){
         mainApp.showLogin();
     }
 
+    @FXML
     public void showAddStaffDialog(){
         try {
             // Load the fxml file and create a new stage for the popup dialog.
@@ -128,6 +160,7 @@ public class BusinessHomepageController {
         }
     }
 
+    @FXML
     public boolean showSetEmpAvailabilityDialog(){
         try {
             // Load the fxml file and create a new stage for the popup dialog.
