@@ -29,15 +29,6 @@ public class AvailabilityList {
 
     public AvailabilityList(String staffID, Day dayOfWeek, String sTime, String eTime, String empName){
         this(null, dayOfWeek.toString(), sTime, eTime, empName, staffID ,dayOfWeek);
-//        this.date = null;
-//        this.day = new SimpleStringProperty(dayOfWeek.toString());
-//        this.empName = new SimpleStringProperty(empName);
-//        this.sTime = new SimpleStringProperty(sTime);
-//        this.eTime = new SimpleStringProperty(eTime);
-//        this.staffID = new SimpleStringProperty(staffID);
-//        this.startTime = LocalTime.parse(sTime);
-//        this.endTime = LocalTime.parse(eTime);
-//        this.dayOfWeek = dayOfWeek;
     }
 
     public AvailabilityList(String staffID, Day dayOfWeek, String sTime, String eTime, String empName, String date){
@@ -70,15 +61,6 @@ public class AvailabilityList {
         Set<AvailabilityList> remainingTimeRanges = new LinkedHashSet<>();
         ArrayList<AvailabilityList> toRemove = new ArrayList<>();
 
-//        LocalTime time1 = LocalTime.parse(iniTime);
-//        LocalTime time2 = time1.plusMinutes(minutes);
-
-//        String sql = "SELECT *, dayname(bookings.date) as 'day' " +
-//                "FROM availability " +
-//                "JOIN bookings ON availability.staffID = bookings.staffID " +
-//                "   AND availability.dayOfWeek = bookings.dayOfWeek " +
-//                "JOIN staff ON bookings.staffID = staff.staffID " +
-//                "WHERE (bookings.sTime between availability.startTime and availability.endTime)";
         sql = "SELECT * FROM availability " +
                 "NATURAL JOIN staff";
         pstmt = DbUtil.getConnection().prepareStatement(sql);

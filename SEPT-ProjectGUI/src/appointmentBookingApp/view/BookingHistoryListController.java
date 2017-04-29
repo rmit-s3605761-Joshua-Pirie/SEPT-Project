@@ -67,25 +67,6 @@ public class BookingHistoryListController {
                 fStaffID.textProperty()
         ));
 
-
-
-
-//        fCustomer.textProperty().addListener((observable, oldValue, newValue) -> {
-//            filteredData.setPredicate(bookings -> {
-//                // If filter text is empty, display all persons.
-//                if (newValue == null || newValue.isEmpty()) {
-//                    return true;
-//                }
-//
-//                String lowerCaseFilter = newValue.toLowerCase();
-//
-//                if (bookings.getCustomer().toLowerCase().contains(lowerCaseFilter)) {
-//                    System.out.println("true");
-//                    return true; // Filter matches name.
-//                }
-//                return false; // Does not match.
-//            });
-//        });
         SortedList<Bookings> sortedData = new SortedList<>(filteredData);
         sortedData.comparatorProperty().bind(bookingTable.comparatorProperty());
         bookingTable.setItems(sortedData);
