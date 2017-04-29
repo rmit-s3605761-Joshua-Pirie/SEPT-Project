@@ -47,7 +47,7 @@ public class UpcomingBookingsController {
             Stage dialogStage = new Stage();
             dialogStage.setTitle("Upcoming Booking List");
             dialogStage.initModality(Modality.WINDOW_MODAL);
-            dialogStage.initOwner(mainApp.getPrimaryStage());
+            dialogStage.initOwner(this.dialogStage);
             Scene scene = new Scene(UpcomingBookingsList);
             dialogStage.setScene(scene);
 

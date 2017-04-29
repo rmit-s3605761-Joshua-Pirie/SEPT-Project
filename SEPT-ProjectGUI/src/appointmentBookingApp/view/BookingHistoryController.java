@@ -48,7 +48,7 @@ public class BookingHistoryController {
             Stage dialogStage = new Stage();
             dialogStage.setTitle("Booking History");
             dialogStage.initModality(Modality.WINDOW_MODAL);
-            dialogStage.initOwner(mainApp.getPrimaryStage());
+            dialogStage.initOwner(this.dialogStage);
             Scene scene = new Scene(BookingHistoryList);
             dialogStage.setScene(scene);
 

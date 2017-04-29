@@ -57,6 +57,7 @@ public class LoginController {
         String querySQL;
         String sqlUsername = username.getText().toUpperCase();
 		String sqlPassword = password.getText();
+		String name;
 		System.out.println("SQLUsername1: " + sqlUsername);
 		System.out.println("SQLPassword1: " + sqlPassword);
 
@@ -89,11 +90,12 @@ public class LoginController {
 			}
 			else{
 				System.out.println("Business Owner Login success");
-				mainApp.showBusinessHomepage();
+				showBusinessHomepage();
 			}
 		}
 		else{
 			System.out.println("Customer Login success");
+			showCustomerHomepage(sqlUsername);
 		}
 	}
 
@@ -101,6 +103,8 @@ public class LoginController {
     public void showBusinessHomepage() {
         mainApp.showBusinessHomepage();
     }
+
+    public void showCustomerHomepage(String sqlUsername){mainApp.showCustomerHomepage(sqlUsername);}
 
     public void showRegisterCustomer(){
 		try {

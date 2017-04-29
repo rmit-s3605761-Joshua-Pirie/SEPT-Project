@@ -16,6 +16,7 @@ import java.time.LocalTime;
 
 public class Bookings {
     private final StringProperty sTime;
+    private final StringProperty eTime;
     private final StringProperty service;
     private final StringProperty customer;
     private final StringProperty empName;
@@ -25,14 +26,16 @@ public class Bookings {
 
     public Bookings(String sTime){
         this.sTime = new SimpleStringProperty();
+        this.eTime = null;
         this.service = null;
         this.customer = null;
         this.empName = null;
         this.staffID = null;
     }
 
-    public Bookings(String sTime, String service, String customer, String empName, String staffID){
+    public Bookings(String sTime, String eTime, String service, String customer, String empName, String staffID){
         this.sTime = new SimpleStringProperty(sTime);
+        this.eTime = new SimpleStringProperty(eTime);
         this.service = new SimpleStringProperty(service);
         this.customer = new SimpleStringProperty(customer);
         this.empName = new SimpleStringProperty(empName);
@@ -49,6 +52,18 @@ public class Bookings {
 
     public void setsTime(String sTime) {
         this.sTime.set(sTime);
+    }
+
+    public String geteTime() {
+        return eTime.get();
+    }
+
+    public StringProperty eTimeProperty() {
+        return eTime;
+    }
+
+    public void seteTime(String eTime) {
+        this.eTime.set(eTime);
     }
 
     public String getService() {
@@ -128,6 +143,7 @@ public class Bookings {
                 customer = rs2.getString("firstName");
             }
             bookings.add(new Bookings(rs.getString("sTime"),
+                    rs.getString("eTime"),
                     rs.getString("service"),
                     customer,
                     rs.getString("staff.firstName"),
@@ -184,11 +200,11 @@ public class Bookings {
                 customer = rs2.getString("firstName");
             }
             bookings.add(new Bookings(rs.getString("sTime"),
-                        rs.getString("service"),
-                        customer,
-                        rs.getString("staff.firstName"),
-                        rs.getString("staffID")));
-
+                    rs.getString("eTime"),
+                    rs.getString("service"),
+                    customer,
+                    rs.getString("staff.firstName"),
+                    rs.getString("staffID")));
         }
         return bookings;
     }
