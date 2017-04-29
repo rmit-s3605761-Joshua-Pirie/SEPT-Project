@@ -26,8 +26,6 @@ public class Bookings {
     private final StringProperty day;
     private final Day dayOfWeek;
 
-//    public Bookings(){this(null);}
-
     public Bookings(String sTime, String eTime, String service, String customer, String empName, String staffID){
         this(sTime, eTime, service, customer, empName, staffID, null, null, null);
     }
