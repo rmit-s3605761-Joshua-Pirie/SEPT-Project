@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Time;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import static appointmentBookingApp.util.DbUtil.*;
 
@@ -63,6 +64,13 @@ public class Availability {
 
     private boolean deleteStaffAvailability(String staffID) {
         String sql = "DELETE FROM availability WHERE staffID='" + staffID + "'";
+        ArrayList<Day> setDays = setDays();
+        if(setDays.size() > 0) {
+            sql += " AND dayOfWeek IN (";
+            for (Day d : setDays)
+                sql += d.ordinal() + ", ";
+            sql = sql.substring(0, sql.length() - 2) + ')';
+        }
         try {
             getNewStatment().executeUpdate(sql);
             return true;
@@ -86,5 +94,13 @@ public class Availability {
             e.printStackTrace();
         }
         return false;
+    }
+
+    private ArrayList<Day> setDays() {
+        ArrayList<Day> setDays = new ArrayList<Day>();
+        for(Day d : Day.values())
+            if(availability.get(d).size() > 0)
+                setDays.add(d);
+        return setDays;
     }
 }
