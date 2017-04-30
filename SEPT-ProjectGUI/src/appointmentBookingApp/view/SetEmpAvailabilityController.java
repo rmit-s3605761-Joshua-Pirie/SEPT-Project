@@ -73,7 +73,7 @@ public class SetEmpAvailabilityController {
     @FXML
     public void handleAdd() {
         if(userExists(staffID.getText())) {
-            availability.addAvailabilityToDB(staffID.getText());
+            availability.addAvailabilityToDB(staffID.getText().toUpperCase());
             addClicked = true;
             dialogStage.close();
         }

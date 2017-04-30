@@ -2,6 +2,7 @@ package appointmentBookingApp;
 
 import appointmentBookingApp.util.DbUtil;
 import appointmentBookingApp.view.BusinessHomepageController;
+import appointmentBookingApp.view.CustomerHomepageController;
 import appointmentBookingApp.view.LoginController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -48,17 +49,33 @@ public class MainApp extends Application {
 
     }
     public void showBusinessHomepage() {
-        Parent root = null;
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(MainApp.class.getResource("view/BusinessHomepage.fxml"));
-            AnchorPane businessHomepage = (AnchorPane) loader.load();
+            AnchorPane businessHomepage = loader.load();
             primaryStage.close();
             primaryStage.getScene().setRoot(businessHomepage);
             primaryStage.show();
             // Give the controller access to the main app.
             BusinessHomepageController controller = loader.getController();
             controller.setMainApp(this);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void showCustomerHomepage(String sqlUsername) {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainApp.class.getResource("view/CustomerHomepage.fxml"));
+            AnchorPane customerHomepage = loader.load();
+            primaryStage.close();
+            primaryStage.getScene().setRoot(customerHomepage);
+            primaryStage.show();
+            // Give the controller access to the main app.
+            CustomerHomepageController controller = loader.getController();
+            controller.setMainApp(this);
+            controller.ini(sqlUsername);
         } catch (IOException e) {
             e.printStackTrace();
         }
