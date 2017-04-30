@@ -64,6 +64,8 @@ public class RegisterCustomerController {
 		}
 		else if(!Password.getText().equals(Password2.getText()))
 			Alerts.error("Error", "Passwords Do Not Match", "Please re enter passwords.");
+		else if(!Validators.validate(Password.getText().trim(), "password"))
+			Alerts.error("Error", "Invalid E-Mail", "Password must be 8 characters long, contain 1 upper case, 1 lower case and 1 symbol");
 		else if(!Validators.validate(eMail.getText().trim(), "email"))
 			Alerts.error("Error", "Invalid E-Mail", "please re enter your email");
 		else if(userNameExists(UserName.getText()))
@@ -97,9 +99,9 @@ public class RegisterCustomerController {
 	        PreparedStatement ps = DbUtil.getConnection().prepareStatement(sql);
 	        ps.setString(1, UserNameSt);
 	        ps.setObject(2, PasswordSt);
-	        ps.setObject(3, eMailSt);
-	        ps.setObject(4, FirstNameSt);
-	        ps.setObject(5, SurnameSt);
+	        ps.setObject(3, FirstNameSt);
+	        ps.setObject(4, SurnameSt);
+	        ps.setObject(5, eMailSt);
 	        ps.setObject(6, addressSt);
 	        ps.setObject(7, phoneSt);
 	        ps.executeUpdate();
@@ -122,10 +124,23 @@ public class RegisterCustomerController {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-	if(count == 0)
-		return false;
-	else
+
+		String query2 = "SELECT COUNT(*) AS total FROM businessowner WHERE userName = '" + username +"'";
+		int count2 = 0;
+		Statement stm;
+		try {
+			stm = getConnection().createStatement();
+			ResultSet rs = stm.executeQuery(query);
+			while (rs.next()) {
+				count = rs.getInt("total");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	if(count > 0)
 		return true;
+	else
+		return false;
 	}
 
 

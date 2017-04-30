@@ -105,7 +105,7 @@ public class CustomerHomepageController {
             // Load the fxml file and create a new stage for the popup dialog.
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(MainApp.class.getResource("view/UpdateDetails.fxml"));
-            AnchorPane UpdateDetails =loader.load();
+            AnchorPane UpdateDetails = (AnchorPane) loader.load();
             // Create the dialog Stage.
             Stage dialogStage = new Stage();
             dialogStage.setTitle("Update Details");
@@ -114,8 +114,9 @@ public class CustomerHomepageController {
             Scene scene = new Scene(UpdateDetails);
             dialogStage.setScene(scene);
 
-//            UpdateDetailsController controller = loader.getController();
-//            controller.setDialogStage(dialogStage);
+            UpdateDetailsController controller = loader.getController();
+            controller.setDialogStage(dialogStage);
+            controller.ini(user);
 
             // Show the dialog and wait until the user closes it
             dialogStage.showAndWait();
