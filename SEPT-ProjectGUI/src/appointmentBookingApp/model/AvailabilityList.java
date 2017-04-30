@@ -128,13 +128,10 @@ public class AvailabilityList {
             availableTimeRanges.addAll(remainingTimeRanges);
             availableTimeRanges.removeAll(toRemove);
         }
-
-
-        System.out.println("RA");
+        System.out.println("Remaining Availability");
         for(AvailabilityList print : remainingAvailability){
             System.out.println(print.getStaffID()+" "+print.getsTime()+" "+print.geteTime()+" Day: "+print.getDayOfWeek()+" Date: "+print.getDate());
         }
-
         return remainingAvailability;
     }
 
