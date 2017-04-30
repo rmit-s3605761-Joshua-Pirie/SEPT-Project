@@ -1,6 +1,7 @@
 package appointmentBookingApp.view;
 
 import appointmentBookingApp.MainApp;
+import appointmentBookingApp.model.TestData;
 import appointmentBookingApp.util.DbUtil;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -59,30 +60,40 @@ public class LoginController {
 		System.out.println("SQLUsername1: " + sqlUsername);
 		System.out.println("SQLPassword1: " + sqlPassword);
 
-		querySQL = "SELECT*FROM customer WHERE username=? AND password=?";
-		if(!dbAccountSearch(querySQL,sqlUsername,sqlPassword).next()){
-			System.out.println("Not customer login");
-			querySQL = "SELECT*FROM businessowner WHERE username=? AND password=?";
-			if(!dbAccountSearch(querySQL,sqlUsername,sqlPassword).next()){
-				System.out.println("Not business owner login");
-				querySQL = "SELECT*FROM staff WHERE staffID=? AND password=?";
-				if(!dbAccountSearch(querySQL,sqlUsername,sqlPassword).next()){
-					System.out.println("Not staff login");
-					errorMessage.setText("Username/Password is incorrect");
-				}
-				else{
-					System.out.println("Staff Login success");
-				}
-			}
-			else{
-				System.out.println("Business Owner Login success");
-				showBusinessHomepage();
-			}
-		}
-		else{
-			System.out.println("Customer Login success");
-			showCustomerHomepage(sqlUsername);
-		}
+		if(username.getText().equals("~reset")){
+            System.out.println("Resting database");
+            TestData.clearAllTables();
+            TestData.populateAllTables();
+            System.out.println("Database reset to default values");
+            username.clear();
+            password.clear();
+            username.requestFocus();
+        }else{
+            querySQL = "SELECT*FROM customer WHERE username=? AND password=?";
+            if(!dbAccountSearch(querySQL,sqlUsername,sqlPassword).next()){
+                System.out.println("Not customer login");
+                querySQL = "SELECT*FROM businessowner WHERE username=? AND password=?";
+                if(!dbAccountSearch(querySQL,sqlUsername,sqlPassword).next()){
+                    System.out.println("Not business owner login");
+                    querySQL = "SELECT*FROM staff WHERE staffID=? AND password=?";
+                    if(!dbAccountSearch(querySQL,sqlUsername,sqlPassword).next()){
+                        System.out.println("Not staff login");
+                        errorMessage.setText("Username/Password is incorrect");
+                    }
+                    else{
+                        System.out.println("Staff Login success");
+                    }
+                }
+                else{
+                    System.out.println("Business Owner Login success");
+                    showBusinessHomepage();
+                }
+            }
+            else{
+                System.out.println("Customer Login success");
+                showCustomerHomepage(sqlUsername);
+            }
+        }
 	}
 
 	public ResultSet dbAccountSearch(String sql, String sqlUsername, String sqlPassword) throws SQLException {

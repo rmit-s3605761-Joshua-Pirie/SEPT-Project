@@ -2,16 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/appointmentBookingApp/model/TestData.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SEPT-ProjectGUI/appointmentBookingApp/model/AvailabilityList.class" afterPath="$PROJECT_DIR$/out/production/SEPT-ProjectGUI/appointmentBookingApp/model/AvailabilityList.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SEPT-ProjectGUI/appointmentBookingApp/model/Bookings.class" afterPath="$PROJECT_DIR$/out/production/SEPT-ProjectGUI/appointmentBookingApp/model/Bookings.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SEPT-ProjectGUI/appointmentBookingApp/model/DbTableSaveLoad.class" afterPath="$PROJECT_DIR$/out/production/SEPT-ProjectGUI/appointmentBookingApp/model/DbTableSaveLoad.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SEPT-ProjectGUI/appointmentBookingApp/tests/AvailabilityListTest.class" afterPath="$PROJECT_DIR$/out/production/SEPT-ProjectGUI/appointmentBookingApp/tests/AvailabilityListTest.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SEPT-ProjectGUI/appointmentBookingApp/view/LoginController.class" afterPath="$PROJECT_DIR$/out/production/SEPT-ProjectGUI/appointmentBookingApp/view/LoginController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/appointmentBookingApp/model/AvailabilityList.java" afterPath="$PROJECT_DIR$/src/appointmentBookingApp/model/AvailabilityList.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/appointmentBookingApp/model/Bookings.java" afterPath="$PROJECT_DIR$/src/appointmentBookingApp/model/Bookings.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/appointmentBookingApp/model/DbTableSaveLoad.java" afterPath="$PROJECT_DIR$/src/appointmentBookingApp/model/DbTableSaveLoad.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/appointmentBookingApp/tests/AvailabilityListTest.java" afterPath="$PROJECT_DIR$/src/appointmentBookingApp/tests/AvailabilityListTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/appointmentBookingApp/view/LoginController.java" afterPath="$PROJECT_DIR$/src/appointmentBookingApp/view/LoginController.java" />
     </list>
@@ -100,64 +93,64 @@
                 <element signature="method#AvailabilityList#0;class#AvailabilityList#0" expanded="false" />
                 <element signature="method#AvailabilityList#1;class#AvailabilityList#0" expanded="false" />
                 <element signature="method#AvailabilityList#2;class#AvailabilityList#0" expanded="false" />
-                <marker date="1493529877294" expanded="false" signature="2590:2616" ph="SELECT * FRO... availability" />
-                <marker date="1493529877294" expanded="false" signature="2590:2656" ph="SELECT * FRO... availability" />
-                <marker date="1493529877294" expanded="false" signature="3089:3111" ph="SELECT * FRO... bookings" />
-                <marker date="1493529877294" expanded="false" signature="3089:3151" ph="SELECT * FRO... bookings" />
-                <marker date="1493529877294" expanded="false" signature="3089:3173" ph="SELECT * FRO... bookings" />
-                <marker date="1493529877294" expanded="false" signature="3089:3199" ph="SELECT * FRO... bookings" />
-                <marker date="1493529877294" expanded="false" signature="6529:6540" ph=" { " />
-                <marker date="1493529877294" expanded="false" signature="6557:6563" ph=" }" />
-                <marker date="1493529877294" expanded="false" signature="6604:6615" ph=" { " />
-                <marker date="1493529877294" expanded="false" signature="6626:6632" ph=" }" />
-                <marker date="1493529877294" expanded="false" signature="6668:6679" ph=" { " />
-                <marker date="1493529877294" expanded="false" signature="6697:6703" ph=" }" />
-                <marker date="1493529877294" expanded="false" signature="6733:6744" ph=" { " />
-                <marker date="1493529877294" expanded="false" signature="6763:6769" ph=" }" />
-                <marker date="1493529877294" expanded="false" signature="6812:6823" ph=" { " />
-                <marker date="1493529877294" expanded="false" signature="6836:6842" ph=" }" />
-                <marker date="1493529877294" expanded="false" signature="6882:6893" ph=" { " />
-                <marker date="1493529877294" expanded="false" signature="6915:6921" ph=" }" />
-                <marker date="1493529877294" expanded="false" signature="6951:6962" ph=" { " />
-                <marker date="1493529877294" expanded="false" signature="6981:6987" ph=" }" />
-                <marker date="1493529877294" expanded="false" signature="7030:7041" ph=" { " />
-                <marker date="1493529877294" expanded="false" signature="7054:7060" ph=" }" />
-                <marker date="1493529877294" expanded="false" signature="7100:7111" ph=" { " />
-                <marker date="1493529877294" expanded="false" signature="7133:7139" ph=" }" />
-                <marker date="1493529877294" expanded="false" signature="7171:7182" ph=" { " />
-                <marker date="1493529877294" expanded="false" signature="7203:7209" ph=" }" />
-                <marker date="1493529877294" expanded="false" signature="7254:7265" ph=" { " />
-                <marker date="1493529877294" expanded="false" signature="7280:7286" ph=" }" />
-                <marker date="1493529877294" expanded="false" signature="7330:7341" ph=" { " />
-                <marker date="1493529877294" expanded="false" signature="7367:7373" ph=" }" />
-                <marker date="1493529877294" expanded="false" signature="7405:7416" ph=" { " />
-                <marker date="1493529877294" expanded="false" signature="7437:7443" ph=" }" />
-                <marker date="1493529877294" expanded="false" signature="7488:7499" ph=" { " />
-                <marker date="1493529877294" expanded="false" signature="7514:7520" ph=" }" />
-                <marker date="1493529877294" expanded="false" signature="7564:7575" ph=" { " />
-                <marker date="1493529877294" expanded="false" signature="7601:7607" ph=" }" />
-                <marker date="1493529877294" expanded="false" signature="7636:7647" ph=" { " />
-                <marker date="1493529877294" expanded="false" signature="7665:7671" ph=" }" />
-                <marker date="1493529877294" expanded="false" signature="7713:7724" ph=" { " />
-                <marker date="1493529877294" expanded="false" signature="7736:7742" ph=" }" />
-                <marker date="1493529877294" expanded="false" signature="7780:7791" ph=" { " />
-                <marker date="1493529877294" expanded="false" signature="7811:7817" ph=" }" />
-                <marker date="1493529877294" expanded="false" signature="7854:7865" ph=" { " />
-                <marker date="1493529877294" expanded="false" signature="7882:7888" ph=" }" />
-                <marker date="1493529877294" expanded="false" signature="7923:7934" ph=" { " />
-                <marker date="1493529877294" expanded="false" signature="7949:7955" ph=" }" />
-                <marker date="1493529877294" expanded="false" signature="7986:7997" ph=" { " />
-                <marker date="1493529877294" expanded="false" signature="8014:8020" ph=" }" />
+                <marker date="1493546995424" expanded="false" signature="2590:2616" ph="SELECT * FRO... availability" />
+                <marker date="1493546995424" expanded="false" signature="2590:2656" ph="SELECT * FRO... availability" />
+                <marker date="1493546995424" expanded="false" signature="3089:3111" ph="SELECT * FRO... bookings" />
+                <marker date="1493546995424" expanded="false" signature="3089:3151" ph="SELECT * FRO... bookings" />
+                <marker date="1493546995424" expanded="false" signature="3089:3173" ph="SELECT * FRO... bookings" />
+                <marker date="1493546995424" expanded="false" signature="3089:3199" ph="SELECT * FRO... bookings" />
+                <marker date="1493546995424" expanded="false" signature="6529:6540" ph=" { " />
+                <marker date="1493546995424" expanded="false" signature="6557:6563" ph=" }" />
+                <marker date="1493546995424" expanded="false" signature="6604:6615" ph=" { " />
+                <marker date="1493546995424" expanded="false" signature="6626:6632" ph=" }" />
+                <marker date="1493546995424" expanded="false" signature="6668:6679" ph=" { " />
+                <marker date="1493546995424" expanded="false" signature="6697:6703" ph=" }" />
+                <marker date="1493546995424" expanded="false" signature="6733:6744" ph=" { " />
+                <marker date="1493546995424" expanded="false" signature="6763:6769" ph=" }" />
+                <marker date="1493546995424" expanded="false" signature="6812:6823" ph=" { " />
+                <marker date="1493546995424" expanded="false" signature="6836:6842" ph=" }" />
+                <marker date="1493546995424" expanded="false" signature="6882:6893" ph=" { " />
+                <marker date="1493546995424" expanded="false" signature="6915:6921" ph=" }" />
+                <marker date="1493546995424" expanded="false" signature="6951:6962" ph=" { " />
+                <marker date="1493546995424" expanded="false" signature="6981:6987" ph=" }" />
+                <marker date="1493546995424" expanded="false" signature="7030:7041" ph=" { " />
+                <marker date="1493546995424" expanded="false" signature="7054:7060" ph=" }" />
+                <marker date="1493546995424" expanded="false" signature="7100:7111" ph=" { " />
+                <marker date="1493546995424" expanded="false" signature="7133:7139" ph=" }" />
+                <marker date="1493546995424" expanded="false" signature="7171:7182" ph=" { " />
+                <marker date="1493546995424" expanded="false" signature="7203:7209" ph=" }" />
+                <marker date="1493546995424" expanded="false" signature="7254:7265" ph=" { " />
+                <marker date="1493546995424" expanded="false" signature="7280:7286" ph=" }" />
+                <marker date="1493546995424" expanded="false" signature="7330:7341" ph=" { " />
+                <marker date="1493546995424" expanded="false" signature="7367:7373" ph=" }" />
+                <marker date="1493546995424" expanded="false" signature="7405:7416" ph=" { " />
+                <marker date="1493546995424" expanded="false" signature="7437:7443" ph=" }" />
+                <marker date="1493546995424" expanded="false" signature="7488:7499" ph=" { " />
+                <marker date="1493546995424" expanded="false" signature="7514:7520" ph=" }" />
+                <marker date="1493546995424" expanded="false" signature="7564:7575" ph=" { " />
+                <marker date="1493546995424" expanded="false" signature="7601:7607" ph=" }" />
+                <marker date="1493546995424" expanded="false" signature="7636:7647" ph=" { " />
+                <marker date="1493546995424" expanded="false" signature="7665:7671" ph=" }" />
+                <marker date="1493546995424" expanded="false" signature="7713:7724" ph=" { " />
+                <marker date="1493546995424" expanded="false" signature="7736:7742" ph=" }" />
+                <marker date="1493546995424" expanded="false" signature="7780:7791" ph=" { " />
+                <marker date="1493546995424" expanded="false" signature="7811:7817" ph=" }" />
+                <marker date="1493546995424" expanded="false" signature="7854:7865" ph=" { " />
+                <marker date="1493546995424" expanded="false" signature="7882:7888" ph=" }" />
+                <marker date="1493546995424" expanded="false" signature="7923:7934" ph=" { " />
+                <marker date="1493546995424" expanded="false" signature="7949:7955" ph=" }" />
+                <marker date="1493546995424" expanded="false" signature="7986:7997" ph=" { " />
+                <marker date="1493546995424" expanded="false" signature="8014:8020" ph=" }" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AvailabilityListTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AvailabilityListTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/tests/AvailabilityListTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1073">
-              <caret line="37" column="13" lean-forward="false" selection-start-line="37" selection-start-column="13" selection-end-line="37" selection-end-column="13" />
+            <state relative-caret-position="551">
+              <caret line="28" column="9" lean-forward="true" selection-start-line="28" selection-start-column="9" selection-end-line="28" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -174,16 +167,16 @@
                 <element signature="method#setBookings#0;class#Bookings#0" expanded="false" />
                 <element signature="method#setBookings#1;class#Bookings#0" expanded="false" />
                 <element signature="method#reviewAppointmentsCustomer#0;class#Bookings#0" expanded="false" />
-                <marker date="1493527844377" expanded="true" signature="2527:2724" ph="SELECT booki... bookings" />
-                <marker date="1493527844377" expanded="true" signature="3084:3123" ph="SELECT * FRO... customer" />
-                <marker date="1493527844377" expanded="false" signature="4358:4593" ph="SELECT booki... bookings" />
-                <marker date="1493527844377" expanded="false" signature="4661:4897" ph="SELECT booki... bookings" />
-                <marker date="1493527844377" expanded="false" signature="4934:5143" ph="SELECT booki... bookings" />
-                <marker date="1493527844377" expanded="true" signature="5514:5553" ph="SELECT * FRO... customer" />
-                <marker date="1493527844377" expanded="false" signature="6504:6720" ph="SELECT * FRO... bookings" />
-                <marker date="1493527844377" expanded="false" signature="9419:9425" ph=" }" />
-                <marker date="1493527844377" expanded="false" signature="9456:9467" ph=" { " />
-                <marker date="1493527844377" expanded="false" signature="9484:9490" ph=" }" />
+                <marker date="1493546995435" expanded="true" signature="2527:2724" ph="SELECT booki... bookings" />
+                <marker date="1493546995435" expanded="true" signature="3084:3123" ph="SELECT * FRO... customer" />
+                <marker date="1493546995435" expanded="false" signature="4358:4593" ph="SELECT booki... bookings" />
+                <marker date="1493546995435" expanded="false" signature="4661:4897" ph="SELECT booki... bookings" />
+                <marker date="1493546995435" expanded="false" signature="4934:5143" ph="SELECT booki... bookings" />
+                <marker date="1493546995435" expanded="true" signature="5514:5553" ph="SELECT * FRO... customer" />
+                <marker date="1493546995435" expanded="false" signature="6504:6720" ph="SELECT * FRO... bookings" />
+                <marker date="1493546995435" expanded="false" signature="9419:9425" ph=" }" />
+                <marker date="1493546995435" expanded="false" signature="9456:9467" ph=" { " />
+                <marker date="1493546995435" expanded="false" signature="9484:9490" ph=" }" />
               </folding>
             </state>
           </provider>
@@ -199,19 +192,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LoginController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="LoginController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/view/LoginController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="928">
-              <caret line="59" column="59" lean-forward="true" selection-start-line="59" selection-start-column="59" selection-end-line="59" selection-end-column="59" />
+            <state relative-caret-position="261">
+              <caret line="64" column="38" lean-forward="true" selection-start-line="64" selection-start-column="38" selection-end-line="65" selection-end-column="41" />
               <folding>
                 <element signature="method#initialize#0;class#LoginController#0" expanded="false" />
                 <element signature="docComment;method#handleView#0;class#LoginController#0" expanded="false" />
                 <element signature="method#dbAccountSearch#0;class#LoginController#0" expanded="false" />
                 <element signature="method#showRegisterCustomer#0;class#LoginController#0" expanded="false" />
-                <marker date="1493528022328" expanded="true" signature="1680:1732" ph="SELECT*FROM customer... " />
-                <marker date="1493528022328" expanded="true" signature="1860:1917" ph="SELECT*FROM businessowner... " />
-                <marker date="1493528022328" expanded="true" signature="2054:2102" ph="SELECT*FROM staff... " />
               </folding>
             </state>
           </provider>
@@ -221,7 +211,7 @@
         <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/tests/AddServiceDialogControllerTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="377">
-              <caret line="21" column="13" lean-forward="true" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+              <caret line="21" column="13" lean-forward="false" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
               <folding>
                 <marker date="1491174675509" expanded="true" signature="586:630" ph="INSERT INTO services... " />
                 <marker date="1491174675509" expanded="true" signature="869:912" ph="DELETE FROM " />
@@ -234,13 +224,13 @@
         <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/model/DbTableSaveLoad.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="726">
-              <caret line="69" column="17" lean-forward="true" selection-start-line="66" selection-start-column="16" selection-end-line="69" selection-end-column="17" />
+              <caret line="69" column="17" lean-forward="false" selection-start-line="66" selection-start-column="16" selection-end-line="69" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <marker date="1493529280296" expanded="true" signature="1006:1020" ph="SELECT * FRO... missingValue" />
-                <marker date="1493529280296" expanded="true" signature="1302:1314" ph="DELETE FROM " />
-                <marker date="1493529280296" expanded="true" signature="1559:1571" ph="DELETE FROM " />
-                <marker date="1493529280296" expanded="true" signature="1887:2062" ph="INSERT INTO missingValue... " />
+                <marker date="1493546995459" expanded="true" signature="1006:1020" ph="SELECT * FRO... missingValue" />
+                <marker date="1493546995459" expanded="true" signature="1302:1314" ph="DELETE FROM " />
+                <marker date="1493546995459" expanded="true" signature="1559:1571" ph="DELETE FROM " />
+                <marker date="1493546995459" expanded="true" signature="1887:2062" ph="INSERT INTO missingValue... " />
               </folding>
             </state>
           </provider>
@@ -321,12 +311,12 @@
         <option value="$PROJECT_DIR$/src/appointmentBookingApp/view/ReviewAppointmentsController.java" />
         <option value="$PROJECT_DIR$/src/appointmentBookingApp/tests/BookingsTest.java" />
         <option value="$PROJECT_DIR$/src/appointmentBookingApp/model/Bookings.java" />
-        <option value="$PROJECT_DIR$/src/appointmentBookingApp/view/LoginController.java" />
         <option value="$PROJECT_DIR$/src/appointmentBookingApp/model/DbTableSaveLoad.java" />
         <option value="$PROJECT_DIR$/src/appointmentBookingApp/model/AvailabilityList.java" />
         <option value="$PROJECT_DIR$/src/appointmentBookingApp/tests/TestData.java" />
-        <option value="$PROJECT_DIR$/src/appointmentBookingApp/tests/AvailabilityListTest.java" />
         <option value="$PROJECT_DIR$/src/appointmentBookingApp/model/TestData.java" />
+        <option value="$PROJECT_DIR$/src/appointmentBookingApp/tests/AvailabilityListTest.java" />
+        <option value="$PROJECT_DIR$/src/appointmentBookingApp/view/LoginController.java" />
       </list>
     </option>
   </component>
@@ -660,7 +650,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.AvailabilityListTest">
+  <component name="RunManager" selected="Application.Main">
     <configuration default="false" name="AddServiceDialogControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -1285,7 +1275,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="275140000" />
+    <option name="totallyTimeSpent" value="276360000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="5" y="0" width="3374" height="1839" extended-state="0" />
@@ -1786,28 +1776,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/model/Bookings.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="142" column="115" lean-forward="false" selection-start-line="142" selection-start-column="115" selection-end-line="142" selection-end-column="115" />
-          <folding>
-            <element signature="method#setBookings#0;class#Bookings#0" expanded="false" />
-            <element signature="method#setBookings#1;class#Bookings#0" expanded="false" />
-            <element signature="method#reviewAppointmentsCustomer#0;class#Bookings#0" expanded="false" />
-            <marker date="1493527844377" expanded="true" signature="2527:2724" ph="SELECT booki... bookings" />
-            <marker date="1493527844377" expanded="true" signature="3084:3123" ph="SELECT * FRO... customer" />
-            <marker date="1493527844377" expanded="false" signature="4358:4593" ph="SELECT booki... bookings" />
-            <marker date="1493527844377" expanded="false" signature="4661:4897" ph="SELECT booki... bookings" />
-            <marker date="1493527844377" expanded="false" signature="4934:5143" ph="SELECT booki... bookings" />
-            <marker date="1493527844377" expanded="true" signature="5514:5553" ph="SELECT * FRO... customer" />
-            <marker date="1493527844377" expanded="false" signature="6504:6720" ph="SELECT * FRO... bookings" />
-            <marker date="1493527844377" expanded="false" signature="9419:9425" ph=" }" />
-            <marker date="1493527844377" expanded="false" signature="9456:9467" ph=" { " />
-            <marker date="1493527844377" expanded="false" signature="9484:9490" ph=" }" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/tests/BookingsTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="232">
@@ -1819,7 +1787,7 @@
     <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/tests/AddServiceDialogControllerTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="377">
-          <caret line="21" column="13" lean-forward="true" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+          <caret line="21" column="13" lean-forward="false" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
           <folding>
             <marker date="1491174675509" expanded="true" signature="586:630" ph="INSERT INTO services... " />
             <marker date="1491174675509" expanded="true" signature="869:912" ph="DELETE FROM " />
@@ -1835,54 +1803,54 @@
             <element signature="method#AvailabilityList#0;class#AvailabilityList#0" expanded="false" />
             <element signature="method#AvailabilityList#1;class#AvailabilityList#0" expanded="false" />
             <element signature="method#AvailabilityList#2;class#AvailabilityList#0" expanded="false" />
-            <marker date="1493529877294" expanded="false" signature="2590:2616" ph="SELECT * FRO... availability" />
-            <marker date="1493529877294" expanded="false" signature="2590:2656" ph="SELECT * FRO... availability" />
-            <marker date="1493529877294" expanded="false" signature="3089:3111" ph="SELECT * FRO... bookings" />
-            <marker date="1493529877294" expanded="false" signature="3089:3151" ph="SELECT * FRO... bookings" />
-            <marker date="1493529877294" expanded="false" signature="3089:3173" ph="SELECT * FRO... bookings" />
-            <marker date="1493529877294" expanded="false" signature="3089:3199" ph="SELECT * FRO... bookings" />
-            <marker date="1493529877294" expanded="false" signature="6529:6540" ph=" { " />
-            <marker date="1493529877294" expanded="false" signature="6557:6563" ph=" }" />
-            <marker date="1493529877294" expanded="false" signature="6604:6615" ph=" { " />
-            <marker date="1493529877294" expanded="false" signature="6626:6632" ph=" }" />
-            <marker date="1493529877294" expanded="false" signature="6668:6679" ph=" { " />
-            <marker date="1493529877294" expanded="false" signature="6697:6703" ph=" }" />
-            <marker date="1493529877294" expanded="false" signature="6733:6744" ph=" { " />
-            <marker date="1493529877294" expanded="false" signature="6763:6769" ph=" }" />
-            <marker date="1493529877294" expanded="false" signature="6812:6823" ph=" { " />
-            <marker date="1493529877294" expanded="false" signature="6836:6842" ph=" }" />
-            <marker date="1493529877294" expanded="false" signature="6882:6893" ph=" { " />
-            <marker date="1493529877294" expanded="false" signature="6915:6921" ph=" }" />
-            <marker date="1493529877294" expanded="false" signature="6951:6962" ph=" { " />
-            <marker date="1493529877294" expanded="false" signature="6981:6987" ph=" }" />
-            <marker date="1493529877294" expanded="false" signature="7030:7041" ph=" { " />
-            <marker date="1493529877294" expanded="false" signature="7054:7060" ph=" }" />
-            <marker date="1493529877294" expanded="false" signature="7100:7111" ph=" { " />
-            <marker date="1493529877294" expanded="false" signature="7133:7139" ph=" }" />
-            <marker date="1493529877294" expanded="false" signature="7171:7182" ph=" { " />
-            <marker date="1493529877294" expanded="false" signature="7203:7209" ph=" }" />
-            <marker date="1493529877294" expanded="false" signature="7254:7265" ph=" { " />
-            <marker date="1493529877294" expanded="false" signature="7280:7286" ph=" }" />
-            <marker date="1493529877294" expanded="false" signature="7330:7341" ph=" { " />
-            <marker date="1493529877294" expanded="false" signature="7367:7373" ph=" }" />
-            <marker date="1493529877294" expanded="false" signature="7405:7416" ph=" { " />
-            <marker date="1493529877294" expanded="false" signature="7437:7443" ph=" }" />
-            <marker date="1493529877294" expanded="false" signature="7488:7499" ph=" { " />
-            <marker date="1493529877294" expanded="false" signature="7514:7520" ph=" }" />
-            <marker date="1493529877294" expanded="false" signature="7564:7575" ph=" { " />
-            <marker date="1493529877294" expanded="false" signature="7601:7607" ph=" }" />
-            <marker date="1493529877294" expanded="false" signature="7636:7647" ph=" { " />
-            <marker date="1493529877294" expanded="false" signature="7665:7671" ph=" }" />
-            <marker date="1493529877294" expanded="false" signature="7713:7724" ph=" { " />
-            <marker date="1493529877294" expanded="false" signature="7736:7742" ph=" }" />
-            <marker date="1493529877294" expanded="false" signature="7780:7791" ph=" { " />
-            <marker date="1493529877294" expanded="false" signature="7811:7817" ph=" }" />
-            <marker date="1493529877294" expanded="false" signature="7854:7865" ph=" { " />
-            <marker date="1493529877294" expanded="false" signature="7882:7888" ph=" }" />
-            <marker date="1493529877294" expanded="false" signature="7923:7934" ph=" { " />
-            <marker date="1493529877294" expanded="false" signature="7949:7955" ph=" }" />
-            <marker date="1493529877294" expanded="false" signature="7986:7997" ph=" { " />
-            <marker date="1493529877294" expanded="false" signature="8014:8020" ph=" }" />
+            <marker date="1493546995424" expanded="false" signature="2590:2616" ph="SELECT * FRO... availability" />
+            <marker date="1493546995424" expanded="false" signature="2590:2656" ph="SELECT * FRO... availability" />
+            <marker date="1493546995424" expanded="false" signature="3089:3111" ph="SELECT * FRO... bookings" />
+            <marker date="1493546995424" expanded="false" signature="3089:3151" ph="SELECT * FRO... bookings" />
+            <marker date="1493546995424" expanded="false" signature="3089:3173" ph="SELECT * FRO... bookings" />
+            <marker date="1493546995424" expanded="false" signature="3089:3199" ph="SELECT * FRO... bookings" />
+            <marker date="1493546995424" expanded="false" signature="6529:6540" ph=" { " />
+            <marker date="1493546995424" expanded="false" signature="6557:6563" ph=" }" />
+            <marker date="1493546995424" expanded="false" signature="6604:6615" ph=" { " />
+            <marker date="1493546995424" expanded="false" signature="6626:6632" ph=" }" />
+            <marker date="1493546995424" expanded="false" signature="6668:6679" ph=" { " />
+            <marker date="1493546995424" expanded="false" signature="6697:6703" ph=" }" />
+            <marker date="1493546995424" expanded="false" signature="6733:6744" ph=" { " />
+            <marker date="1493546995424" expanded="false" signature="6763:6769" ph=" }" />
+            <marker date="1493546995424" expanded="false" signature="6812:6823" ph=" { " />
+            <marker date="1493546995424" expanded="false" signature="6836:6842" ph=" }" />
+            <marker date="1493546995424" expanded="false" signature="6882:6893" ph=" { " />
+            <marker date="1493546995424" expanded="false" signature="6915:6921" ph=" }" />
+            <marker date="1493546995424" expanded="false" signature="6951:6962" ph=" { " />
+            <marker date="1493546995424" expanded="false" signature="6981:6987" ph=" }" />
+            <marker date="1493546995424" expanded="false" signature="7030:7041" ph=" { " />
+            <marker date="1493546995424" expanded="false" signature="7054:7060" ph=" }" />
+            <marker date="1493546995424" expanded="false" signature="7100:7111" ph=" { " />
+            <marker date="1493546995424" expanded="false" signature="7133:7139" ph=" }" />
+            <marker date="1493546995424" expanded="false" signature="7171:7182" ph=" { " />
+            <marker date="1493546995424" expanded="false" signature="7203:7209" ph=" }" />
+            <marker date="1493546995424" expanded="false" signature="7254:7265" ph=" { " />
+            <marker date="1493546995424" expanded="false" signature="7280:7286" ph=" }" />
+            <marker date="1493546995424" expanded="false" signature="7330:7341" ph=" { " />
+            <marker date="1493546995424" expanded="false" signature="7367:7373" ph=" }" />
+            <marker date="1493546995424" expanded="false" signature="7405:7416" ph=" { " />
+            <marker date="1493546995424" expanded="false" signature="7437:7443" ph=" }" />
+            <marker date="1493546995424" expanded="false" signature="7488:7499" ph=" { " />
+            <marker date="1493546995424" expanded="false" signature="7514:7520" ph=" }" />
+            <marker date="1493546995424" expanded="false" signature="7564:7575" ph=" { " />
+            <marker date="1493546995424" expanded="false" signature="7601:7607" ph=" }" />
+            <marker date="1493546995424" expanded="false" signature="7636:7647" ph=" { " />
+            <marker date="1493546995424" expanded="false" signature="7665:7671" ph=" }" />
+            <marker date="1493546995424" expanded="false" signature="7713:7724" ph=" { " />
+            <marker date="1493546995424" expanded="false" signature="7736:7742" ph=" }" />
+            <marker date="1493546995424" expanded="false" signature="7780:7791" ph=" { " />
+            <marker date="1493546995424" expanded="false" signature="7811:7817" ph=" }" />
+            <marker date="1493546995424" expanded="false" signature="7854:7865" ph=" { " />
+            <marker date="1493546995424" expanded="false" signature="7882:7888" ph=" }" />
+            <marker date="1493546995424" expanded="false" signature="7923:7934" ph=" { " />
+            <marker date="1493546995424" expanded="false" signature="7949:7955" ph=" }" />
+            <marker date="1493546995424" expanded="false" signature="7986:7997" ph=" { " />
+            <marker date="1493546995424" expanded="false" signature="8014:8020" ph=" }" />
           </folding>
         </state>
       </provider>
@@ -1890,29 +1858,13 @@
     <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/model/DbTableSaveLoad.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="726">
-          <caret line="69" column="17" lean-forward="true" selection-start-line="66" selection-start-column="16" selection-end-line="69" selection-end-column="17" />
+          <caret line="69" column="17" lean-forward="false" selection-start-line="66" selection-start-column="16" selection-end-line="69" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1493529280296" expanded="true" signature="1006:1020" ph="SELECT * FRO... missingValue" />
-            <marker date="1493529280296" expanded="true" signature="1302:1314" ph="DELETE FROM " />
-            <marker date="1493529280296" expanded="true" signature="1559:1571" ph="DELETE FROM " />
-            <marker date="1493529280296" expanded="true" signature="1887:2062" ph="INSERT INTO missingValue... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/view/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="928">
-          <caret line="59" column="59" lean-forward="true" selection-start-line="59" selection-start-column="59" selection-end-line="59" selection-end-column="59" />
-          <folding>
-            <element signature="method#initialize#0;class#LoginController#0" expanded="false" />
-            <element signature="docComment;method#handleView#0;class#LoginController#0" expanded="false" />
-            <element signature="method#dbAccountSearch#0;class#LoginController#0" expanded="false" />
-            <element signature="method#showRegisterCustomer#0;class#LoginController#0" expanded="false" />
-            <marker date="1493528022328" expanded="true" signature="1680:1732" ph="SELECT*FROM customer... " />
-            <marker date="1493528022328" expanded="true" signature="1860:1917" ph="SELECT*FROM businessowner... " />
-            <marker date="1493528022328" expanded="true" signature="2054:2102" ph="SELECT*FROM staff... " />
+            <marker date="1493546995459" expanded="true" signature="1006:1020" ph="SELECT * FRO... missingValue" />
+            <marker date="1493546995459" expanded="true" signature="1302:1314" ph="DELETE FROM " />
+            <marker date="1493546995459" expanded="true" signature="1559:1571" ph="DELETE FROM " />
+            <marker date="1493546995459" expanded="true" signature="1887:2062" ph="INSERT INTO missingValue... " />
           </folding>
         </state>
       </provider>
@@ -1949,22 +1901,57 @@
             <element signature="method#clearServicesTable#0;class#TestData#0" expanded="false" />
             <element signature="method#clearStaffTable#0;class#TestData#0" expanded="false" />
             <element signature="method#sendToDB#0;class#TestData#0" expanded="false" />
-            <marker date="1493546638433" expanded="false" signature="6259:6283" ph="DELETE FROM " />
-            <marker date="1493546638433" expanded="false" signature="6559:6579" ph="DELETE FROM " />
-            <marker date="1493546638433" expanded="false" signature="6860:6885" ph="DELETE FROM " />
-            <marker date="1493546638433" expanded="false" signature="7161:7181" ph="DELETE FROM " />
-            <marker date="1493546638433" expanded="false" signature="7457:7477" ph="DELETE FROM " />
-            <marker date="1493546638433" expanded="false" signature="7750:7767" ph="DELETE FROM " />
+            <marker date="1493546995475" expanded="false" signature="6259:6283" ph="DELETE FROM " />
+            <marker date="1493546995475" expanded="false" signature="6559:6579" ph="DELETE FROM " />
+            <marker date="1493546995475" expanded="false" signature="6860:6885" ph="DELETE FROM " />
+            <marker date="1493546995475" expanded="false" signature="7161:7181" ph="DELETE FROM " />
+            <marker date="1493546995475" expanded="false" signature="7457:7477" ph="DELETE FROM " />
+            <marker date="1493546995475" expanded="false" signature="7750:7767" ph="DELETE FROM " />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/tests/AvailabilityListTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1073">
-          <caret line="37" column="13" lean-forward="false" selection-start-line="37" selection-start-column="13" selection-end-line="37" selection-end-column="13" />
+        <state relative-caret-position="551">
+          <caret line="28" column="9" lean-forward="true" selection-start-line="28" selection-start-column="9" selection-end-line="28" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/model/Bookings.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="142" column="115" lean-forward="false" selection-start-line="142" selection-start-column="115" selection-end-line="142" selection-end-column="115" />
+          <folding>
+            <element signature="method#setBookings#0;class#Bookings#0" expanded="false" />
+            <element signature="method#setBookings#1;class#Bookings#0" expanded="false" />
+            <element signature="method#reviewAppointmentsCustomer#0;class#Bookings#0" expanded="false" />
+            <marker date="1493546995435" expanded="true" signature="2527:2724" ph="SELECT booki... bookings" />
+            <marker date="1493546995435" expanded="true" signature="3084:3123" ph="SELECT * FRO... customer" />
+            <marker date="1493546995435" expanded="false" signature="4358:4593" ph="SELECT booki... bookings" />
+            <marker date="1493546995435" expanded="false" signature="4661:4897" ph="SELECT booki... bookings" />
+            <marker date="1493546995435" expanded="false" signature="4934:5143" ph="SELECT booki... bookings" />
+            <marker date="1493546995435" expanded="true" signature="5514:5553" ph="SELECT * FRO... customer" />
+            <marker date="1493546995435" expanded="false" signature="6504:6720" ph="SELECT * FRO... bookings" />
+            <marker date="1493546995435" expanded="false" signature="9419:9425" ph=" }" />
+            <marker date="1493546995435" expanded="false" signature="9456:9467" ph=" { " />
+            <marker date="1493546995435" expanded="false" signature="9484:9490" ph=" }" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/view/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="64" column="38" lean-forward="true" selection-start-line="64" selection-start-column="38" selection-end-line="65" selection-end-column="41" />
+          <folding>
+            <element signature="method#initialize#0;class#LoginController#0" expanded="false" />
+            <element signature="docComment;method#handleView#0;class#LoginController#0" expanded="false" />
+            <element signature="method#dbAccountSearch#0;class#LoginController#0" expanded="false" />
+            <element signature="method#showRegisterCustomer#0;class#LoginController#0" expanded="false" />
           </folding>
         </state>
       </provider>

@@ -32,11 +32,8 @@ class AvailabilityListTest {
     @AfterEach
     void tearDown() {
         for(DbTableSaveLoad table : dbTables){
-//            table.loadTable();
+            table.loadTable();
         }
-
-        TestData.clearAllTables();
-        TestData.populateAllTables();
     }
 
     @Test
