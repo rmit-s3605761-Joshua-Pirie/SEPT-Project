@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appointmentBookingApp.view.createAppointmentController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appointmentBookingApp.view.createAppointmentController">
    <children>
       <Label layoutX="235.0" layoutY="1.0" text="Create Booking">
          <font>
@@ -64,7 +64,7 @@
       <ButtonBar layoutX="400.0" layoutY="360.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="10.0">
         <buttons>
           <Button mnemonicParsing="false" text="Create" />
-            <Button cancelButton="true" defaultButton="true" mnemonicParsing="false" prefWidth="100.0" text="Close" />
+            <Button cancelButton="true" defaultButton="true" mnemonicParsing="false" onAction="#close" prefWidth="100.0" text="Close" />
         </buttons>
       </ButtonBar>
    </children>

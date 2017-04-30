@@ -5,13 +5,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appointmentBookingApp.view.BusinessHomepageController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appointmentBookingApp.view.BusinessHomepageController">
    <children>
-      <Button layoutX="30.0" layoutY="90.0" mnemonicParsing="false" prefWidth="150.0" text="Create Appointment" />
+      <Button layoutX="30.0" layoutY="90.0" mnemonicParsing="false" onAction="#showCreateAppointmentDialog" prefWidth="150.0" text="Create Appointment" />
       <Button layoutX="30.0" layoutY="120.0" mnemonicParsing="false" onAction="#showUpcomingBookings" prefWidth="150.0" text="Upcoming Appointments" />
       <Button layoutX="30.0" layoutY="150.0" mnemonicParsing="false" onAction="#showBookingHistory" prefWidth="150.0" text="Appointment History" />
       <Button layoutX="200.0" layoutY="90.0" mnemonicParsing="false" onAction="#showAddStaffDialog" prefWidth="150.0" text="Add Employee" />
-      <Button layoutX="200.0" layoutY="120.0" mnemonicParsing="false" prefWidth="150.0" text="Update Employee Details" />
+      <Button layoutX="200.0" layoutY="120.0" mnemonicParsing="false" onAction="#showUpdateStaffDialog" prefWidth="150.0" text="Update Employee Details" />
       <Button layoutX="200.0" layoutY="150.0" mnemonicParsing="false" onAction="#showSetEmpAvailabilityDialog" prefWidth="150.0" text="Set Employee Availability" />
       <Button layoutX="200.0" layoutY="180.0" mnemonicParsing="false" onAction="#showRemainingAvailability" prefWidth="150.0" text="Remaining Availability " />
       <Button layoutX="370.0" layoutY="90.0" mnemonicParsing="false" onAction="#showAddServiceDialog" prefWidth="150.0" text="Add Service" />

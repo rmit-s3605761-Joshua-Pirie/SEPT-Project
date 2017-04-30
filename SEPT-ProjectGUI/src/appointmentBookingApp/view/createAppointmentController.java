@@ -71,4 +71,9 @@ public class createAppointmentController extends Application {
         }
 
     }
+
+    @FXML
+    private void close() {
+        dialogStage.close();
+    }
 }
