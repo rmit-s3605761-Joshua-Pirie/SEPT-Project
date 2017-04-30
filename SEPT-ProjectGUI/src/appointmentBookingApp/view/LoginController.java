@@ -53,34 +53,20 @@ public class LoginController {
 	 */
 	@FXML
 	private void handleView() throws SQLException{
-		ResultSet resultSet;
         String querySQL;
         String sqlUsername = username.getText().toUpperCase();
 		String sqlPassword = password.getText();
-		String name;
 		System.out.println("SQLUsername1: " + sqlUsername);
 		System.out.println("SQLPassword1: " + sqlPassword);
 
 		querySQL = "SELECT*FROM customer WHERE username=? AND password=?";
-		PreparedStatement pstmt = DbUtil.getConnection().prepareStatement(querySQL);
-		pstmt.setString(1,sqlUsername);
-		pstmt.setString(2,sqlPassword);
-		resultSet = pstmt.executeQuery();
-		if(!resultSet.next()){
+		if(!dbAccountSearch(querySQL,sqlUsername,sqlPassword).next()){
 			System.out.println("Not customer login");
 			querySQL = "SELECT*FROM businessowner WHERE username=? AND password=?";
-			pstmt = DbUtil.getConnection().prepareStatement(querySQL);
-			pstmt.setString(1,sqlUsername);
-			pstmt.setString(2,sqlPassword);
-			resultSet = pstmt.executeQuery();
-			if(!resultSet.next()){
+			if(!dbAccountSearch(querySQL,sqlUsername,sqlPassword).next()){
 				System.out.println("Not business owner login");
 				querySQL = "SELECT*FROM staff WHERE staffID=? AND password=?";
-				pstmt = DbUtil.getConnection().prepareStatement(querySQL);
-				pstmt.setString(1,sqlUsername);
-				pstmt.setString(2,sqlPassword);
-				resultSet = pstmt.executeQuery();
-				if(!resultSet.next()){
+				if(!dbAccountSearch(querySQL,sqlUsername,sqlPassword).next()){
 					System.out.println("Not staff login");
 					errorMessage.setText("Username/Password is incorrect");
 				}
@@ -99,6 +85,12 @@ public class LoginController {
 		}
 	}
 
+	public ResultSet dbAccountSearch(String sql, String sqlUsername, String sqlPassword) throws SQLException {
+		PreparedStatement pstmt = DbUtil.getConnection().prepareStatement(sql);
+		pstmt.setString(1,sqlUsername);
+		pstmt.setString(2,sqlPassword);
+		return pstmt.executeQuery();
+	}
 
     public void showBusinessHomepage() {
         mainApp.showBusinessHomepage();

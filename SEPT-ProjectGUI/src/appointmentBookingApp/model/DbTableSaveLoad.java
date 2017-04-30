@@ -27,12 +27,11 @@ public class DbTableSaveLoad {
         this.columns.addAll(columns);
     }
 
-    public static DbTableSaveLoad saveTable(String table){
+    public DbTableSaveLoad saveTable(String table) throws SQLException {
         PreparedStatement pstmt;
         ResultSet rs;
         ResultSetMetaData meta;
         List<String> columns = new ArrayList<>();
-        try {
             String sql = "SELECT * FROM "+table;
             pstmt = DbUtil.getConnection().prepareStatement(sql);
             rs = pstmt.executeQuery();
@@ -43,23 +42,28 @@ public class DbTableSaveLoad {
             pstmt = DbUtil.getConnection().prepareStatement(sql);
             pstmt.executeUpdate();
             return new DbTableSaveLoad(table,rs,meta,columns);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        System.out.println("Nulled");
-        return new DbTableSaveLoad();
     }
 
     public void loadTable(){
+        String sql;
+
+        sql = "DELETE FROM "+table;
+        try (PreparedStatement pstmt = DbUtil.getConnection().prepareStatement(sql);){
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
         System.out.println("Loading table: "+table);
         System.out.println(columns);
 
-        String sql = "INSERT INTO "+table+" ("+columns.stream().collect(Collectors.joining(", "))
+        sql = "INSERT INTO "+table+" ("+columns.stream().collect(Collectors.joining(", "))
                 + ") VALUES ("+ columns.stream().map(c -> "?").collect(Collectors.joining(","))+ ")";
         try (PreparedStatement pstmt = DbUtil.getConnection().prepareStatement(sql))
         {
+            int count = 1;
             while (rs.next()) {
-                System.out.println("New Row");
+                System.out.println("New Row: "+count++);
                 for (int i = 1; i <= meta.getColumnCount(); i++){
                     pstmt.setObject(i, rs.getObject(i));
                     System.out.println("Para: "+i+" Object: "+rs.getObject(i));

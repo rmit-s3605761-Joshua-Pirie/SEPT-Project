@@ -160,7 +160,6 @@ public class Bookings {
                     rs.getString("date"),
                     Day.values()[rs.getInt("dayofWeek")]));
         }
-
         return bookings;
     }
 
