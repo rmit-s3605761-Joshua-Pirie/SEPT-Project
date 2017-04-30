@@ -60,6 +60,9 @@ public class UpdateStaffDetailsController {
         try {
             st = getConnection().createStatement();
             ResultSet rs = st.executeQuery(query);
+            if(!rs.next())
+                    Alerts.error("Error", "Invalid Staff ID", "Please re enter Staff ID.");
+            rs.previous();
             while (rs.next()) {
                 oldPassword = rs.getString("password");
                 firstNameTB.setText(rs.getString("firstName"));

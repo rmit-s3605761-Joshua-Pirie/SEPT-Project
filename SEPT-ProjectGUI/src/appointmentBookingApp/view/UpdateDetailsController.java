@@ -88,7 +88,7 @@ public class UpdateDetailsController {
             else
                 newPassword = PasswordTB.getText();
         }
-        if(EmailTB.getText().trim().isEmpty() || FirstNameTB.getText().trim().isEmpty() || SurNameTB.getText().trim().isEmpty() || AddressTB.getText().trim().isEmpty() || PhoneTB.getText().trim().isEmpty())
+        else if(EmailTB.getText().trim().isEmpty() || FirstNameTB.getText().trim().isEmpty() || SurNameTB.getText().trim().isEmpty() || AddressTB.getText().trim().isEmpty() || PhoneTB.getText().trim().isEmpty())
             Alerts.error("Error", "Missing Information", "Please fill in all fields.");
         else if(!Validators.validate(EmailTB.getText().trim(), "email"))
             Alerts.error("Error", "Invalid E-Mail", "please re enter your email");

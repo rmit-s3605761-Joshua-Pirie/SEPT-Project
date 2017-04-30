@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
@@ -9,21 +10,21 @@
    <children>
       <Text layoutX="57.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Name: " />
       <Text layoutX="66.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password: " />
-      <TextField fx:id="PasswordTB" layoutX="149.0" layoutY="64.0" />
       <Text layoutX="26.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Confirm Password: " />
-      <TextField fx:id="ConfirmPassworkTB" layoutX="149.0" layoutY="104.0" />
       <Text layoutX="36.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" text="e-Mail Address: " />
       <Text layoutX="59.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name: " />
       <Text layoutX="67.0" layoutY="236.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Surname: " />
       <Text layoutX="53.0" layoutY="274.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mail Address: " />
       <Text layoutX="89.0" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone: " />
-      <TextField fx:id="EmailTB" layoutX="149.0" layoutY="142.0" />
-      <TextField fx:id="FirstNameTB" layoutX="149.0" layoutY="182.0" />
-      <TextField fx:id="SurNameTB" layoutX="149.0" layoutY="219.0" />
-      <TextField fx:id="AddressTB" layoutX="149.0" layoutY="257.0" />
-      <TextField fx:id="PhoneTB" layoutX="149.0" layoutY="298.0" />
-      <Button fx:id="Cancel" layoutX="246.0" layoutY="347.0" mnemonicParsing="false" onAction="#handleCancel" text="Cancel" />
-      <Button fx:id="Submit" layoutX="176.0" layoutY="347.0" mnemonicParsing="false" onAction="#submit" text="Submit" />
+      <PasswordField fx:id="PasswordTB" layoutX="149.0" layoutY="64.0" promptText="Fill to change" />
+      <PasswordField fx:id="ConfirmPassworkTB" layoutX="149.0" layoutY="104.0" promptText="Else leave blank" />
+      <TextField fx:id="EmailTB" layoutX="149.0" layoutY="142.0" promptText="e.g, fred@cartoon.com" />
+      <TextField fx:id="FirstNameTB" layoutX="149.0" layoutY="182.0" promptText="e.g. Fred" />
+      <TextField fx:id="SurNameTB" layoutX="149.0" layoutY="219.0" promptText="e.g. Flinstone" />
+      <TextField fx:id="AddressTB" layoutX="149.0" layoutY="257.0" promptText="e.g. 123 Bedrock St" />
+      <TextField fx:id="PhoneTB" layoutX="149.0" layoutY="298.0" promptText="8 to 10 digits long" />
+      <Button fx:id="Submit" defaultButton="true" layoutX="176.0" layoutY="347.0" mnemonicParsing="false" onAction="#submit" text="Submit" />
+      <Button fx:id="Cancel" cancelButton="true" layoutX="246.0" layoutY="347.0" mnemonicParsing="false" onAction="#handleCancel" text="Cancel" />
       <Text fx:id="UserNameT" layoutX="149.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" />
    </children>
 </AnchorPane>
