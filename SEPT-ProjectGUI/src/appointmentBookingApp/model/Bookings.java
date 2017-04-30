@@ -44,7 +44,7 @@ public class Bookings {
         this.staffID = new SimpleStringProperty(staffID);
         this.customerUsername = new SimpleStringProperty(customerUsername);
         this.date = new SimpleStringProperty(date);
-        this.day = new SimpleStringProperty(dayOfWeek.toString());
+        this.day = new SimpleStringProperty((dayOfWeek != null) ? dayOfWeek.toString() : null);
         this.dayOfWeek = dayOfWeek;
     }
 
