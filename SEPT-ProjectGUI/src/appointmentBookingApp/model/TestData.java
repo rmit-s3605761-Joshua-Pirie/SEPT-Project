@@ -59,8 +59,8 @@ public final class TestData {
         data.add(new String[]{"2017-05-04","THURSDAY","3","09:30:00","10:00:00","S000001","b",""});
         data.add(new String[]{"2017-05-05","FRIDAY","4","09:30:00","10:00:00","S000002","c",""});
         data.add(new String[]{"2017-05-06","SATURDAY","5","09:30:00","10:00:00","S000003","a",""});
-        data.add(new String[]{"2017-05-07","SUNDAY","6","09:30:00","10:00:00","S000001","b",""});
-        data.add(new String[]{"2017-05-08","MONDAY","0","09:30:00","10:00:00","S000001","c",""});
+        data.add(new String[]{"2017-05-08","MONDAY","0","09:30:00","10:00:00","S000001","b",""});
+        data.add(new String[]{"2017-05-08","MONDAY","0","10:00:00","10:30:00","S000001","c",""});
 
         sendToDB(stmt, data);
     }

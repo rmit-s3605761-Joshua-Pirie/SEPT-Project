@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SEPT-ProjectGUI/appointmentBookingApp/tests/AvailabilityListTest.class" afterPath="$PROJECT_DIR$/out/production/SEPT-ProjectGUI/appointmentBookingApp/tests/AvailabilityListTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SEPT-ProjectGUI/appointmentBookingApp/view/LoginController.class" afterPath="$PROJECT_DIR$/out/production/SEPT-ProjectGUI/appointmentBookingApp/view/LoginController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/appointmentBookingApp/model/AvailabilityList.java" afterPath="$PROJECT_DIR$/src/appointmentBookingApp/model/AvailabilityList.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/appointmentBookingApp/model/TestData.java" afterPath="$PROJECT_DIR$/src/appointmentBookingApp/model/TestData.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/appointmentBookingApp/tests/AvailabilityListTest.java" afterPath="$PROJECT_DIR$/src/appointmentBookingApp/tests/AvailabilityListTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/appointmentBookingApp/view/LoginController.java" afterPath="$PROJECT_DIR$/src/appointmentBookingApp/view/LoginController.java" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -84,63 +82,65 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="525">
-      <file leaf-file-name="AvailabilityList.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AvailabilityList.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/model/AvailabilityList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2931">
-              <caret line="135" column="5" lean-forward="false" selection-start-line="135" selection-start-column="5" selection-end-line="135" selection-end-column="5" />
+            <state relative-caret-position="-211">
+              <caret line="75" column="44" lean-forward="true" selection-start-line="75" selection-start-column="44" selection-end-line="75" selection-end-column="44" />
               <folding>
-                <element signature="method#AvailabilityList#0;class#AvailabilityList#0" expanded="false" />
+                <element signature="e#925#926#0" expanded="true" />
+                <element signature="e#993#994#0" expanded="true" />
                 <element signature="method#AvailabilityList#1;class#AvailabilityList#0" expanded="false" />
                 <element signature="method#AvailabilityList#2;class#AvailabilityList#0" expanded="false" />
-                <marker date="1493546995424" expanded="false" signature="2590:2616" ph="SELECT * FRO... availability" />
-                <marker date="1493546995424" expanded="false" signature="2590:2656" ph="SELECT * FRO... availability" />
-                <marker date="1493546995424" expanded="false" signature="3089:3111" ph="SELECT * FRO... bookings" />
-                <marker date="1493546995424" expanded="false" signature="3089:3151" ph="SELECT * FRO... bookings" />
-                <marker date="1493546995424" expanded="false" signature="3089:3173" ph="SELECT * FRO... bookings" />
-                <marker date="1493546995424" expanded="false" signature="3089:3199" ph="SELECT * FRO... bookings" />
-                <marker date="1493546995424" expanded="false" signature="6529:6540" ph=" { " />
-                <marker date="1493546995424" expanded="false" signature="6557:6563" ph=" }" />
-                <marker date="1493546995424" expanded="false" signature="6604:6615" ph=" { " />
-                <marker date="1493546995424" expanded="false" signature="6626:6632" ph=" }" />
-                <marker date="1493546995424" expanded="false" signature="6668:6679" ph=" { " />
-                <marker date="1493546995424" expanded="false" signature="6697:6703" ph=" }" />
-                <marker date="1493546995424" expanded="false" signature="6733:6744" ph=" { " />
-                <marker date="1493546995424" expanded="false" signature="6763:6769" ph=" }" />
-                <marker date="1493546995424" expanded="false" signature="6812:6823" ph=" { " />
-                <marker date="1493546995424" expanded="false" signature="6836:6842" ph=" }" />
-                <marker date="1493546995424" expanded="false" signature="6882:6893" ph=" { " />
-                <marker date="1493546995424" expanded="false" signature="6915:6921" ph=" }" />
-                <marker date="1493546995424" expanded="false" signature="6951:6962" ph=" { " />
-                <marker date="1493546995424" expanded="false" signature="6981:6987" ph=" }" />
-                <marker date="1493546995424" expanded="false" signature="7030:7041" ph=" { " />
-                <marker date="1493546995424" expanded="false" signature="7054:7060" ph=" }" />
-                <marker date="1493546995424" expanded="false" signature="7100:7111" ph=" { " />
-                <marker date="1493546995424" expanded="false" signature="7133:7139" ph=" }" />
-                <marker date="1493546995424" expanded="false" signature="7171:7182" ph=" { " />
-                <marker date="1493546995424" expanded="false" signature="7203:7209" ph=" }" />
-                <marker date="1493546995424" expanded="false" signature="7254:7265" ph=" { " />
-                <marker date="1493546995424" expanded="false" signature="7280:7286" ph=" }" />
-                <marker date="1493546995424" expanded="false" signature="7330:7341" ph=" { " />
-                <marker date="1493546995424" expanded="false" signature="7367:7373" ph=" }" />
-                <marker date="1493546995424" expanded="false" signature="7405:7416" ph=" { " />
-                <marker date="1493546995424" expanded="false" signature="7437:7443" ph=" }" />
-                <marker date="1493546995424" expanded="false" signature="7488:7499" ph=" { " />
-                <marker date="1493546995424" expanded="false" signature="7514:7520" ph=" }" />
-                <marker date="1493546995424" expanded="false" signature="7564:7575" ph=" { " />
-                <marker date="1493546995424" expanded="false" signature="7601:7607" ph=" }" />
-                <marker date="1493546995424" expanded="false" signature="7636:7647" ph=" { " />
-                <marker date="1493546995424" expanded="false" signature="7665:7671" ph=" }" />
-                <marker date="1493546995424" expanded="false" signature="7713:7724" ph=" { " />
-                <marker date="1493546995424" expanded="false" signature="7736:7742" ph=" }" />
-                <marker date="1493546995424" expanded="false" signature="7780:7791" ph=" { " />
-                <marker date="1493546995424" expanded="false" signature="7811:7817" ph=" }" />
-                <marker date="1493546995424" expanded="false" signature="7854:7865" ph=" { " />
-                <marker date="1493546995424" expanded="false" signature="7882:7888" ph=" }" />
-                <marker date="1493546995424" expanded="false" signature="7923:7934" ph=" { " />
-                <marker date="1493546995424" expanded="false" signature="7949:7955" ph=" }" />
-                <marker date="1493546995424" expanded="false" signature="7986:7997" ph=" { " />
-                <marker date="1493546995424" expanded="false" signature="8014:8020" ph=" }" />
+                <element signature="method#AvailabilityList#3;class#AvailabilityList#0" expanded="false" />
+                <marker date="1493554640040" expanded="false" signature="2690:2716" ph="SELECT * FRO... availability" />
+                <marker date="1493554640040" expanded="false" signature="2690:2756" ph="SELECT * FRO... availability" />
+                <marker date="1493554640040" expanded="false" signature="3189:3211" ph="SELECT * FRO... bookings" />
+                <marker date="1493554640040" expanded="false" signature="3189:3251" ph="SELECT * FRO... bookings" />
+                <marker date="1493554640040" expanded="false" signature="3189:3273" ph="SELECT * FRO... bookings" />
+                <marker date="1493554640040" expanded="false" signature="3189:3299" ph="SELECT * FRO... bookings" />
+                <marker date="1493554640040" expanded="false" signature="6629:6640" ph=" { " />
+                <marker date="1493554640040" expanded="false" signature="6657:6663" ph=" }" />
+                <marker date="1493554640040" expanded="false" signature="6704:6715" ph=" { " />
+                <marker date="1493554640040" expanded="false" signature="6726:6732" ph=" }" />
+                <marker date="1493554640040" expanded="false" signature="6768:6779" ph=" { " />
+                <marker date="1493554640040" expanded="false" signature="6797:6803" ph=" }" />
+                <marker date="1493554640040" expanded="false" signature="6833:6844" ph=" { " />
+                <marker date="1493554640040" expanded="false" signature="6863:6869" ph=" }" />
+                <marker date="1493554640040" expanded="false" signature="6912:6923" ph=" { " />
+                <marker date="1493554640040" expanded="false" signature="6936:6942" ph=" }" />
+                <marker date="1493554640040" expanded="false" signature="6982:6993" ph=" { " />
+                <marker date="1493554640040" expanded="false" signature="7015:7021" ph=" }" />
+                <marker date="1493554640040" expanded="false" signature="7051:7062" ph=" { " />
+                <marker date="1493554640040" expanded="false" signature="7081:7087" ph=" }" />
+                <marker date="1493554640040" expanded="false" signature="7130:7141" ph=" { " />
+                <marker date="1493554640040" expanded="false" signature="7154:7160" ph=" }" />
+                <marker date="1493554640040" expanded="false" signature="7200:7211" ph=" { " />
+                <marker date="1493554640040" expanded="false" signature="7233:7239" ph=" }" />
+                <marker date="1493554640040" expanded="false" signature="7271:7282" ph=" { " />
+                <marker date="1493554640040" expanded="false" signature="7303:7309" ph=" }" />
+                <marker date="1493554640040" expanded="false" signature="7354:7365" ph=" { " />
+                <marker date="1493554640040" expanded="false" signature="7380:7386" ph=" }" />
+                <marker date="1493554640040" expanded="false" signature="7430:7441" ph=" { " />
+                <marker date="1493554640040" expanded="false" signature="7467:7473" ph=" }" />
+                <marker date="1493554640040" expanded="false" signature="7505:7516" ph=" { " />
+                <marker date="1493554640040" expanded="false" signature="7537:7543" ph=" }" />
+                <marker date="1493554640040" expanded="false" signature="7588:7599" ph=" { " />
+                <marker date="1493554640040" expanded="false" signature="7614:7620" ph=" }" />
+                <marker date="1493554640040" expanded="false" signature="7664:7675" ph=" { " />
+                <marker date="1493554640040" expanded="false" signature="7701:7707" ph=" }" />
+                <marker date="1493554640040" expanded="false" signature="7736:7747" ph=" { " />
+                <marker date="1493554640040" expanded="false" signature="7765:7771" ph=" }" />
+                <marker date="1493554640040" expanded="false" signature="7813:7824" ph=" { " />
+                <marker date="1493554640040" expanded="false" signature="7836:7842" ph=" }" />
+                <marker date="1493554640040" expanded="false" signature="7880:7891" ph=" { " />
+                <marker date="1493554640040" expanded="false" signature="7911:7917" ph=" }" />
+                <marker date="1493554640040" expanded="false" signature="7954:7965" ph=" { " />
+                <marker date="1493554640040" expanded="false" signature="7982:7988" ph=" }" />
+                <marker date="1493554640040" expanded="false" signature="8023:8034" ph=" { " />
+                <marker date="1493554640040" expanded="false" signature="8049:8055" ph=" }" />
+                <marker date="1493554640040" expanded="false" signature="8086:8097" ph=" { " />
+                <marker date="1493554640040" expanded="false" signature="8114:8120" ph=" }" />
               </folding>
             </state>
           </provider>
@@ -149,10 +149,80 @@
       <file leaf-file-name="AvailabilityListTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/tests/AvailabilityListTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="551">
-              <caret line="28" column="9" lean-forward="true" selection-start-line="28" selection-start-column="9" selection-end-line="28" selection-end-column="9" />
+            <state relative-caret-position="1037">
+              <caret line="85" column="0" lean-forward="true" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#setUp#0;class#AvailabilityListTest#0" expanded="false" />
+                <element signature="method#tearDown#0;class#AvailabilityListTest#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Availability.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/model/Availability.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="435">
+              <caret line="43" column="35" lean-forward="true" selection-start-line="43" selection-start-column="35" selection-end-line="43" selection-end-column="35" />
+              <folding>
+                <marker date="1493521873758" expanded="true" signature="1935:1991" ph="DELETE FROM " />
+                <marker date="1493521873758" expanded="true" signature="2560:2645" ph="INSERT INTO availability... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Day.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/model/Day.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="174">
+              <caret line="6" column="7" lean-forward="false" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AddServiceDialogControllerTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/tests/AddServiceDialogControllerTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="986">
+              <caret line="57" column="20" lean-forward="false" selection-start-line="57" selection-start-column="8" selection-end-line="57" selection-end-column="20" />
+              <folding>
+                <marker date="1491174675509" expanded="true" signature="586:630" ph="INSERT INTO services... " />
+                <marker date="1491174675509" expanded="true" signature="869:912" ph="DELETE FROM " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TestData.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/model/TestData.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="754">
+              <caret line="62" column="61" lean-forward="true" selection-start-line="62" selection-start-column="61" selection-end-line="62" selection-end-column="61" />
+              <folding>
+                <element signature="docComment;class#TestData#0" expanded="false" />
+                <element signature="method#populateAllTables#0;class#TestData#0" expanded="false" />
+                <element signature="method#populateAvailabilityTable#0;class#TestData#0" expanded="false" />
+                <element signature="method#populateBusinessOwnerTable#0;class#TestData#0" expanded="false" />
+                <element signature="method#populateCustomerTable#0;class#TestData#0" expanded="false" />
+                <element signature="method#populateServicesTable#0;class#TestData#0" expanded="false" />
+                <element signature="method#populateStaffTable#0;class#TestData#0" expanded="false" />
+                <element signature="method#clearAllTables#0;class#TestData#0" expanded="false" />
+                <element signature="method#clearAvailabilityTable#0;class#TestData#0" expanded="false" />
+                <element signature="method#clearBookingsTable#0;class#TestData#0" expanded="false" />
+                <element signature="method#clearBusinessOwnerTable#0;class#TestData#0" expanded="false" />
+                <element signature="method#clearCustomerTable#0;class#TestData#0" expanded="false" />
+                <element signature="method#clearServicesTable#0;class#TestData#0" expanded="false" />
+                <element signature="method#clearStaffTable#0;class#TestData#0" expanded="false" />
+                <element signature="method#sendToDB#0;class#TestData#0" expanded="false" />
+                <marker date="1493564871723" expanded="false" signature="6259:6283" ph="DELETE FROM " />
+                <marker date="1493564871723" expanded="false" signature="6559:6579" ph="DELETE FROM " />
+                <marker date="1493564871723" expanded="false" signature="6860:6885" ph="DELETE FROM " />
+                <marker date="1493564871723" expanded="false" signature="7161:7181" ph="DELETE FROM " />
+                <marker date="1493564871723" expanded="false" signature="7457:7477" ph="DELETE FROM " />
+                <marker date="1493564871723" expanded="false" signature="7750:7767" ph="DELETE FROM " />
               </folding>
             </state>
           </provider>
@@ -192,7 +262,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LoginController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="LoginController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/view/LoginController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="261">
@@ -202,35 +272,6 @@
                 <element signature="docComment;method#handleView#0;class#LoginController#0" expanded="false" />
                 <element signature="method#dbAccountSearch#0;class#LoginController#0" expanded="false" />
                 <element signature="method#showRegisterCustomer#0;class#LoginController#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AddServiceDialogControllerTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/tests/AddServiceDialogControllerTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="377">
-              <caret line="21" column="13" lean-forward="false" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-              <folding>
-                <marker date="1491174675509" expanded="true" signature="586:630" ph="INSERT INTO services... " />
-                <marker date="1491174675509" expanded="true" signature="869:912" ph="DELETE FROM " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DbTableSaveLoad.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/model/DbTableSaveLoad.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="726">
-              <caret line="69" column="17" lean-forward="false" selection-start-line="66" selection-start-column="16" selection-end-line="69" selection-end-column="17" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <marker date="1493546995459" expanded="true" signature="1006:1020" ph="SELECT * FRO... missingValue" />
-                <marker date="1493546995459" expanded="true" signature="1302:1314" ph="DELETE FROM " />
-                <marker date="1493546995459" expanded="true" signature="1559:1571" ph="DELETE FROM " />
-                <marker date="1493546995459" expanded="true" signature="1887:2062" ph="INSERT INTO missingValue... " />
               </folding>
             </state>
           </provider>
@@ -312,11 +353,11 @@
         <option value="$PROJECT_DIR$/src/appointmentBookingApp/tests/BookingsTest.java" />
         <option value="$PROJECT_DIR$/src/appointmentBookingApp/model/Bookings.java" />
         <option value="$PROJECT_DIR$/src/appointmentBookingApp/model/DbTableSaveLoad.java" />
-        <option value="$PROJECT_DIR$/src/appointmentBookingApp/model/AvailabilityList.java" />
         <option value="$PROJECT_DIR$/src/appointmentBookingApp/tests/TestData.java" />
-        <option value="$PROJECT_DIR$/src/appointmentBookingApp/model/TestData.java" />
-        <option value="$PROJECT_DIR$/src/appointmentBookingApp/tests/AvailabilityListTest.java" />
         <option value="$PROJECT_DIR$/src/appointmentBookingApp/view/LoginController.java" />
+        <option value="$PROJECT_DIR$/src/appointmentBookingApp/model/AvailabilityList.java" />
+        <option value="$PROJECT_DIR$/src/appointmentBookingApp/tests/AvailabilityListTest.java" />
+        <option value="$PROJECT_DIR$/src/appointmentBookingApp/model/TestData.java" />
       </list>
     </option>
   </component>
@@ -331,9 +372,9 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="5" />
-    <option name="width" value="3374" />
-    <option name="height" value="1839" />
+    <option name="x" value="-11" />
+    <option name="width" value="2174" />
+    <option name="height" value="1381" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -1243,27 +1284,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="AvailabilityListTest - 2017.04.30 at 17h 49m 09s.xml">
-      <configuration name="AvailabilityListTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AvailabilityListTest - 2017.04.30 at 17h 56m 11s.xml">
-      <configuration name="AvailabilityListTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AvailabilityListTest - 2017.04.30 at 18h 24m 08s.xml">
-      <configuration name="AvailabilityListTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AvailabilityListTest - 2017.04.30 at 18h 31m 06s.xml">
-      <configuration name="AvailabilityListTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AvailabilityListTest - 2017.04.30 at 18h 33m 33s.xml">
-      <configuration name="AvailabilityListTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AvailabilityListTest - 2017.04.30 at 18h 37m 31s.xml">
-      <configuration name="AvailabilityListTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AvailabilityListTest - 2017.04.30 at 18h 38m 40s.xml">
-      <configuration name="AvailabilityListTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="AvailabilityListTest - 2017.04.30 at 18h 46m 20s.xml">
       <configuration name="AvailabilityListTest" configurationId="JUnit" />
     </history-entry>
@@ -1273,17 +1293,38 @@
     <history-entry file="AvailabilityListTest - 2017.04.30 at 19h 56m 26s.xml">
       <configuration name="AvailabilityListTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="AvailabilityListTest - 2017.04.30 at 22h 14m 29s.xml">
+      <configuration name="AvailabilityListTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AvailabilityListTest - 2017.04.30 at 22h 18m 14s.xml">
+      <configuration name="AvailabilityListTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AvailabilityListTest - 2017.04.30 at 22h 37m 06s.xml">
+      <configuration name="AvailabilityListTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AvailabilityListTest - 2017.05.01 at 00h 00m 25s.xml">
+      <configuration name="AvailabilityListTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AvailabilityListTest - 2017.05.01 at 00h 12m 03s.xml">
+      <configuration name="AvailabilityListTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AvailabilityListTest - 2017.05.01 at 01h 00m 37s.xml">
+      <configuration name="AvailabilityListTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AvailabilityListTest - 2017.05.01 at 01h 05m 00s.xml">
+      <configuration name="AvailabilityListTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="276360000" />
+    <option name="totallyTimeSpent" value="285373000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="5" y="0" width="3374" height="1839" extended-state="0" />
+    <frame x="-11" y="0" width="2174" height="1381" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294903" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962963" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970357" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -1295,14 +1336,14 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3270631" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32691112" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28822815" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17522389" sideWeight="0.6703755" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4022589" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="476" y="583" width="1941" height="1034" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32939714" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28330114" sideWeight="0.6703755" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3278887" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="17" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962963" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
@@ -1315,7 +1356,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962963" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970357" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970357" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
@@ -1496,14 +1537,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/model/Day.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="6" column="66" lean-forward="true" selection-start-line="6" selection-start-column="66" selection-end-line="6" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/javafx-src.zip!/javafx/collections/FXCollections.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6844">
@@ -1654,14 +1687,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/model/Availability.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-895">
-          <caret line="44" column="46" lean-forward="false" selection-start-line="44" selection-start-column="46" selection-end-line="44" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/util/DbUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1188">
@@ -1784,91 +1809,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/tests/AddServiceDialogControllerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="21" column="13" lean-forward="false" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-          <folding>
-            <marker date="1491174675509" expanded="true" signature="586:630" ph="INSERT INTO services... " />
-            <marker date="1491174675509" expanded="true" signature="869:912" ph="DELETE FROM " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/model/AvailabilityList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2931">
-          <caret line="135" column="5" lean-forward="false" selection-start-line="135" selection-start-column="5" selection-end-line="135" selection-end-column="5" />
-          <folding>
-            <element signature="method#AvailabilityList#0;class#AvailabilityList#0" expanded="false" />
-            <element signature="method#AvailabilityList#1;class#AvailabilityList#0" expanded="false" />
-            <element signature="method#AvailabilityList#2;class#AvailabilityList#0" expanded="false" />
-            <marker date="1493546995424" expanded="false" signature="2590:2616" ph="SELECT * FRO... availability" />
-            <marker date="1493546995424" expanded="false" signature="2590:2656" ph="SELECT * FRO... availability" />
-            <marker date="1493546995424" expanded="false" signature="3089:3111" ph="SELECT * FRO... bookings" />
-            <marker date="1493546995424" expanded="false" signature="3089:3151" ph="SELECT * FRO... bookings" />
-            <marker date="1493546995424" expanded="false" signature="3089:3173" ph="SELECT * FRO... bookings" />
-            <marker date="1493546995424" expanded="false" signature="3089:3199" ph="SELECT * FRO... bookings" />
-            <marker date="1493546995424" expanded="false" signature="6529:6540" ph=" { " />
-            <marker date="1493546995424" expanded="false" signature="6557:6563" ph=" }" />
-            <marker date="1493546995424" expanded="false" signature="6604:6615" ph=" { " />
-            <marker date="1493546995424" expanded="false" signature="6626:6632" ph=" }" />
-            <marker date="1493546995424" expanded="false" signature="6668:6679" ph=" { " />
-            <marker date="1493546995424" expanded="false" signature="6697:6703" ph=" }" />
-            <marker date="1493546995424" expanded="false" signature="6733:6744" ph=" { " />
-            <marker date="1493546995424" expanded="false" signature="6763:6769" ph=" }" />
-            <marker date="1493546995424" expanded="false" signature="6812:6823" ph=" { " />
-            <marker date="1493546995424" expanded="false" signature="6836:6842" ph=" }" />
-            <marker date="1493546995424" expanded="false" signature="6882:6893" ph=" { " />
-            <marker date="1493546995424" expanded="false" signature="6915:6921" ph=" }" />
-            <marker date="1493546995424" expanded="false" signature="6951:6962" ph=" { " />
-            <marker date="1493546995424" expanded="false" signature="6981:6987" ph=" }" />
-            <marker date="1493546995424" expanded="false" signature="7030:7041" ph=" { " />
-            <marker date="1493546995424" expanded="false" signature="7054:7060" ph=" }" />
-            <marker date="1493546995424" expanded="false" signature="7100:7111" ph=" { " />
-            <marker date="1493546995424" expanded="false" signature="7133:7139" ph=" }" />
-            <marker date="1493546995424" expanded="false" signature="7171:7182" ph=" { " />
-            <marker date="1493546995424" expanded="false" signature="7203:7209" ph=" }" />
-            <marker date="1493546995424" expanded="false" signature="7254:7265" ph=" { " />
-            <marker date="1493546995424" expanded="false" signature="7280:7286" ph=" }" />
-            <marker date="1493546995424" expanded="false" signature="7330:7341" ph=" { " />
-            <marker date="1493546995424" expanded="false" signature="7367:7373" ph=" }" />
-            <marker date="1493546995424" expanded="false" signature="7405:7416" ph=" { " />
-            <marker date="1493546995424" expanded="false" signature="7437:7443" ph=" }" />
-            <marker date="1493546995424" expanded="false" signature="7488:7499" ph=" { " />
-            <marker date="1493546995424" expanded="false" signature="7514:7520" ph=" }" />
-            <marker date="1493546995424" expanded="false" signature="7564:7575" ph=" { " />
-            <marker date="1493546995424" expanded="false" signature="7601:7607" ph=" }" />
-            <marker date="1493546995424" expanded="false" signature="7636:7647" ph=" { " />
-            <marker date="1493546995424" expanded="false" signature="7665:7671" ph=" }" />
-            <marker date="1493546995424" expanded="false" signature="7713:7724" ph=" { " />
-            <marker date="1493546995424" expanded="false" signature="7736:7742" ph=" }" />
-            <marker date="1493546995424" expanded="false" signature="7780:7791" ph=" { " />
-            <marker date="1493546995424" expanded="false" signature="7811:7817" ph=" }" />
-            <marker date="1493546995424" expanded="false" signature="7854:7865" ph=" { " />
-            <marker date="1493546995424" expanded="false" signature="7882:7888" ph=" }" />
-            <marker date="1493546995424" expanded="false" signature="7923:7934" ph=" { " />
-            <marker date="1493546995424" expanded="false" signature="7949:7955" ph=" }" />
-            <marker date="1493546995424" expanded="false" signature="7986:7997" ph=" { " />
-            <marker date="1493546995424" expanded="false" signature="8014:8020" ph=" }" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/model/DbTableSaveLoad.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="726">
-          <caret line="69" column="17" lean-forward="false" selection-start-line="66" selection-start-column="16" selection-end-line="69" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1493546995459" expanded="true" signature="1006:1020" ph="SELECT * FRO... missingValue" />
-            <marker date="1493546995459" expanded="true" signature="1302:1314" ph="DELETE FROM " />
-            <marker date="1493546995459" expanded="true" signature="1559:1571" ph="DELETE FROM " />
-            <marker date="1493546995459" expanded="true" signature="1887:2062" ph="INSERT INTO missingValue... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/view/AddStaff.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1878,47 +1818,6 @@
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/model/TestData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="134" column="5" lean-forward="true" selection-start-line="134" selection-start-column="5" selection-end-line="134" selection-end-column="5" />
-          <folding>
-            <element signature="docComment;class#TestData#0" expanded="false" />
-            <element signature="method#populateAllTables#0;class#TestData#0" expanded="false" />
-            <element signature="method#populateAvailabilityTable#0;class#TestData#0" expanded="false" />
-            <element signature="method#populateBookingsTable#0;class#TestData#0" expanded="false" />
-            <element signature="method#populateBusinessOwnerTable#0;class#TestData#0" expanded="false" />
-            <element signature="method#populateCustomerTable#0;class#TestData#0" expanded="false" />
-            <element signature="method#populateServicesTable#0;class#TestData#0" expanded="false" />
-            <element signature="method#populateStaffTable#0;class#TestData#0" expanded="false" />
-            <element signature="method#clearAllTables#0;class#TestData#0" expanded="false" />
-            <element signature="method#clearAvailabilityTable#0;class#TestData#0" expanded="false" />
-            <element signature="method#clearBookingsTable#0;class#TestData#0" expanded="false" />
-            <element signature="method#clearBusinessOwnerTable#0;class#TestData#0" expanded="false" />
-            <element signature="method#clearCustomerTable#0;class#TestData#0" expanded="false" />
-            <element signature="method#clearServicesTable#0;class#TestData#0" expanded="false" />
-            <element signature="method#clearStaffTable#0;class#TestData#0" expanded="false" />
-            <element signature="method#sendToDB#0;class#TestData#0" expanded="false" />
-            <marker date="1493546995475" expanded="false" signature="6259:6283" ph="DELETE FROM " />
-            <marker date="1493546995475" expanded="false" signature="6559:6579" ph="DELETE FROM " />
-            <marker date="1493546995475" expanded="false" signature="6860:6885" ph="DELETE FROM " />
-            <marker date="1493546995475" expanded="false" signature="7161:7181" ph="DELETE FROM " />
-            <marker date="1493546995475" expanded="false" signature="7457:7477" ph="DELETE FROM " />
-            <marker date="1493546995475" expanded="false" signature="7750:7767" ph="DELETE FROM " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/tests/AvailabilityListTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
-          <caret line="28" column="9" lean-forward="true" selection-start-line="28" selection-start-column="9" selection-end-line="28" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/model/Bookings.java">
@@ -1952,6 +1851,154 @@
             <element signature="docComment;method#handleView#0;class#LoginController#0" expanded="false" />
             <element signature="method#dbAccountSearch#0;class#LoginController#0" expanded="false" />
             <element signature="method#showRegisterCustomer#0;class#LoginController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/model/DbTableSaveLoad.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="726">
+          <caret line="69" column="17" lean-forward="false" selection-start-line="66" selection-start-column="16" selection-end-line="69" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1493546995459" expanded="true" signature="1006:1020" ph="SELECT * FRO... missingValue" />
+            <marker date="1493546995459" expanded="true" signature="1302:1314" ph="DELETE FROM " />
+            <marker date="1493546995459" expanded="true" signature="1559:1571" ph="DELETE FROM " />
+            <marker date="1493546995459" expanded="true" signature="1887:2062" ph="INSERT INTO missingValue... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/tests/AddServiceDialogControllerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="986">
+          <caret line="57" column="20" lean-forward="false" selection-start-line="57" selection-start-column="8" selection-end-line="57" selection-end-column="20" />
+          <folding>
+            <marker date="1491174675509" expanded="true" signature="586:630" ph="INSERT INTO services... " />
+            <marker date="1491174675509" expanded="true" signature="869:912" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/model/Availability.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="43" column="35" lean-forward="true" selection-start-line="43" selection-start-column="35" selection-end-line="43" selection-end-column="35" />
+          <folding>
+            <marker date="1493521873758" expanded="true" signature="1935:1991" ph="DELETE FROM " />
+            <marker date="1493521873758" expanded="true" signature="2560:2645" ph="INSERT INTO availability... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/model/Day.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="6" column="7" lean-forward="false" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/tests/AvailabilityListTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1037">
+          <caret line="85" column="0" lean-forward="true" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#setUp#0;class#AvailabilityListTest#0" expanded="false" />
+            <element signature="method#tearDown#0;class#AvailabilityListTest#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/model/TestData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="754">
+          <caret line="62" column="61" lean-forward="true" selection-start-line="62" selection-start-column="61" selection-end-line="62" selection-end-column="61" />
+          <folding>
+            <element signature="docComment;class#TestData#0" expanded="false" />
+            <element signature="method#populateAllTables#0;class#TestData#0" expanded="false" />
+            <element signature="method#populateAvailabilityTable#0;class#TestData#0" expanded="false" />
+            <element signature="method#populateBusinessOwnerTable#0;class#TestData#0" expanded="false" />
+            <element signature="method#populateCustomerTable#0;class#TestData#0" expanded="false" />
+            <element signature="method#populateServicesTable#0;class#TestData#0" expanded="false" />
+            <element signature="method#populateStaffTable#0;class#TestData#0" expanded="false" />
+            <element signature="method#clearAllTables#0;class#TestData#0" expanded="false" />
+            <element signature="method#clearAvailabilityTable#0;class#TestData#0" expanded="false" />
+            <element signature="method#clearBookingsTable#0;class#TestData#0" expanded="false" />
+            <element signature="method#clearBusinessOwnerTable#0;class#TestData#0" expanded="false" />
+            <element signature="method#clearCustomerTable#0;class#TestData#0" expanded="false" />
+            <element signature="method#clearServicesTable#0;class#TestData#0" expanded="false" />
+            <element signature="method#clearStaffTable#0;class#TestData#0" expanded="false" />
+            <element signature="method#sendToDB#0;class#TestData#0" expanded="false" />
+            <marker date="1493564871723" expanded="false" signature="6259:6283" ph="DELETE FROM " />
+            <marker date="1493564871723" expanded="false" signature="6559:6579" ph="DELETE FROM " />
+            <marker date="1493564871723" expanded="false" signature="6860:6885" ph="DELETE FROM " />
+            <marker date="1493564871723" expanded="false" signature="7161:7181" ph="DELETE FROM " />
+            <marker date="1493564871723" expanded="false" signature="7457:7477" ph="DELETE FROM " />
+            <marker date="1493564871723" expanded="false" signature="7750:7767" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/appointmentBookingApp/model/AvailabilityList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-211">
+          <caret line="75" column="44" lean-forward="true" selection-start-line="75" selection-start-column="44" selection-end-line="75" selection-end-column="44" />
+          <folding>
+            <element signature="e#925#926#0" expanded="true" />
+            <element signature="e#993#994#0" expanded="true" />
+            <element signature="method#AvailabilityList#1;class#AvailabilityList#0" expanded="false" />
+            <element signature="method#AvailabilityList#2;class#AvailabilityList#0" expanded="false" />
+            <element signature="method#AvailabilityList#3;class#AvailabilityList#0" expanded="false" />
+            <marker date="1493554640040" expanded="false" signature="2690:2716" ph="SELECT * FRO... availability" />
+            <marker date="1493554640040" expanded="false" signature="2690:2756" ph="SELECT * FRO... availability" />
+            <marker date="1493554640040" expanded="false" signature="3189:3211" ph="SELECT * FRO... bookings" />
+            <marker date="1493554640040" expanded="false" signature="3189:3251" ph="SELECT * FRO... bookings" />
+            <marker date="1493554640040" expanded="false" signature="3189:3273" ph="SELECT * FRO... bookings" />
+            <marker date="1493554640040" expanded="false" signature="3189:3299" ph="SELECT * FRO... bookings" />
+            <marker date="1493554640040" expanded="false" signature="6629:6640" ph=" { " />
+            <marker date="1493554640040" expanded="false" signature="6657:6663" ph=" }" />
+            <marker date="1493554640040" expanded="false" signature="6704:6715" ph=" { " />
+            <marker date="1493554640040" expanded="false" signature="6726:6732" ph=" }" />
+            <marker date="1493554640040" expanded="false" signature="6768:6779" ph=" { " />
+            <marker date="1493554640040" expanded="false" signature="6797:6803" ph=" }" />
+            <marker date="1493554640040" expanded="false" signature="6833:6844" ph=" { " />
+            <marker date="1493554640040" expanded="false" signature="6863:6869" ph=" }" />
+            <marker date="1493554640040" expanded="false" signature="6912:6923" ph=" { " />
+            <marker date="1493554640040" expanded="false" signature="6936:6942" ph=" }" />
+            <marker date="1493554640040" expanded="false" signature="6982:6993" ph=" { " />
+            <marker date="1493554640040" expanded="false" signature="7015:7021" ph=" }" />
+            <marker date="1493554640040" expanded="false" signature="7051:7062" ph=" { " />
+            <marker date="1493554640040" expanded="false" signature="7081:7087" ph=" }" />
+            <marker date="1493554640040" expanded="false" signature="7130:7141" ph=" { " />
+            <marker date="1493554640040" expanded="false" signature="7154:7160" ph=" }" />
+            <marker date="1493554640040" expanded="false" signature="7200:7211" ph=" { " />
+            <marker date="1493554640040" expanded="false" signature="7233:7239" ph=" }" />
+            <marker date="1493554640040" expanded="false" signature="7271:7282" ph=" { " />
+            <marker date="1493554640040" expanded="false" signature="7303:7309" ph=" }" />
+            <marker date="1493554640040" expanded="false" signature="7354:7365" ph=" { " />
+            <marker date="1493554640040" expanded="false" signature="7380:7386" ph=" }" />
+            <marker date="1493554640040" expanded="false" signature="7430:7441" ph=" { " />
+            <marker date="1493554640040" expanded="false" signature="7467:7473" ph=" }" />
+            <marker date="1493554640040" expanded="false" signature="7505:7516" ph=" { " />
+            <marker date="1493554640040" expanded="false" signature="7537:7543" ph=" }" />
+            <marker date="1493554640040" expanded="false" signature="7588:7599" ph=" { " />
+            <marker date="1493554640040" expanded="false" signature="7614:7620" ph=" }" />
+            <marker date="1493554640040" expanded="false" signature="7664:7675" ph=" { " />
+            <marker date="1493554640040" expanded="false" signature="7701:7707" ph=" }" />
+            <marker date="1493554640040" expanded="false" signature="7736:7747" ph=" { " />
+            <marker date="1493554640040" expanded="false" signature="7765:7771" ph=" }" />
+            <marker date="1493554640040" expanded="false" signature="7813:7824" ph=" { " />
+            <marker date="1493554640040" expanded="false" signature="7836:7842" ph=" }" />
+            <marker date="1493554640040" expanded="false" signature="7880:7891" ph=" { " />
+            <marker date="1493554640040" expanded="false" signature="7911:7917" ph=" }" />
+            <marker date="1493554640040" expanded="false" signature="7954:7965" ph=" { " />
+            <marker date="1493554640040" expanded="false" signature="7982:7988" ph=" }" />
+            <marker date="1493554640040" expanded="false" signature="8023:8034" ph=" { " />
+            <marker date="1493554640040" expanded="false" signature="8049:8055" ph=" }" />
+            <marker date="1493554640040" expanded="false" signature="8086:8097" ph=" { " />
+            <marker date="1493554640040" expanded="false" signature="8114:8120" ph=" }" />
           </folding>
         </state>
       </provider>
