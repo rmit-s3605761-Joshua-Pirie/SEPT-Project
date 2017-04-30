@@ -26,8 +26,8 @@ public class Bookings {
     private final StringProperty day;
     private final Day dayOfWeek;
 
-    public Bookings(String sTime, String eTime, String service, String customer, String empName, String staffID){
-        this(sTime, eTime, service, customer, empName, staffID, null, null, null);
+    public Bookings(String sTime, String eTime, String service, String customer, String empName, String staffID, Day dayOfWeek){
+        this(sTime, eTime, service, customer, empName, staffID, null, null, dayOfWeek);
     }
 
     public Bookings(String sTime, String eTime, String service, String empName, String date, Day dayOfWeek){
@@ -81,7 +81,8 @@ public class Bookings {
                     rs.getString("service"),
                     customer,
                     rs.getString("staff.firstName"),
-                    rs.getString("staffID")));
+                    rs.getString("staffID"),
+                    Day.values()[rs.getInt("dayofWeek")]));
 
         }
         return bookings;
@@ -133,7 +134,8 @@ public class Bookings {
                     rs.getString("service"),
                     customer,
                     rs.getString("staff.firstName"),
-                    rs.getString("staffID")));
+                    rs.getString("staffID"),
+                    Day.values()[rs.getInt("dayofWeek")]));
         }
         return bookings;
     }

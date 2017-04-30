@@ -56,6 +56,13 @@ class AvailabilityListTest {
         for(DbTableSaveLoad table : dbTables){
             table.loadTable();
         }
+        String sql = "INSERT INTO availability (staffID, dayOfWeek, startTime, endTime) VALUES ('S000001',0,'08:00:00','12:00:00')";
+//        sql = "INSERT INTO services VALUES('TEST2','99:00')"
+        try {
+            DbUtil.getNewStatment().executeUpdate(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 //        try (PreparedStatement pstmt = DbUtil.getConnection().prepareStatement(
 //                "INSERT INTO " + table + " ("
 //                        + columns.stream().collect(Collectors.joining(", "))

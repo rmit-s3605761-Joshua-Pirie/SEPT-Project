@@ -51,19 +51,23 @@ public class DbTableSaveLoad {
     }
 
     public void loadTable(){
+        System.out.println("Loading table: "+table);
+        System.out.println(columns);
+
         String sql = "INSERT INTO "+table+" ("+columns.stream().collect(Collectors.joining(", "))
                 + ") VALUES ("+ columns.stream().map(c -> "?").collect(Collectors.joining(","))+ ")";
-        try (PreparedStatement pstmt = DbUtil.getConnection().prepareStatement(sql
-        )) {
-
+        try (PreparedStatement pstmt = DbUtil.getConnection().prepareStatement(sql))
+        {
             while (rs.next()) {
+                System.out.println("New Row");
                 for (int i = 1; i <= meta.getColumnCount(); i++){
                     pstmt.setObject(i, rs.getObject(i));
-                    System.out.print(rs.getObject(i));
+                    System.out.println("Para: "+i+" Object: "+rs.getObject(i));
                 }
                 pstmt.addBatch();
+                System.out.println(pstmt);
             }
-
+            System.out.println();
             pstmt.executeLargeBatch();
         } catch (SQLException e) {
             e.printStackTrace();
