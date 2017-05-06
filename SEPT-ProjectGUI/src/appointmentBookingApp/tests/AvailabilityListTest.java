@@ -5,9 +5,7 @@ import appointmentBookingApp.model.Day;
 import appointmentBookingApp.model.DbTableSaveLoad;
 import appointmentBookingApp.model.TestData;
 import appointmentBookingApp.util.DbUtil;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -20,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class AvailabilityListTest {
     private List<DbTableSaveLoad> dbTables = new ArrayList<>();
 
-    @BeforeEach
+    @BeforeAll
     void setUp() {
         DbUtil.databaseConnect();
 
@@ -36,7 +34,7 @@ class AvailabilityListTest {
         TestData.clearBookingsTable();
     }
 
-    @AfterEach
+    @AfterAll
     void tearDown() {
         for(DbTableSaveLoad table : dbTables){
             table.loadTable();
