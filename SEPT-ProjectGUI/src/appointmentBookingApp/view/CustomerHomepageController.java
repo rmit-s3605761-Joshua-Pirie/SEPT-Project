@@ -48,10 +48,10 @@ public class CustomerHomepageController {
 
     @FXML
     public void showBookAppointment(){
-        /*try {
+        try {
             // Load the fxml file and create a new stage for the popup dialog.
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(MainApp.class.getResource("view/BookAppointment.fxml"));
+            loader.setLocation(MainApp.class.getResource("view/CreateAppointmentCustomer.fxml"));
             AnchorPane BookAppointment = (AnchorPane) loader.load();
             // Create the dialog Stage.
             Stage dialogStage = new Stage();
@@ -61,14 +61,14 @@ public class CustomerHomepageController {
             Scene scene = new Scene(BookAppointment);
             dialogStage.setScene(scene);
 
-//            BookAppointmentController controller = loader.getController();
-//            controller.setDialogStage(dialogStage);
+            CreateAppointmentCustomerController controller = loader.getController();
+            controller.setDialogStage(dialogStage);
 
             // Show the dialog and wait until the user closes it
             dialogStage.showAndWait();
         } catch (IOException e) {
             e.printStackTrace();
-        }*/
+        }
     }
 
     @FXML
