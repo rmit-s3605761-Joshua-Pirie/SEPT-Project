@@ -20,14 +20,14 @@
             <Text layoutX="46.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name:" />
             <Text layoutX="51.0" layoutY="310.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Surname:" />
             <Text layoutX="33.0" layoutY="361.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mail Address:" />
-            <TextField fx:id="UserName" layoutX="124.0" layoutY="56.0" />
-            <PasswordField fx:id="Password" layoutX="122.0" layoutY="97.0" />
-            <PasswordField fx:id="Password2" layoutX="122.0" layoutY="146.0" />
-            <TextField fx:id="eMail" layoutX="122.0" layoutY="193.0" />
-            <TextField fx:id="FirstName" layoutX="122.0" layoutY="243.0" />
-            <TextField fx:id="Surname" layoutX="122.0" layoutY="293.0" />
-            <TextField fx:id="Address" layoutX="122.0" layoutY="344.0" />
-            <TextField fx:id="Phone" layoutX="122.0" layoutY="393.0" />
+            <TextField fx:id="UserName" layoutX="124.0" layoutY="56.0" promptText="e.g. bill123" />
+            <PasswordField fx:id="Password" layoutX="122.0" layoutY="97.0" promptText="e.g. asDF12#$" />
+            <PasswordField fx:id="Password2" layoutX="122.0" layoutY="146.0" promptText="Must match" />
+            <TextField fx:id="eMail" layoutX="122.0" layoutY="193.0" promptText="e.g. bill@mail.com" />
+            <TextField fx:id="FirstName" layoutX="122.0" layoutY="243.0" promptText="e.g. Bill" />
+            <TextField fx:id="Surname" layoutX="122.0" layoutY="293.0" promptText="e.g.Billson" />
+            <TextField fx:id="Address" layoutX="122.0" layoutY="344.0" promptText="e.g. 123 Fake St" />
+            <TextField fx:id="Phone" layoutX="122.0" layoutY="393.0" promptText="8 to 10 digits long" />
             <Button fx:id="Register" defaultButton="true" layoutX="149.0" layoutY="442.0" mnemonicParsing="false" onAction="#addCustomer" text="Register" />
             <Button id="Cancel" fx:id="Cancel" cancelButton="true" layoutX="221.0" layoutY="442.0" mnemonicParsing="false" onAction="#handleCancel" text="Cancel" />
             <Text layoutX="63.0" layoutY="410.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone:" />

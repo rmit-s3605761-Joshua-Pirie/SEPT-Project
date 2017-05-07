@@ -27,6 +27,10 @@ public class AvailabilityList {
     private final LocalTime endTime;
     private final Day dayOfWeek;
 
+    public AvailabilityList(){
+        this(null, null, "00:00", "00:00", null, null ,null);
+    }
+
     public AvailabilityList(String staffID, Day dayOfWeek, String sTime, String eTime, String empName){
         this(null, dayOfWeek.toString(), sTime, eTime, empName, staffID ,dayOfWeek);
     }
