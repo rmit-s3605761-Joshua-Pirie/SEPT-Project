@@ -45,7 +45,10 @@ public class LoginController {
         errorMessage.setText("");
         username.setPromptText("username");
         password.setPromptText("password");
+    }
 
+    public void ini(){
+        System.out.println(mainApp.business);
     }
 
 	/**
