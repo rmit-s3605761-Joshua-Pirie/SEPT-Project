@@ -101,19 +101,21 @@ class AddServiceDialogControllerTest {
 //    Test confirming that a service of the same name can't be added to the database.
     @Test
     void addService1() {
+        String business = "Baker";
         service = "TEST2";
         duration = "99:00";
         AddServiceDialogController test = new AddServiceDialogController();
-        assertEquals(false,test.addServiceToDB(service, duration));
+        assertEquals(false,test.addServiceToDB(service, duration, business));
     }
 
 //    Tests that a new service can be added to the database.
     @Test
     void addService2() {
+        String business = "Baker";
         service = "TEST3";
         duration = "99:00";
         AddServiceDialogController test = new AddServiceDialogController();
-        assertEquals(true,test.addServiceToDB(service, duration));
+        assertEquals(true,test.addServiceToDB(service, duration, business));
     }
 
 

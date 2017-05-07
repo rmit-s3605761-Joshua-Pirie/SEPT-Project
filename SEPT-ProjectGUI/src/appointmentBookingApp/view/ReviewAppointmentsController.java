@@ -40,19 +40,28 @@ public class ReviewAppointmentsController {
     ObservableList<Bookings> bookings = FXCollections.observableArrayList();
     FilteredList<Bookings> filteredData = new FilteredList<>(bookings, p -> true);
     private Stage dialogStage;
+    private MainApp mainApp;
+    private String business;
+
+    //Allow for the control of the main app.
+    public void setMainApp(MainApp mainApp) {
+        this.mainApp = mainApp;
+    }
 
     public void setDialogStage(Stage dialogStage) {
         this.dialogStage = dialogStage;
     }
 
     public void ini(String customerUsername) throws SQLException {
+        this.business = mainApp.business;
+        System.out.println("BN from ReviewApp: "+mainApp.business);
         dateColumn.setCellValueFactory(cellData -> cellData.getValue().dateProperty());
         dayColumn.setCellValueFactory(cellData -> cellData.getValue().dayProperty());
         serviceColumn.setCellValueFactory(cellData -> cellData.getValue().serviceProperty());
         sTimeColumn.setCellValueFactory(cellData -> cellData.getValue().sTimeProperty());
         eTimeColumn.setCellValueFactory(cellData -> cellData.getValue().eTimeProperty());
         nameColumn.setCellValueFactory(cellData -> cellData.getValue().empNameProperty());
-        bookings.setAll(Bookings.reviewAppointmentsCustomer(customerUsername));
+        bookings.setAll(Bookings.reviewAppointmentsCustomer(customerUsername, business));
         bookingTable.setItems(bookings);
         filters();
     }

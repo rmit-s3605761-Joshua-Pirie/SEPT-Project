@@ -91,6 +91,8 @@ public class BusinessHomepageController {
 
             AddServiceDialogController controller = loader.getController();
             controller.setDialogStage(dialogStage);
+            controller.setMainApp(mainApp);
+            controller.ini();
 
             // Show the dialog and wait until the user closes it
             dialogStage.showAndWait();

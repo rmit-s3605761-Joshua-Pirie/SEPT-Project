@@ -39,6 +39,7 @@ public class RemainingAvailabilityController {
     private TableColumn<AvailabilityList, String> eTimeColumn;
     ObservableList<AvailabilityList> availability = FXCollections.observableArrayList();
     FilteredList<AvailabilityList> filteredData = new FilteredList<>(availability, p -> true);
+    private String business;
 
     //Allow for the control of the main app.
     public void setMainApp(MainApp mainApp) {
@@ -59,12 +60,14 @@ public class RemainingAvailabilityController {
     }
 
     public void ini() throws SQLException {
+        this.business = mainApp.business;
+        System.out.println("BN from RemainingAvail: "+mainApp.business);
         staffIDColumn.setCellValueFactory(cellData -> cellData.getValue().staffIDProperty());
         nameColumn.setCellValueFactory(cellData -> cellData.getValue().empNameProperty());
         dayColumn.setCellValueFactory(cellData -> cellData.getValue().dayProperty());
         sTimeColumn.setCellValueFactory(cellData -> cellData.getValue().sTimeProperty());
         eTimeColumn.setCellValueFactory(cellData -> cellData.getValue().eTimeProperty());
-        availability.setAll(AvailabilityList.remainingAvailability());
+        availability.setAll(AvailabilityList.remainingAvailability(business));
         availabilityTable.setItems(availability);
         filters();
     }

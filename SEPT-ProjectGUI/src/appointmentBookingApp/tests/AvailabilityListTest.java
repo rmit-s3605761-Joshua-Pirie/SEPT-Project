@@ -17,6 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class AvailabilityListTest {
     private List<DbTableSaveLoad> dbTables = new ArrayList<>();
+    String business ="Baker";
 
     @BeforeAll
     void setUp() {
@@ -58,7 +59,7 @@ class AvailabilityListTest {
 
         AvailabilityList test = new AvailabilityList();
         try {
-            assertEquals(2,test.remainingAvailability().size());
+            assertEquals(2,test.remainingAvailability(business).size());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -83,7 +84,7 @@ class AvailabilityListTest {
         TestData.sendToDB(stmt2, data2);
 
         try {
-            assertEquals(2,AvailabilityList.remainingAvailability().size());
+            assertEquals(2,AvailabilityList.remainingAvailability(business).size());
         } catch (SQLException e) {
             e.printStackTrace();
         }

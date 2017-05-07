@@ -48,8 +48,7 @@ public class Bookings {
         this.dayOfWeek = dayOfWeek;
     }
 
-    public static ObservableList<Bookings> setBookings(String date, String iniTime) throws SQLException {
-//        String sTime = "09:30";
+    public static ObservableList<Bookings> setBookings(String date, String iniTime, String business) throws SQLException {
         int minutes = 29;
         ObservableList<Bookings> bookings = FXCollections.observableArrayList();
         LocalTime time1 = LocalTime.parse(iniTime);
@@ -59,12 +58,14 @@ public class Bookings {
 
         String sql = "SELECT bookings.*, staff.firstName " +
                 "FROM bookings " +
-                "JOIN staff ON bookings.staffID = staff.staffID " +
-                "WHERE date=? AND sTime BETWEEN ? AND ?";
+                "NATURAL JOIN staff " +
+                "WHERE date=? AND sTime BETWEEN ? AND ? " +
+                "AND businessName = ?";
         PreparedStatement pstmt = DbUtil.getConnection().prepareStatement(sql);
         pstmt.setDate(1, Date.valueOf(date));
         pstmt.setString(2,time1.toString());
         pstmt.setString(3,time2.toString());
+        pstmt.setObject(4,business);
         ResultSet rs = pstmt.executeQuery();
         while(rs.next())
         {
@@ -88,7 +89,7 @@ public class Bookings {
         return bookings;
     }
 
-    public static ObservableList<Bookings> setBookings(String selection, String date, String iniTime) throws SQLException {
+    public static ObservableList<Bookings> setBookings(String selection, String date, String iniTime, String business) throws SQLException {
 //        String iniTime = "09:30";
         int minutes = 29;
         ObservableList<Bookings> bookings = FXCollections.observableArrayList();
@@ -101,23 +102,27 @@ public class Bookings {
         if(selection.equals("available")){
             sql = "SELECT bookings.*, staff.firstName " +
                     "FROM bookings " +
-                    "JOIN staff ON bookings.staffID = staff.staffID " +
-                    "WHERE customerUsername = '' AND date=? AND sTime BETWEEN ? AND ?";
+                    "NATURAL JOIN staff " +
+                    "WHERE customerUsername = '' AND date=? AND sTime BETWEEN ? AND ? " +
+                    "AND businessName = ?";
         }else if(selection.equals("booked")){
             sql = "SELECT bookings.*, staff.firstName " +
                     "FROM bookings " +
-                    "JOIN staff ON bookings.staffID = staff.staffID " +
-                    "WHERE customerUsername <> '' AND date=? AND sTime BETWEEN ? AND ?";
+                    "NATURAL JOIN staff " +
+                    "WHERE customerUsername <> '' AND date=? AND sTime BETWEEN ? AND ? " +
+                    "AND businessName = ?";
         }else{
             sql = "SELECT bookings.*, staff.firstName " +
                     "FROM bookings " +
-                    "JOIN staff ON bookings.staffID = staff.staffID " +
-                    "WHERE date=? AND sTime BETWEEN ? AND ?";
+                    "NATURAL JOIN staff " +
+                    "WHERE date=? AND sTime BETWEEN ? AND ? " +
+                    "AND businessName = ?";
         }
         PreparedStatement pstmt = DbUtil.getConnection().prepareStatement(sql);
         pstmt.setDate(1, Date.valueOf(date));
         pstmt.setString(2,time1.toString());
-        pstmt.setString(3,time2.toString());;
+        pstmt.setString(3,time2.toString());
+        pstmt.setObject(4,business);
         ResultSet rs = pstmt.executeQuery();
         while(rs.next())
         {
@@ -140,17 +145,19 @@ public class Bookings {
         return bookings;
     }
 
-    public static ObservableList<Bookings> reviewAppointmentsCustomer(String customerUsername) throws SQLException {
+    public static ObservableList<Bookings> reviewAppointmentsCustomer(String customerUsername, String business) throws SQLException {
         ObservableList<Bookings> bookings = FXCollections.observableArrayList();
         LocalDate currentDate = LocalDate.now();
         String sql = "SELECT * FROM bookings " +
                 "NATURAL JOIN staff " +
                 "JOIN customer on bookings.customerUsername = customer.username " +
-                "WHERE bookings.customerUsername =? AND date >= ?";
+                "WHERE bookings.customerUsername =? AND date >= ? " +
+                "AND businessName = ?";
         ResultSet rs;
         PreparedStatement pstmt = DbUtil.getConnection().prepareStatement(sql);
         pstmt.setString(1,customerUsername);
         pstmt.setDate(2,Date.valueOf(currentDate));
+        pstmt.setObject(3,business);
         rs = pstmt.executeQuery();
         while(rs.next()){
             bookings.add(new Bookings(rs.getString("sTime"),
