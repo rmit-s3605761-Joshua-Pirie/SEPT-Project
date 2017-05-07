@@ -268,6 +268,7 @@ public class BookingHistoryController {
             BookingHistoryListController controller = loader.getController();
             controller.setDialogStage(dialogStage);
             controller.setDayTime(day,sTime,date);
+            controller.setMainApp(mainApp);
             controller.ini();
 
             // Show the dialog and wait until the user closes it

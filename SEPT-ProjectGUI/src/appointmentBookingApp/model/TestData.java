@@ -84,21 +84,21 @@ public final class TestData {
         data.add(new String[]{getDate(-8),getDay(-8),getDayOfWeek(-8),"09:30:00","10:00:00","S000001","b","a","Baker"});
         data.add(new String[]{getDate(-8),getDay(-8),getDayOfWeek(-8),"10:00:00","10:30:00","S000001","c","a","Baker"});
 
-        data.add(new String[]{getDate(0),getDay(0),getDayOfWeek(0),"09:30:00","10:00:00","S000004","a","a","Bill's Buildings"});
-        data.add(new String[]{getDate(0),getDay(0),getDayOfWeek(0),"10:30:00","11:00:00","S000004","b","a","Bill's Buildings"});
-        data.add(new String[]{getDate(0),getDay(0),getDayOfWeek(0),"09:30:00","10:00:00","S000005","c","a","Bill's Buildings"});
-        data.add(new String[]{getDate(7),getDay(7),getDayOfWeek(7),"09:30:00","10:00:00","S000006","a","a","Bill's Buildings"});
-        data.add(new String[]{getDate(1),getDay(1),getDayOfWeek(1),"09:30:00","10:00:00","S000004","b","a","Bill's Buildings"});
-        data.add(new String[]{getDate(2),getDay(2),getDayOfWeek(2),"09:30:00","10:00:00","S000005","c","a","Bill's Buildings"});
-        data.add(new String[]{getDate(3),getDay(3),getDayOfWeek(3),"09:30:00","10:00:00","S000006","a","a","Bill's Buildings"});
-        data.add(new String[]{getDate(4),getDay(4),getDayOfWeek(4),"09:30:00","10:00:00","S000004","b","a","Bill's Buildings"});
-        data.add(new String[]{getDate(5),getDay(5),getDayOfWeek(5),"09:30:00","10:00:00","S000005","c","a","Bill's Buildings"});
-        data.add(new String[]{getDate(6),getDay(0),getDayOfWeek(6),"09:30:00","10:00:00","S000006","a","a","Bill's Buildings"});
-        data.add(new String[]{getDate(-1),getDay(-1),getDayOfWeek(-1),"09:30:00","10:00:00","S000004","b","a","Bill's Buildings"});
-        data.add(new String[]{getDate(-1),getDay(-1),getDayOfWeek(-1),"09:30:00","10:00:00","S000004","c","a","Bill's Buildings"});
-        data.add(new String[]{getDate(-1),getDay(-1),getDayOfWeek(-1),"09:30:00","10:00:00","S000006","a","a","Bill's Buildings"});
-        data.add(new String[]{getDate(-8),getDay(-8),getDayOfWeek(-8),"09:30:00","10:00:00","S000004","b","a","Bill's Buildings"});
-        data.add(new String[]{getDate(-8),getDay(-8),getDayOfWeek(-8),"10:00:00","10:30:00","S000004","c","a","Bill's Buildings"});
+        data.add(new String[]{getDate(0),getDay(0),getDayOfWeek(0),"09:30:00","10:00:00","S000004","Llamas","a","Bill's Buildings"});
+        data.add(new String[]{getDate(0),getDay(0),getDayOfWeek(0),"10:30:00","11:00:00","S000004","Cows","a","Bill's Buildings"});
+        data.add(new String[]{getDate(0),getDay(0),getDayOfWeek(0),"09:30:00","10:00:00","S000005","Llamas","a","Bill's Buildings"});
+        data.add(new String[]{getDate(7),getDay(7),getDayOfWeek(7),"09:30:00","10:00:00","S000006","Cows","a","Bill's Buildings"});
+        data.add(new String[]{getDate(1),getDay(1),getDayOfWeek(1),"09:30:00","10:00:00","S000004","Llamas","a","Bill's Buildings"});
+        data.add(new String[]{getDate(2),getDay(2),getDayOfWeek(2),"09:30:00","10:00:00","S000005","Cows","a","Bill's Buildings"});
+        data.add(new String[]{getDate(3),getDay(3),getDayOfWeek(3),"09:30:00","10:00:00","S000006","Llamas","a","Bill's Buildings"});
+        data.add(new String[]{getDate(4),getDay(4),getDayOfWeek(4),"09:30:00","10:00:00","S000004","Llamas","a","Bill's Buildings"});
+        data.add(new String[]{getDate(5),getDay(5),getDayOfWeek(5),"09:30:00","10:00:00","S000005","Cows","a","Bill's Buildings"});
+        data.add(new String[]{getDate(6),getDay(0),getDayOfWeek(6),"09:30:00","10:00:00","S000006","Llamas","a","Bill's Buildings"});
+        data.add(new String[]{getDate(-1),getDay(-1),getDayOfWeek(-1),"09:30:00","10:00:00","S000004","Cows","a","Bill's Buildings"});
+        data.add(new String[]{getDate(-1),getDay(-1),getDayOfWeek(-1),"09:30:00","10:00:00","S000005","Llamas","a","Bill's Buildings"});
+        data.add(new String[]{getDate(-1),getDay(-1),getDayOfWeek(-1),"09:30:00","10:00:00","S000006","Cows","a","Bill's Buildings"});
+        data.add(new String[]{getDate(-8),getDay(-8),getDayOfWeek(-8),"09:30:00","10:00:00","S000004","Llamas","a","Bill's Buildings"});
+        data.add(new String[]{getDate(-8),getDay(-8),getDayOfWeek(-8),"10:00:00","10:30:00","S000006","Cows","a","Bill's Buildings"});
 
         sendToDB(stmt, data);
     }
@@ -125,7 +125,7 @@ public final class TestData {
     }
     public static void populateServicesTable(){
         List<String[]> data = new ArrayList<>();
-        String stmt = "INSERT INTO services (service, duration, businessName) VALUES (?,?)";
+        String stmt = "INSERT INTO services (service, duration, businessName) VALUES (?,?,?)";
 
         data.add(new String[]{"a","00:30:00","Baker"});
         data.add(new String[]{"b","00:30:00","Baker"});

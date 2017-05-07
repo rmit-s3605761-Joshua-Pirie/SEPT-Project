@@ -51,8 +51,7 @@ public class AvailabilityList {
         this.dayOfWeek = dayOfWeek;
     }
 
-    public static ObservableList<AvailabilityList> remainingAvailability() throws SQLException {
-        int minutes = 29;
+    public static ObservableList<AvailabilityList> remainingAvailability(String business) throws SQLException {
         String sql;
         PreparedStatement pstmt;
         ResultSet rs;
@@ -66,8 +65,10 @@ public class AvailabilityList {
         ArrayList<AvailabilityList> toRemove = new ArrayList<>();
 
         sql = "SELECT * FROM availability " +
-                "NATURAL JOIN staff";
+                "NATURAL JOIN staff " +
+                "WHERE businessName = ?";
         pstmt = DbUtil.getConnection().prepareStatement(sql);
+        pstmt.setObject(1,business);
         rs = pstmt.executeQuery();
         while (rs.next()){
             availableTimeRanges.add(new AvailabilityList(rs.getString("staffID"),
@@ -78,10 +79,12 @@ public class AvailabilityList {
         }
         sql = "SELECT * FROM bookings " +
                 "NATURAL JOIN staff " +
-                "WHERE date BETWEEN ? AND ?";
+                "WHERE date BETWEEN ? AND ? " +
+                "AND businessName = ?";
         pstmt = DbUtil.getConnection().prepareStatement(sql);
         pstmt.setDate(1,Date.valueOf(date1));
         pstmt.setDate(2,Date.valueOf(date2));
+        pstmt.setObject(3,business);
         rs = pstmt.executeQuery();
         while (rs.next()){
             bookingTimeRanges.add(new AvailabilityList(rs.getString("staffID"),

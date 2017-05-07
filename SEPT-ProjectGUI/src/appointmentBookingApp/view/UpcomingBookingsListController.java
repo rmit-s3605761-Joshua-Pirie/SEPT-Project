@@ -1,5 +1,6 @@
 package appointmentBookingApp.view;
 
+import appointmentBookingApp.MainApp;
 import appointmentBookingApp.model.Bookings;
 import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
@@ -45,18 +46,27 @@ public class UpcomingBookingsListController {
     private TableColumn<Bookings, String> employeeColumn;
     ObservableList<Bookings> bookings = FXCollections.observableArrayList();
     FilteredList<Bookings> filteredData = new FilteredList<>(bookings, p -> true);
+    private MainApp mainApp;
+    private String business;
+
+    //Allow for the control of the main app.
+    public void setMainApp(MainApp mainApp) {
+        this.mainApp = mainApp;
+    }
+
     /**
      * Sets the stage of this dialog.
      */
     void setDialogStage(Stage dialogStage) { this.dialogStage = dialogStage; }
 
     public void ini() throws SQLException {
+        this.business = mainApp.business;
         sTimeColumn.setCellValueFactory(cellData -> cellData.getValue().sTimeProperty());
         serviceColumn.setCellValueFactory(cellData -> cellData.getValue().serviceProperty());
         customerColumn.setCellValueFactory(cellData -> cellData.getValue().customerProperty());
         employeeColumn.setCellValueFactory(cellData -> cellData.getValue().empNameProperty());
 //        employeeColumn.setCellValueFactory(cellData -> cellData.getValue().staffIDProperty());
-        bookings.setAll(Bookings.setBookings(date, sTime));
+        bookings.setAll(Bookings.setBookings(date, sTime, business));
         bookingTable.setItems(bookings);
         filters();
     }
@@ -113,18 +123,18 @@ public class UpcomingBookingsListController {
         if(fAvailability.getValue().equals(available)){
             selection = "available";
             System.out.println(fAvailability.getValue());
-            bookings.setAll(Bookings.setBookings(selection, date, sTime));
+            bookings.setAll(Bookings.setBookings(selection, date, sTime, business));
             bookingTable.setItems(bookings);
             filters();
         }else if(fAvailability.getValue().equals(booked)){
             selection = "booked";
             System.out.println(fAvailability.getValue());
-            bookings.setAll(Bookings.setBookings(selection, date, sTime));
+            bookings.setAll(Bookings.setBookings(selection, date, sTime, business));
             bookingTable.setItems(bookings);
             filters();
         }else{
             System.out.println(fAvailability.getValue());
-            bookings.setAll(Bookings.setBookings(date, sTime));
+            bookings.setAll(Bookings.setBookings(date, sTime, business));
             bookingTable.setItems(bookings);
             filters();
         }
