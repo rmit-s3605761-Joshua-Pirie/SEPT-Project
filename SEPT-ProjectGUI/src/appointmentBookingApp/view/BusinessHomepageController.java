@@ -110,7 +110,7 @@ public class BusinessHomepageController {
             AnchorPane RemainingAvailability = (AnchorPane) loader.load();
             // Create the dialog Stage.
             Stage dialogStage = new Stage();
-            dialogStage.setTitle("Booking History");
+            dialogStage.setTitle("Remaining Availability");
             dialogStage.initModality(Modality.WINDOW_MODAL);
             dialogStage.initOwner(mainApp.getPrimaryStage());
             Scene scene = new Scene(RemainingAvailability);

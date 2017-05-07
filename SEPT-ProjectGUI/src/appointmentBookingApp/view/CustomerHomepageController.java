@@ -48,7 +48,7 @@ public class CustomerHomepageController {
 
     @FXML
     public void showBookAppointment(){
-        try {
+        /*try {
             // Load the fxml file and create a new stage for the popup dialog.
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(MainApp.class.getResource("view/BookAppointment.fxml"));
@@ -68,7 +68,7 @@ public class CustomerHomepageController {
             dialogStage.showAndWait();
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
     }
 
     @FXML

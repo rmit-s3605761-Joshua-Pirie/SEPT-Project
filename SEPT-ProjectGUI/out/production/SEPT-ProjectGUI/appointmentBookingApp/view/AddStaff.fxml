@@ -11,7 +11,7 @@
       <Button fx:id="AddButton" layoutX="174.0" layoutY="316.0" mnemonicParsing="false" onAction="#addStaff" text="Add" />
       <Text layoutX="56.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Staff ID" />
       <Text fx:id="newID" layoutX="152.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
-      <Text layoutX="37.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First name" />
+      <Text layoutX="39.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First name" />
       <TextField fx:id="FirstNameTxtBx" layoutX="136.0" layoutY="86.0" />
       <TextField fx:id="SurNameTxtBx" layoutX="136.0" layoutY="148.0" />
       <TextField fx:id="AddressTxtBx" layoutX="136.0" layoutY="207.0" />
