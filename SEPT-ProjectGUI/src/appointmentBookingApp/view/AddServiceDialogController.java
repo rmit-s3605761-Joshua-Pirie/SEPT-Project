@@ -1,5 +1,6 @@
 package appointmentBookingApp.view;
 
+import appointmentBookingApp.util.Alerts;
 import appointmentBookingApp.util.DbUtil;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -59,8 +60,7 @@ public class AddServiceDialogController {
     /**
      * Called when the user clicks cancel.
      */
-    @FXML
-    private void handleCancel() {
+    public void handleCancel() {
         dialogStage.close();
     }
 
@@ -107,13 +107,7 @@ public class AddServiceDialogController {
         } else {
             if(useAlertBox){
                 // Show the error message.
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.initOwner(dialogStage);
-                alert.setTitle("Invalid Fields");
-                alert.setHeaderText("Please correct invalid fields");
-                alert.setContentText(errorMessage);
-
-                alert.showAndWait();
+                Alerts.error("Invalid Fields","Please correct invalid fields",errorMessage);
             }
             return false;
         }
