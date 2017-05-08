@@ -50,7 +50,7 @@ public class CreateAppointmentCustomerController {
 
     public void initialize(){
         try{
-            remainingAvailability = AvailabilityList.remainingAvailability();
+            remainingAvailability = AvailabilityList.remainingAvailability("");
         }
         catch (SQLException e){
 
@@ -85,45 +85,47 @@ public class CreateAppointmentCustomerController {
     }
 
     @FXML
-    private void serviceSelect(){
+    private void serviceSelect() {
         this.selectedService = ServicesBox.getValue();
-      /*  if(selectedDate!= null){
+        if (selectedDate != null) {
             for (AvailabilityList list : remainingAvailability) {
-                if(list.getDate()!=null)
-                if(LocalTime.parse(list.getDate(), 'yyyy-mm-dd').equals(this.selectedDate)*//*&& !LocalTime.parse(list.getsTime()).plusMinutes(services.get(this.selectedService).getMinute()).equals(LocalTime.parse(list.geteTime()))*//*){
-                    timesList.add(list.getsTime());
-                }
+                if (list.getDate() != null)
+                    if (LocalDate.parse(list.getDate()).equals(this.selectedDate) && !LocalTime.parse(list.getsTime()).plusMinutes(services.get(this.selectedService).getMinute()).equals(LocalTime.parse(list.geteTime()))) {
+                        timesList.add(list.getsTime());
+                    }
             }
+
+
+            TimesBox.setItems(timesList);
+            TimesBox.setVisibleRowCount(timesList.size());
+            for (AvailabilityList list : remainingAvailability) {
+
+                System.out.println(list.getDate() + " " + list.getsTime() + " " + list.geteTime() + " " + list.getStaffID());
+            }
+
+
+            System.out.println("service clicked ");
         }
-
-        TimesBox.setItems(timesList);
-        TimesBox.setVisibleRowCount(timesList.size());
-        for (AvailabilityList list : remainingAvailability) {
-
-            System.out.println(list.getDate() + " " + list.getsTime()+ " " +list.geteTime()+" " +list.getStaffID());
-        }
-*/
-
-        System.out.println("service clicked " );
     }
 
+    @FXML
     private void submitBooking(){
-       /* String sql = "INSERT INTO bookings VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO bookings VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try {
             PreparedStatement ps = getConnection().prepareStatement(sql);
-            ps.setObject(1,null );
+            ps.setObject(1, this.selectedDate);
             ps.setString(2, null);
             ps.setString(3, null);
-            ps.setObject(4, null);
-            ps.setObject(5, null);
-            ps.setObject(6, null);
-            ps.setObject(7, null);
-            ps.setObject(8, null);
-            ps.setObject(9, null);
+            ps.setObject(4, "00:00:00");
+            ps.setObject(5, "00:00:00");
+            ps.setObject(6, "s000001");
+            ps.setObject(7, this.selectedService);
+            ps.setObject(8, "CUST");
+            ps.setObject(9, "Buis");
             ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
-        }*/
+        }
     }
 
 

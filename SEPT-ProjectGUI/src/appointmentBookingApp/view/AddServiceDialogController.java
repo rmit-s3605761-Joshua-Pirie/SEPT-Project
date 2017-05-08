@@ -1,9 +1,9 @@
 package appointmentBookingApp.view;
 
+import appointmentBookingApp.MainApp;
 import appointmentBookingApp.util.Alerts;
 import appointmentBookingApp.util.DbUtil;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -24,6 +24,13 @@ public class AddServiceDialogController {
 
     private Stage dialogStage;
     private boolean addClicked = false;
+    private MainApp mainApp;
+    private String business;
+
+    //Allow for the control of the main app.
+    public void setMainApp(MainApp mainApp) {
+        this.mainApp = mainApp;
+    }
 
     /**
      *Initialize on controller load.
@@ -31,6 +38,15 @@ public class AddServiceDialogController {
     public void initialize() {
         serviceName.setPromptText("Enter name of service");
         duration.setPromptText("hh:mm");
+    }
+
+    /**
+     *Set variables.
+     */
+    public void ini() {
+        serviceName.setPromptText("Enter name of service");
+        duration.setPromptText("hh:mm");
+        this.business = mainApp.business;
     }
 
     /**
@@ -51,7 +67,7 @@ public class AddServiceDialogController {
         String duration = this.duration.getText();
         boolean useAlertBox = true;
         if(isValid(service, duration, useAlertBox)){
-            addServiceToDB(service, duration);
+            addServiceToDB(service, duration, business);
             addClicked = true;
             dialogStage.close();
         }
@@ -72,12 +88,13 @@ public class AddServiceDialogController {
 //            System.err.println("Please define a service you wish to add.");
         }
 
-        String querySQL = "SELECT service FROM services WHERE service=?";
+        String querySQL = "SELECT service FROM services WHERE service=? AND businessName = ?";
         ResultSet resultSet;
         PreparedStatement pstmt;
         try {
             pstmt = DbUtil.getConnection().prepareStatement(querySQL);
             pstmt.setString(1,service);
+            pstmt.setObject(2,business);
             resultSet = pstmt.executeQuery();
             if(resultSet.next()){
                 errorMessage += "Service already exists.\n";
@@ -113,12 +130,13 @@ public class AddServiceDialogController {
         }
     }
 
-    public boolean addServiceToDB(String service, String duration){
+    public boolean addServiceToDB(String service, String duration, String business){
         try {
-            String insertSQL = "INSERT INTO services VALUES (?,?)";
+            String insertSQL = "INSERT INTO services VALUES (?,?,?)";
             PreparedStatement pstmt = DbUtil.getConnection().prepareStatement(insertSQL);
             pstmt.setString(1,service);
             pstmt.setString(2,duration);
+            pstmt.setObject(3,business);
             pstmt.executeUpdate();
             return true;
         } catch (SQLException e) {

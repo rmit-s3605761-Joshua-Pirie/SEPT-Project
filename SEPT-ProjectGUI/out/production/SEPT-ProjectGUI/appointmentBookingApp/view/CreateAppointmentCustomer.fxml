@@ -33,7 +33,7 @@
       <ComboBox fx:id="ServicesBox" layoutX="225.0" layoutY="111.0" onAction="#serviceSelect" prefWidth="150.0" />
       <ComboBox fx:id="TimesBox" layoutX="409.0" layoutY="111.0" prefWidth="150.0" />
       <Button fx:id="CancelButton" cancelButton="true" layoutX="484.0" layoutY="232.0" mnemonicParsing="false" onAction="#handleCancel" text="Cancel" />
-      <Button fx:id="BookButton" defaultButton="true" layoutX="400.0" layoutY="232.0" mnemonicParsing="false" text="Book Now" />
+      <Button fx:id="BookButton" defaultButton="true" layoutX="400.0" layoutY="232.0" mnemonicParsing="false" onAction="#submitBooking" text="Book Now" />
       <Text fx:id="ErrorTXT" layoutX="289.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" />
    </children>
 </AnchorPane>

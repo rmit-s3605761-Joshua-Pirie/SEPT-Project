@@ -23,6 +23,7 @@ public class CustomerHomepageController {
     private MainApp mainApp;
     private String user;
 
+    //Allow for the control of the main app.
     public void setMainApp(MainApp mainApp) {
         this.mainApp = mainApp;
     }
@@ -88,6 +89,7 @@ public class CustomerHomepageController {
 
             ReviewAppointmentsController controller = loader.getController();
             controller.setDialogStage(dialogStage);
+            controller.setMainApp(mainApp);
             controller.ini(user);
 
             // Show the dialog and wait until the user closes it
