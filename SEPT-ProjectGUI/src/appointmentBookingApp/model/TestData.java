@@ -104,10 +104,10 @@ public final class TestData {
     }
     public static void populateBusinessOwnerTable(){
         List<String[]> data = new ArrayList<>();
-        String stmt = "INSERT INTO businessowner (username, password, firstName, lastName, businessName, address, phone) VALUES (?,?,?,?,?,?,?)";
+        String stmt = "INSERT INTO businessowner (username, password, firstName, lastName, businessName, address, phone, sTime, eTime) VALUES (?,?,?,?,?,?,?,?,?)";
 
-        data.add(new String[]{"b","Qwerty1!","Ben","Baker","Baker","",""});
-        data.add(new String[]{"bill","Qwerty1!","Bill","Baker","Bill's Buildings","77 Same Street, Silverdale","6183059683"});
+        data.add(new String[]{"b","Qwerty1!","Ben","Baker","Baker","","","09:00","18:00"});
+        data.add(new String[]{"bill","Qwerty1!","Bill","Baker","Bill's Buildings","77 Same Street, Silverdale","6183059683","09:00","18:00"});
 
         sendToDB(stmt, data);
     }

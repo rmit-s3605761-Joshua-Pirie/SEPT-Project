@@ -24,4 +24,17 @@ public class Alerts {
 
         confirm.showAndWait();
     }
+
+//    Generate error message to be display either using the alert box or printing it to console.
+    public static boolean genErrorMessage(String errorMessage, boolean useAlertBox ){
+        if (errorMessage.length() == 0) {
+            return true;
+        } else {
+            if(useAlertBox){
+                Alerts.error("Invalid Fields","Please correct invalid fields",errorMessage);
+            }else
+                System.out.println("Invalid Fields:\n"+errorMessage);
+            return false;
+        }
+    }
 }

@@ -17,256 +17,283 @@
     <table id="11" parent="2" name="customer"/>
     <table id="12" parent="2" name="services"/>
     <table id="13" parent="2" name="staff"/>
-    <column id="14" parent="8" name="staffID">
+    <table id="14" parent="2" name="suser"/>
+    <column id="15" parent="8" name="staffID">
       <Position>1</Position>
       <DataType>varchar(7)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="15" parent="8" name="dayOfWeek">
+    <column id="16" parent="8" name="dayOfWeek">
       <Position>2</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="16" parent="8" name="startTime">
+    <column id="17" parent="8" name="startTime">
       <Position>3</Position>
       <DataType>time|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="17" parent="8" name="endTime">
+    <column id="18" parent="8" name="endTime">
       <Position>4</Position>
       <DataType>time|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="18" parent="8" name="PRIMARY">
+    <key id="19" parent="8" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>staffID
 dayOfWeek
 startTime</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="19" parent="9" name="date">
+    <column id="20" parent="9" name="date">
       <Position>1</Position>
       <DataType>date|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="20" parent="9" name="sTime">
+    <column id="21" parent="9" name="sTime">
       <Position>4</Position>
       <DataType>time|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="21" parent="9" name="eTime">
+    <column id="22" parent="9" name="eTime">
       <Position>5</Position>
       <DataType>time|0</DataType>
     </column>
-    <column id="22" parent="9" name="day">
+    <column id="23" parent="9" name="day">
       <Position>2</Position>
       <DataType>varchar(45)|0</DataType>
     </column>
-    <column id="23" parent="9" name="staffID">
+    <column id="24" parent="9" name="staffID">
       <Position>6</Position>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="24" parent="9" name="service">
+    <column id="25" parent="9" name="service">
       <Position>7</Position>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="25" parent="9" name="customerUsername">
+    <column id="26" parent="9" name="customerUsername">
       <Position>8</Position>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="26" parent="9" name="dayOfWeek">
+    <column id="27" parent="9" name="dayOfWeek">
       <Position>3</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="27" parent="9" name="businessName">
+    <column id="28" parent="9" name="businessName">
       <Position>9</Position>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="28" parent="9" name="staffID_idx">
+    <index id="29" parent="9" name="staffID_idx">
       <ColNames>staffID</ColNames>
     </index>
-    <key id="29" parent="9" name="PRIMARY">
+    <key id="30" parent="9" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>date
 sTime
 staffID</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="30" parent="9" name="staffID">
+    <foreign-key id="31" parent="9" name="staffID">
       <ColNames>staffID</ColNames>
       <RefSchemaName>bookingsystem</RefSchemaName>
       <RefTableName>staff</RefTableName>
       <RefColNames>StaffID</RefColNames>
     </foreign-key>
-    <column id="31" parent="10" name="username">
+    <column id="32" parent="10" name="username">
       <Position>1</Position>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="32" parent="10" name="password">
+    <column id="33" parent="10" name="password">
       <Position>2</Position>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="33" parent="10" name="firstName">
+    <column id="34" parent="10" name="firstName">
       <Position>3</Position>
       <DataType>varchar(45)|0</DataType>
     </column>
-    <column id="34" parent="10" name="lastName">
+    <column id="35" parent="10" name="lastName">
       <Position>4</Position>
       <DataType>varchar(45)|0</DataType>
     </column>
-    <column id="35" parent="10" name="businessName">
+    <column id="36" parent="10" name="businessName">
       <Position>5</Position>
       <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="36" parent="10" name="address">
+    <column id="37" parent="10" name="address">
       <Position>6</Position>
       <DataType>varchar(45)|0</DataType>
     </column>
-    <column id="37" parent="10" name="phone">
+    <column id="38" parent="10" name="phone">
       <Position>7</Position>
       <DataType>varchar(11)|0</DataType>
     </column>
-    <index id="38" parent="10" name="Username">
+    <column id="39" parent="10" name="sTime">
+      <Position>8</Position>
+      <DataType>time|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="40" parent="10" name="eTime">
+      <Position>9</Position>
+      <DataType>time|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="41" parent="10" name="Username">
       <ColNames>username</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="39" parent="10" name="businessName_UNIQUE">
+    <index id="42" parent="10" name="businessName_UNIQUE">
       <ColNames>businessName</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="40" parent="10" name="PRIMARY">
+    <key id="43" parent="10" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>username</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="41" parent="10" name="Username">
+    <key id="44" parent="10" name="Username">
       <ColNames>username</ColNames>
       <UnderlyingIndexName>Username</UnderlyingIndexName>
     </key>
-    <key id="42" parent="10" name="businessName_UNIQUE">
+    <key id="45" parent="10" name="businessName_UNIQUE">
       <ColNames>businessName</ColNames>
       <UnderlyingIndexName>businessName_UNIQUE</UnderlyingIndexName>
     </key>
-    <column id="43" parent="11" name="username">
+    <column id="46" parent="11" name="username">
       <Position>1</Position>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="44" parent="11" name="password">
+    <column id="47" parent="11" name="password">
       <Position>2</Position>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="45" parent="11" name="firstName">
+    <column id="48" parent="11" name="firstName">
       <Position>3</Position>
       <DataType>varchar(45)|0</DataType>
     </column>
-    <column id="46" parent="11" name="lastName">
+    <column id="49" parent="11" name="lastName">
       <Position>4</Position>
       <DataType>varchar(45)|0</DataType>
     </column>
-    <column id="47" parent="11" name="address">
+    <column id="50" parent="11" name="address">
       <Position>6</Position>
       <DataType>varchar(45)|0</DataType>
     </column>
-    <column id="48" parent="11" name="eMail">
+    <column id="51" parent="11" name="eMail">
       <Position>5</Position>
       <DataType>varchar(45)|0</DataType>
     </column>
-    <column id="49" parent="11" name="phone">
+    <column id="52" parent="11" name="phone">
       <Position>7</Position>
       <DataType>varchar(11)|0</DataType>
     </column>
-    <index id="50" parent="11" name="Username">
+    <index id="53" parent="11" name="Username">
       <ColNames>username</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="51" parent="11" name="PRIMARY">
+    <key id="54" parent="11" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>username</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="52" parent="11" name="Username">
+    <key id="55" parent="11" name="Username">
       <ColNames>username</ColNames>
       <UnderlyingIndexName>Username</UnderlyingIndexName>
     </key>
-    <column id="53" parent="12" name="service">
+    <column id="56" parent="12" name="service">
       <Position>1</Position>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="54" parent="12" name="duration">
+    <column id="57" parent="12" name="duration">
       <Position>2</Position>
       <DataType>time|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="55" parent="12" name="businessName">
+    <column id="58" parent="12" name="businessName">
       <Position>3</Position>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="56" parent="12" name="service">
+    <index id="59" parent="12" name="service">
       <ColNames>service</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="57" parent="12" name="PRIMARY">
+    <key id="60" parent="12" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>service</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="58" parent="12" name="service">
+    <key id="61" parent="12" name="service">
       <ColNames>service</ColNames>
       <UnderlyingIndexName>service</UnderlyingIndexName>
     </key>
-    <column id="59" parent="13" name="staffID">
+    <column id="62" parent="13" name="staffID">
       <Position>1</Position>
       <DataType>varchar(7)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="60" parent="13" name="password">
+    <column id="63" parent="13" name="password">
       <Position>2</Position>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="61" parent="13" name="firstName">
+    <column id="64" parent="13" name="firstName">
       <Position>3</Position>
       <DataType>varchar(45)|0</DataType>
     </column>
-    <column id="62" parent="13" name="lastName">
+    <column id="65" parent="13" name="lastName">
       <Position>4</Position>
       <DataType>varchar(45)|0</DataType>
     </column>
-    <column id="63" parent="13" name="address">
+    <column id="66" parent="13" name="address">
       <Position>5</Position>
       <DataType>varchar(45)|0</DataType>
     </column>
-    <column id="64" parent="13" name="phone">
+    <column id="67" parent="13" name="phone">
       <Position>6</Position>
       <DataType>varchar(11)|0</DataType>
     </column>
-    <column id="65" parent="13" name="businessName">
+    <column id="68" parent="13" name="businessName">
       <Position>7</Position>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="66" parent="13" name="username">
+    <index id="69" parent="13" name="username">
       <ColNames>staffID</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="67" parent="13" name="PRIMARY">
+    <key id="70" parent="13" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>staffID</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="68" parent="13" name="username">
+    <key id="71" parent="13" name="username">
       <ColNames>staffID</ColNames>
       <UnderlyingIndexName>username</UnderlyingIndexName>
+    </key>
+    <column id="72" parent="14" name="username">
+      <Position>1</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="73" parent="14" name="password">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="74" parent="14" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>username</ColNames>
+      <Primary>1</Primary>
     </key>
   </database-model>
 </dataSource>
