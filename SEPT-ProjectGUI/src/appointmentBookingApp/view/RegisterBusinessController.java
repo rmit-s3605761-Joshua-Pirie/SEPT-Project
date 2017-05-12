@@ -3,9 +3,10 @@ package appointmentBookingApp.view;
 import appointmentBookingApp.util.Alerts;
 import appointmentBookingApp.util.DbUtil;
 import appointmentBookingApp.util.Validators;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.sql.PreparedStatement;
@@ -14,35 +15,30 @@ import java.sql.SQLException;
 
 public class RegisterBusinessController {
     @FXML
-    private TextField userName;
+    private TextField userName, businessName, firstName, surname, address, phone;
 
     @FXML
-    private PasswordField password;
+    private PasswordField password, password2;
 
     @FXML
-    private PasswordField password2;
-
-    @FXML
-    private TextField businessName;
-
-    @FXML
-    private TextField firstName;
-
-    @FXML
-    private TextField surname;
-
-    @FXML
-    private TextField address;
-
-    @FXML
-    private TextField phone;
+    private ComboBox<String> sHour, sMin, eHour, eMin;
     private Stage dialogStage;
-
+//  Sets the stage of this dialog.
     public void setDialogStage(Stage dialogStage) {
         this.dialogStage = dialogStage;
     }
 
-//    When "cancel" button is selected, closes current dialog box.
+//    This method is called by the FXMLLoader when initialization is complete
+    public void initialize(){
+        String[] hours = {"00","01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23"};
+        String[] min = {"00","15","30","45"};
+        sHour.getItems().addAll(hours);
+        sMin.getItems().addAll(min);
+        eHour.getItems().addAll(hours);
+        eMin.getItems().addAll(min);
+    }
+
+//  When "cancel" button is selected, closes current dialog box.
     public void handleCancel() {
         dialogStage.close();
     }
@@ -61,11 +57,16 @@ public class RegisterBusinessController {
         }
     }
 
-//    Validates all input fields in the current window.
+//  Validates all input fields in the current window.
     private boolean isValid(boolean useAlertBox){
         String errorMessage = "";
 
-        if(userName.getText().trim().isEmpty() || password.getText().trim().isEmpty() || businessName.getText().trim().isEmpty() || firstName.getText().trim().isEmpty() || surname.getText().trim().isEmpty() || address.getText().trim().isEmpty() || phone.getText().trim().isEmpty()){
+        if(userName.getText().trim().isEmpty() || password.getText().trim().isEmpty()
+                || businessName.getText().trim().isEmpty() || firstName.getText().trim().isEmpty()
+                || surname.getText().trim().isEmpty() || address.getText().trim().isEmpty()
+                || phone.getText().trim().isEmpty() || sHour.getSelectionModel().isEmpty()
+                || sMin.getSelectionModel().isEmpty() || eHour.getSelectionModel().isEmpty()
+                || eMin.getSelectionModel().isEmpty()){
             errorMessage += "Please fill in all fields.\n";
         }else{
             if(!password.getText().equals(password2.getText()))
@@ -80,15 +81,7 @@ public class RegisterBusinessController {
                 errorMessage += "Invalid phone number, must be 8-10 digits\n";
         }
 
-        if (errorMessage.length() == 0) {
-            return true;
-        } else {
-            if(useAlertBox){
-                // Show the error message.
-                Alerts.error("Invalid Fields","Please correct invalid fields",errorMessage);
-            }
-            return false;
-        }
+        return Alerts.genErrorMessage(errorMessage, useAlertBox);
     }
 
 //    Checks database to ensure chosen username does not already exist.
@@ -125,7 +118,7 @@ public class RegisterBusinessController {
 
 //    Adds new business details to the database.
     private boolean addBusinessToDB( ) {
-        String sql = "INSERT INTO businessowner VALUES ( ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO businessowner VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try {
             PreparedStatement ps = DbUtil.getConnection().prepareStatement(sql);
             ps.setString(1, userName.getText());
@@ -135,6 +128,8 @@ public class RegisterBusinessController {
             ps.setObject(5, businessName.getText());
             ps.setObject(6, address.getText());
             ps.setObject(7, phone.getText());
+            ps.setObject(8, sHour.getValue()+":"+sMin.getValue());
+            ps.setObject(9, eHour.getValue()+":"+eMin.getValue());
             ps.executeUpdate();
             return true;
         } catch (SQLException e) {
