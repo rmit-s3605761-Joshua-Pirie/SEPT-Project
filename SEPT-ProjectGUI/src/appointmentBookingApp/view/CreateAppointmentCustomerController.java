@@ -1,12 +1,14 @@
 package appointmentBookingApp.view;
 
+import appointmentBookingApp.MainApp;
 import appointmentBookingApp.model.AvailabilityList;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
-import javafx.scene.text.Text;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 
 import java.sql.PreparedStatement;
@@ -15,9 +17,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import static appointmentBookingApp.util.DbUtil.getConnection;
@@ -34,6 +34,18 @@ public class CreateAppointmentCustomerController {
     private ComboBox TimesBox;
 
     @FXML
+    private TableView<AvailabilityList> BookingTable;
+    @FXML
+    private TableColumn<AvailabilityList, String> DateCol;
+    @FXML
+    private TableColumn<AvailabilityList, String> TimeCol;
+    @FXML
+    private TableColumn<AvailabilityList, String> ServiceCol;
+    @FXML
+    private TableColumn<AvailabilityList, String> StaffCol;
+
+
+    @FXML
     private DatePicker DateBox;
     private Stage dialogStage;
     private LocalDate selectedDate = null;
@@ -43,7 +55,9 @@ public class CreateAppointmentCustomerController {
     private ObservableList<String> serviceList = FXCollections.observableArrayList();
     private ObservableList<String> timesList = FXCollections.observableArrayList();
     ObservableList<AvailabilityList> remainingAvailability = FXCollections.observableArrayList();
-
+    ObservableList<AvailabilityList> AvailableBookings = FXCollections.observableArrayList();
+    private MainApp mainApp;
+    private String user;
 
     public void setDialogStage(Stage dialogStage) {
         this.dialogStage = dialogStage;
@@ -87,6 +101,11 @@ public class CreateAppointmentCustomerController {
         }
         TimesBox.setItems(timesList);
         TimesBox.setVisibleRowCount(timesList.size());
+
+        DateCol.setCellValueFactory(cellData -> cellData.getValue().dateProperty());
+        TimeCol.setCellValueFactory(cellData -> cellData.getValue().sTimeProperty());
+        StaffCol.setCellValueFactory(cellData -> cellData.getValue().empNameProperty());
+
     }
 
     @FXML
@@ -100,6 +119,7 @@ public class CreateAppointmentCustomerController {
     @FXML
     private void serviceSelect() {
         this.selectedService = ServicesBox.getValue();
+
 
     }
 
@@ -115,48 +135,39 @@ public class CreateAppointmentCustomerController {
                     System.out.println("Available1: " + list.getDate() + " Start: " + list.getsTime() + " End: " + list.geteTime() + " " + list.getStaffID());
                     if (LocalDate.parse(list.getDate()).equals(selectedDate)) {
                         System.out.println("Date Equals: " + list.getDate() + " Start: " + list.getsTime() + " End: " + list.geteTime() + " " + list.getStaffID());
-                    if(LocalTime.parse(list.getsTime()).equals(selectedTime) || LocalTime.parse(list.getsTime()).isAfter(selectedTime)){
+                    if(LocalTime.parse(list.getsTime()).equals(selectedTime) || LocalTime.parse(list.getsTime()).isBefore(selectedTime)){
                         System.out.println("Time Equals: " + list.getDate() + " Start: " + list.getsTime() + " End: " + list.geteTime() + " " + list.getStaffID());
 
                         if (LocalTime.parse(list.getsTime()).plusMinutes(services.get(selectedService).getMinute()).isBefore(LocalTime.parse(list.geteTime()))) {
                             System.out.println("Acceptable time"+ list.getDate() + " Start: " + list.getsTime() + " End: " + list.geteTime() + " " + list.getStaffID());
 
+                            AvailableBookings.add(list);
+
                         }
                     }
                     }
                 }
-
-
-                /*if (LocalDate.parse(list.getDate()).equals(this.selectedDate) && !LocalTime.parse(list.getsTime()).plusMinutes(services.get(this.selectedService).getMinute()).isBefore(LocalTime.parse(list.geteTime()))) {
-                        timesList.add(list.getsTime());
-                    }*/
             }
-
-            /*for (AvailabilityList list : remainingAvailability) {
-
-                System.out.println(list.getDate() + " " + list.getsTime() + " " + list.geteTime() + " " + list.getStaffID());
-            }*/
-
-
-
         }
 
+        BookingTable.setItems(AvailableBookings);
     }
 
     @FXML
     private void submitBooking(){
+        int selection = BookingTable.getSelectionModel().getSelectedIndex();
         String sql = "INSERT INTO bookings VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try {
             PreparedStatement ps = getConnection().prepareStatement(sql);
             ps.setObject(1, this.selectedDate);
-            ps.setString(2, null);
-            ps.setString(3, null);
-            ps.setObject(4, "00:00:00");
-            ps.setObject(5, "00:00:00");
-            ps.setObject(6, "s000001");
+            ps.setString(2, AvailableBookings.get(selection).getDay());
+            ps.setObject(3, AvailableBookings.get(selection).getDayOfWeek().ordinal());
+            ps.setObject(4, selectedTime);
+            ps.setObject(5, selectedTime.plusMinutes(services.get(selectedService).getMinute()));
+            ps.setObject(6, AvailableBookings.get(selection).getStaffID());
             ps.setObject(7, this.selectedService);
-            ps.setObject(8, "CUST");
-            ps.setObject(9, "Buis");
+            ps.setObject(8, user);
+            ps.setObject(9, mainApp.business);
             ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -167,5 +178,13 @@ public class CreateAppointmentCustomerController {
     @FXML
     private void handleCancel() {
         dialogStage.close();
+    }
+
+    public void setMainApp(MainApp mainApp) {
+        this.mainApp = mainApp;
+    }
+
+    public void ini(String user) {
+        this.user = user;
     }
 }

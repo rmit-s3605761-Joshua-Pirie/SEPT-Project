@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appointmentBookingApp.view.CreateAppointmentCustomerController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="551.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appointmentBookingApp.view.CreateAppointmentCustomerController">
    <children>
       <Label layoutX="235.0" layoutY="1.0" text="Create Appointment">
          <font>
@@ -21,30 +21,29 @@
       </Label>
       <SplitPane dividerPositions="0.4" layoutX="234.0" layoutY="37.0" prefHeight="363.0" prefWidth="600.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0">
          <items>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="318.0" prefWidth="271.0">
                <children>
                   <DatePicker fx:id="DateBox" editable="false" layoutX="30.0" layoutY="45.0" onAction="#dateSelect" promptText="Select Day" />
                   <ComboBox fx:id="ServicesBox" layoutX="31.0" layoutY="134.0" onAction="#serviceSelect" prefWidth="150.0" promptText="Select service" />
                   <ComboBox fx:id="TimesBox" layoutX="31.0" layoutY="221.0" onAction="#timeSelect" prefWidth="150.0" promptText="Select Time" />
                </children>
             </AnchorPane>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="318.0" prefWidth="275.0">
                <children>
                   <Label focusTraversable="false" layoutX="9.0" layoutY="14.0" text="Available Appointment">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <ScrollPane focusTraversable="false" prefHeight="358.0" prefWidth="288.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0">
+                  <ScrollPane focusTraversable="false" prefHeight="278.0" prefWidth="237.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="89.0" AnchorPane.topAnchor="40.0">
                      <content>
                         <AnchorPane>
                            <children>
-                              <TableView focusTraversable="false">
+                              <TableView fx:id="BookingTable" focusTraversable="false" prefHeight="400.0" prefWidth="226.0">
                                  <columns>
-                                    <TableColumn prefWidth="75.0" text="StaffID" />
-                                    <TableColumn prefWidth="75.0" text="Name" />
-                                    <TableColumn prefWidth="75.0" text="Date" />
-                                    <TableColumn prefWidth="75.0" text="Time" />
+                                    <TableColumn fx:id="DateCol" prefWidth="75.0" text="Date" />
+                                    <TableColumn fx:id="TimeCol" prefWidth="75.0" text="Time" />
+                                    <TableColumn fx:id="StaffCol" prefWidth="75.0" text="Staff" />
                                  </columns>
                               </TableView>
                            </children>
