@@ -130,6 +130,7 @@ public class CreateAppOwnerController extends Application {
 
     @FXML
     void handleService() {
+        employeeCombo.getItems().clear();
         LocalDate date = datePicker.getValue();
         int duration = Integer.parseInt(services.get(serviceCombo.getSelectionModel().getSelectedIndex())[1].substring(3, 5));
         LocalTime inputSTime = LocalTime.of(Integer.parseInt(hourText.getText()), Integer.parseInt(minuteText.getText()));
@@ -230,7 +231,7 @@ public class CreateAppOwnerController extends Application {
             dialogStage.setScene(new Scene(login));
 
             dialogStage.show();
-            createAppointmentController controller = loader.getController();
+            CreateAppOwnerController controller = loader.getController();
         }catch(IOException e){
             e.printStackTrace();
         }
