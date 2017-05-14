@@ -65,7 +65,7 @@ public class CustomerHomepageController {
             CreateAppointmentCustomerController controller = loader.getController();
             controller.setDialogStage(dialogStage);
             controller.setMainApp(mainApp);
-            controller.ini(user);
+            controller.initialize(user);
 
             // Show the dialog and wait until the user closes it
             dialogStage.showAndWait();
