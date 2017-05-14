@@ -104,7 +104,6 @@ public class AddServiceDialogController {
             e.printStackTrace();
         }
 
-
         DateFormat timeFormat = new SimpleDateFormat("hh:mm");
         if(duration.length() == 0){
             errorMessage += "Duration field cannot be empty.\n";
@@ -117,17 +116,7 @@ public class AddServiceDialogController {
 //                System.err.println("Time field is in the incorrect format.");
             }
         }
-
-
-        if (errorMessage.length() == 0) {
-            return true;
-        } else {
-            if(useAlertBox){
-                // Show the error message.
-                Alerts.error("Invalid Fields","Please correct invalid fields",errorMessage);
-            }
-            return false;
-        }
+        return Alerts.genErrorMessage(errorMessage, useAlertBox);
     }
 
     public boolean addServiceToDB(String service, String duration, String business){

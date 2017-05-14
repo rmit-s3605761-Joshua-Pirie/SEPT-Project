@@ -62,7 +62,7 @@ public class MainApp extends Application {
             this.primaryStage.show();
             LoginController controller = loader.getController();
             controller.setMainApp(this);
-            controller.ini();
+            controller.ini(business);
         }catch(IOException e){
             e.printStackTrace();
         }

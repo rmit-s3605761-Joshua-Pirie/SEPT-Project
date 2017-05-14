@@ -32,7 +32,7 @@ public class SelectBusinessController {
     private ObservableList<String> businesses = FXCollections.observableArrayList();
     private FilteredList<String> filteredData = new FilteredList<>(businesses, p -> true);
 
-//    Allow for the control of the main app.
+    //    Allow for the control of the main app.
     public void setMainApp(MainApp mainApp) {
         this.mainApp = mainApp;
     }
@@ -98,31 +98,33 @@ public class SelectBusinessController {
     @FXML
     public void handleOK(){
         if(!SB_CBox.getSelectionModel().isEmpty()){
-            mainApp.business = SB_CBox.getValue().toString();
-            System.out.println(SB_CBox.getValue().toString());
+            mainApp.business = SB_CBox.getValue();
+            System.out.println(SB_CBox.getValue());
             mainApp.showLogin();
         } else {
             Alerts.error("Error","Business not selected","Please select a business from the dropdown menu.");
         }
     }
 
-// Opens registration page to add a new business
-    public void showRegisterBusiness(){
+    @FXML
+    public void showLoginDialog(){
         try {
             // Load the fxml file and create a new stage for the popup dialog.
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(MainApp.class.getResource("view/RegisterBusiness.fxml"));
-            AnchorPane RegisterBusiness = (AnchorPane) loader.load();
+            loader.setLocation(MainApp.class.getResource("view/Login.fxml"));
+            AnchorPane Login = loader.load();
             // Create the dialog Stage.
             Stage dialogStage = new Stage();
-            dialogStage.setTitle("Register Business");
+            dialogStage.setTitle("Login");
             dialogStage.initModality(Modality.WINDOW_MODAL);
             dialogStage.initOwner(mainApp.getPrimaryStage());
-            Scene scene = new Scene(RegisterBusiness);
+            Scene scene = new Scene(Login);
             dialogStage.setScene(scene);
 
-            RegisterBusinessController controller = loader.getController();
+            LoginController controller = loader.getController();
             controller.setDialogStage(dialogStage);
+            controller.setMainApp(mainApp);
+            controller.setIsSuperUser();
 
             // Show the dialog and wait until the user closes it
             dialogStage.showAndWait();
@@ -130,4 +132,6 @@ public class SelectBusinessController {
             e.printStackTrace();
         }
     }
+
+
 }
