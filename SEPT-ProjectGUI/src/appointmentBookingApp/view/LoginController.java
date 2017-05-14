@@ -38,6 +38,7 @@ public class LoginController {
     private MainApp mainApp;
     private boolean isSuperUser = false;
     private Stage dialogStage;
+    private String business;
 
     //Allow for the control of the main app.
     public void setMainApp(MainApp mainApp) {
@@ -52,8 +53,8 @@ public class LoginController {
         password.setPromptText("password");
     }
 
-    public void ini(){
-	    this.isSuperUser = isSuperUser;
+    public void ini(String business){
+	    this.business = business;
         System.out.println("BN from Login: "+mainApp.business);
     }
 
@@ -86,13 +87,13 @@ public class LoginController {
                 showRegisterBusiness();
             }
         }else{
-            querySQL = "SELECT*FROM customer WHERE username=? AND password=?";
+            querySQL = "SELECT*FROM customer WHERE username=? AND password=? AND businessName=?";
             if(!dbAccountSearch(querySQL,sqlUsername,sqlPassword).next()){
                 System.out.println("Not customer login");
-                querySQL = "SELECT*FROM businessowner WHERE username=? AND password=?";
+                querySQL = "SELECT*FROM businessowner WHERE username=? AND password=? AND businessName=?";
                 if(!dbAccountSearch(querySQL,sqlUsername,sqlPassword).next()){
                     System.out.println("Not business owner login");
-                    querySQL = "SELECT*FROM staff WHERE staffID=? AND password=?";
+                    querySQL = "SELECT*FROM staff WHERE staffID=? AND password=? AND businessName=?";
                     if(!dbAccountSearch(querySQL,sqlUsername,sqlPassword).next()){
                         System.out.println("Not staff login");
                         errorMessage.setText("Username/Password is incorrect");
@@ -116,8 +117,10 @@ public class LoginController {
 //	Search database for account
 	private ResultSet dbAccountSearch(String sql, String sqlUsername, String sqlPassword) throws SQLException {
 		PreparedStatement pstmt = DbUtil.getConnection().prepareStatement(sql);
-		pstmt.setString(1,sqlUsername);
-		pstmt.setString(2,sqlPassword);
+		pstmt.setObject(1,sqlUsername);
+		pstmt.setObject(2,sqlPassword);
+		if(!isSuperUser)
+		    pstmt.setObject(3,business);
 		return pstmt.executeQuery();
 	}
 
