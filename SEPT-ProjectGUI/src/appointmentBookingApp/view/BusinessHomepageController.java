@@ -218,7 +218,7 @@ public class BusinessHomepageController {
         try {
             // Load the fxml file and create a new stage for the popup dialog.
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(MainApp.class.getResource("view/createAppointment.fxml"));
+            loader.setLocation(MainApp.class.getResource("view/CreateAppOwner.fxml"));
             AnchorPane CreateAppointment = (AnchorPane) loader.load();
             // Create the dialog Stage.
             Stage dialogStage = new Stage();
@@ -228,8 +228,10 @@ public class BusinessHomepageController {
             Scene scene = new Scene(CreateAppointment);
             dialogStage.setScene(scene);
 
-            createAppointmentController controller = loader.getController();
+            CreateAppOwnerController controller = loader.getController();
             controller.setDialogStage(dialogStage);
+            controller.setMainApp(mainApp);
+            controller.initialize();
 
             // Show the dialog and wait until the user closes it
             dialogStage.showAndWait();
