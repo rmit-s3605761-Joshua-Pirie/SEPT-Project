@@ -104,22 +104,22 @@ public final class TestData {
     }
     public static void populateBusinessOwnerTable(){
         List<String[]> data = new ArrayList<>();
-        String stmt = "INSERT INTO businessowner (username, password, firstName, lastName, businessName, address, phone) VALUES (?,?,?,?,?,?,?)";
+        String stmt = "INSERT INTO businessowner (username, password, firstName, lastName, businessName, address, phone, sTime, eTime) VALUES (?,?,?,?,?,?,?,?,?)";
 
-        data.add(new String[]{"b","Qwerty1!","Ben","Baker","Baker","",""});
-        data.add(new String[]{"bill","Qwerty1!","Bill","Baker","Bill's Buildings","77 Same Street, Silverdale","6183059683"});
+        data.add(new String[]{"b","Qwerty1!","Ben","Baker","Baker","","","09:00","18:00"});
+        data.add(new String[]{"bill","Qwerty1!","Bill","Baker","Bill's Buildings","77 Same Street, Silverdale","6183059683","09:00","18:00"});
 
         sendToDB(stmt, data);
     }
     public static void populateCustomerTable(){
         List<String[]> data = new ArrayList<>();
-        String stmt = "INSERT INTO customer (username, password, firstName, lastName, email, address, phone) VALUES (?,?,?,?,?,?,?)";
+        String stmt = "INSERT INTO customer (username, password, firstName, lastName, email, address, phone, businessName) VALUES (?,?,?,?,?,?,?,?)";
 
-        data.add(new String[]{"a","Qwerty1!","Amanda","Smith","a@mail.com","32 Binary Ave, Logtable","1234567890"});
-        data.add(new String[]{"bob","Qwerty1!","bob","bill","bob@mail.com","123 fake st","1234567890"});
-        data.add(new String[]{"amy","Qwerty1!","amy","parker","amy@mail.com","123 fake st","1234567890"});
-        data.add(new String[]{"tim","Qwerty1!","tim","parker","tim@mail.com","123 fake st","1234567890"});
-        data.add(new String[]{"jenny","Qwerty1!","jenny","lo","jenny@mail.com","123 fake st","1234567890"});
+        data.add(new String[]{"a","Qwerty1!","Amanda","Smith","a@mail.com","32 Binary Ave, Logtable","1234567890","Baker"});
+        data.add(new String[]{"bob","Qwerty1!","bob","bill","bob@mail.com","123 fake st","1234567890","Baker"});
+        data.add(new String[]{"amy","Qwerty1!","amy","parker","amy@mail.com","123 fake st","1234567890","Baker"});
+        data.add(new String[]{"tim","Qwerty1!","tim","parker","tim@mail.com","123 fake st","1234567890","Bill's Buildings"});
+        data.add(new String[]{"jenny","Qwerty1!","jenny","lo","jenny@mail.com","123 fake st","1234567890","Bill's Buildings"});
 
         sendToDB(stmt, data);
     }

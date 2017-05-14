@@ -32,8 +32,14 @@ public class LoginController {
     private PasswordField password;
     @FXML
     private Label errorMessage;
+    @FXML
+    private Button button;
 
     private MainApp mainApp;
+    private boolean isSuperUser = false;
+    private Stage dialogStage;
+    private String business;
+
     //Allow for the control of the main app.
     public void setMainApp(MainApp mainApp) {
         this.mainApp = mainApp;
@@ -47,7 +53,8 @@ public class LoginController {
         password.setPromptText("password");
     }
 
-    public void ini(){
+    public void ini(String business){
+	    this.business = business;
         System.out.println("BN from Login: "+mainApp.business);
     }
 
@@ -58,7 +65,7 @@ public class LoginController {
 	@FXML
 	private void handleView() throws SQLException{
         String querySQL;
-        String sqlUsername = username.getText().toUpperCase();
+        String sqlUsername = username.getText();
 		String sqlPassword = password.getText();
 		System.out.println("SQLUsername1: " + sqlUsername);
 		System.out.println("SQLPassword1: " + sqlPassword);
@@ -71,14 +78,22 @@ public class LoginController {
             username.clear();
             password.clear();
             username.requestFocus();
+        }else if(isSuperUser){
+		    querySQL = "SELECT*FROM suser WHERE username=? AND password=?";
+		    if(!dbAccountSearch(querySQL,sqlUsername,sqlPassword).next())
+                errorMessage.setText("Invalid Admin Account");
+		    else{
+                dialogStage.close();
+                showRegisterBusiness();
+            }
         }else{
-            querySQL = "SELECT*FROM customer WHERE username=? AND password=?";
+            querySQL = "SELECT*FROM customer WHERE username=? AND password=? AND businessName=?";
             if(!dbAccountSearch(querySQL,sqlUsername,sqlPassword).next()){
                 System.out.println("Not customer login");
-                querySQL = "SELECT*FROM businessowner WHERE username=? AND password=?";
+                querySQL = "SELECT*FROM businessowner WHERE username=? AND password=? AND businessName=?";
                 if(!dbAccountSearch(querySQL,sqlUsername,sqlPassword).next()){
                     System.out.println("Not business owner login");
-                    querySQL = "SELECT*FROM staff WHERE staffID=? AND password=?";
+                    querySQL = "SELECT*FROM staff WHERE staffID=? AND password=? AND businessName=?";
                     if(!dbAccountSearch(querySQL,sqlUsername,sqlPassword).next()){
                         System.out.println("Not staff login");
                         errorMessage.setText("Username/Password is incorrect");
@@ -99,19 +114,23 @@ public class LoginController {
         }
 	}
 
-	public ResultSet dbAccountSearch(String sql, String sqlUsername, String sqlPassword) throws SQLException {
+//	Search database for account
+	private ResultSet dbAccountSearch(String sql, String sqlUsername, String sqlPassword) throws SQLException {
 		PreparedStatement pstmt = DbUtil.getConnection().prepareStatement(sql);
-		pstmt.setString(1,sqlUsername);
-		pstmt.setString(2,sqlPassword);
+		pstmt.setObject(1,sqlUsername);
+		pstmt.setObject(2,sqlPassword);
+		if(!isSuperUser)
+		    pstmt.setObject(3,business);
 		return pstmt.executeQuery();
 	}
 
-    public void showBusinessHomepage() {
+    private void showBusinessHomepage() {
         mainApp.showBusinessHomepage();
     }
 
-    public void showCustomerHomepage(String sqlUsername){mainApp.showCustomerHomepage(sqlUsername);}
+    private void showCustomerHomepage(String sqlUsername){mainApp.showCustomerHomepage(sqlUsername);}
 
+//    Opens pages to add a new customer to the database.
     public void showRegisterCustomer(){
 		try {
 			// Load the fxml file and create a new stage for the popup dialog.
@@ -135,4 +154,39 @@ public class LoginController {
 			e.printStackTrace();
 		}
 	}
+
+    // Opens registration page to add a new business
+    void showRegisterBusiness(){
+        try {
+            // Load the fxml file and create a new stage for the popup dialog.
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainApp.class.getResource("view/RegisterBusiness.fxml"));
+            AnchorPane RegisterBusiness = loader.load();
+            dialogStage.setTitle("Register Business");
+            dialogStage.setScene(new Scene(RegisterBusiness));
+
+            RegisterBusinessController controller = loader.getController();
+            controller.setDialogStage(dialogStage);
+
+            // Show the dialog and wait until the user closes it
+            dialogStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void setDialogStage(Stage dialogStage) {
+        this.dialogStage = dialogStage;
+    }
+
+    void setIsSuperUser() {
+        isSuperUser = true;
+        button.setText("Cancel");
+        button.setOnAction((event)->{
+            dialogStage.close();
+        });
+//        register.setDisable(true);
+//        register.setVisible(false);
+
+    }
 }
