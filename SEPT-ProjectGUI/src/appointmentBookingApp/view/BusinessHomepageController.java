@@ -16,6 +16,8 @@ import java.sql.SQLException;
  * Created by Aydan on 30/03/2017.
  */
 public class BusinessHomepageController {
+    @FXML
+    AnchorPane primary;
     private MainApp mainApp;
     //Allow for the control of the main app.
     public void setMainApp(MainApp mainApp) {
@@ -189,6 +191,7 @@ public class BusinessHomepageController {
         }
     }
 
+    @FXML
     public void showUpdateStaffDialog(){
         try {
             // Load the fxml file and create a new stage for the popup dialog.
@@ -238,5 +241,10 @@ public class BusinessHomepageController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    public void colour(){
+//        primary.setStyle("-fx-background-color: black;");
     }
 }
