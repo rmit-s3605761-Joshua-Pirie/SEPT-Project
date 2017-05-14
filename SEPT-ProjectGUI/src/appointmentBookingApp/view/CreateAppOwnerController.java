@@ -180,8 +180,10 @@ public class CreateAppOwnerController extends Application {
                 ps.setString(8, customer);
                 ps.setString(9, mainApp.business);
                 ps.executeUpdate();
+                dialogStage.close();
             } catch (SQLException e) {
                 e.printStackTrace();
+                Alerts.error("Error", "Database Communication Error", "There was an error communicating with the database.");
             }
         }
     }
