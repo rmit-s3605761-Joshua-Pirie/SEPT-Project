@@ -38,6 +38,7 @@ public class CreateAppointmentCustomerController {
     private Stage dialogStage;
     private LocalDate selectedDate = null;
     private Object selectedService = null;
+    private LocalTime selectedTime = null;
     HashMap<String, LocalTime> services = new HashMap<String, LocalTime>();
     private ObservableList<String> serviceList = FXCollections.observableArrayList();
     private ObservableList<String> timesList = FXCollections.observableArrayList();
@@ -50,7 +51,7 @@ public class CreateAppointmentCustomerController {
 
     public void initialize(){
         try{
-            remainingAvailability = AvailabilityList.remainingAvailability("");
+            remainingAvailability = AvailabilityList.remainingAvailability("Baker");
         }
         catch (SQLException e){
 
@@ -76,6 +77,16 @@ public class CreateAppointmentCustomerController {
             e.printStackTrace();
         }
 
+        LocalTime firstTime = LocalTime.of(9, 00);
+        String time = null;
+        for(int i = 0; i < 32; i++){
+
+            time = firstTime.toString();
+            timesList.add(time);
+            firstTime = firstTime.plusMinutes(15);
+        }
+        TimesBox.setItems(timesList);
+        TimesBox.setVisibleRowCount(timesList.size());
     }
 
     @FXML
@@ -84,28 +95,52 @@ public class CreateAppointmentCustomerController {
         //System.out.println("chosen date is: " +localDate );
     }
 
+
+
     @FXML
     private void serviceSelect() {
         this.selectedService = ServicesBox.getValue();
-        if (selectedDate != null) {
+
+    }
+
+    @FXML
+    private void timeSelect(){
+        this.selectedTime = LocalTime.parse((CharSequence) TimesBox.getValue());
+        if (selectedDate != null && selectedService != null) {
+
+
             for (AvailabilityList list : remainingAvailability) {
-                if (list.getDate() != null)
-                    if (LocalDate.parse(list.getDate()).equals(this.selectedDate) && !LocalTime.parse(list.getsTime()).plusMinutes(services.get(this.selectedService).getMinute()).equals(LocalTime.parse(list.geteTime()))) {
-                        timesList.add(list.getsTime());
+
+                if (list.getDate() != null) {
+                    System.out.println("Available1: " + list.getDate() + " Start: " + list.getsTime() + " End: " + list.geteTime() + " " + list.getStaffID());
+                    if (LocalDate.parse(list.getDate()).equals(selectedDate)) {
+                        System.out.println("Date Equals: " + list.getDate() + " Start: " + list.getsTime() + " End: " + list.geteTime() + " " + list.getStaffID());
+                    if(LocalTime.parse(list.getsTime()).equals(selectedTime) || LocalTime.parse(list.getsTime()).isAfter(selectedTime)){
+                        System.out.println("Time Equals: " + list.getDate() + " Start: " + list.getsTime() + " End: " + list.geteTime() + " " + list.getStaffID());
+
+                        if (LocalTime.parse(list.getsTime()).plusMinutes(services.get(selectedService).getMinute()).isBefore(LocalTime.parse(list.geteTime()))) {
+                            System.out.println("Acceptable time"+ list.getDate() + " Start: " + list.getsTime() + " End: " + list.geteTime() + " " + list.getStaffID());
+
+                        }
                     }
+                    }
+                }
+
+
+                /*if (LocalDate.parse(list.getDate()).equals(this.selectedDate) && !LocalTime.parse(list.getsTime()).plusMinutes(services.get(this.selectedService).getMinute()).isBefore(LocalTime.parse(list.geteTime()))) {
+                        timesList.add(list.getsTime());
+                    }*/
             }
 
-
-            TimesBox.setItems(timesList);
-            TimesBox.setVisibleRowCount(timesList.size());
-            for (AvailabilityList list : remainingAvailability) {
+            /*for (AvailabilityList list : remainingAvailability) {
 
                 System.out.println(list.getDate() + " " + list.getsTime() + " " + list.geteTime() + " " + list.getStaffID());
-            }
+            }*/
 
 
-            System.out.println("service clicked ");
+
         }
+
     }
 
     @FXML
