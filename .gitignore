@@ -1,2 +1,6 @@
 SEPT-ProjectGUI/.idea/workspace.xml
+*.java
+SEPT-ProjectGUI/out/production/SEPT-ProjectGUI/appointmentBookingApp/view/CustomerHomepageController.class
+*.xml
 SEPT-ProjectGUI/.idea/workspace.xml
+SEPT-ProjectGUI/src/appointmentBookingApp/view/CreateAppOwnerController.java
