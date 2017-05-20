@@ -1,15 +1,22 @@
 package appointmentBookingApp.view;
 
 import appointmentBookingApp.MainApp;
+import appointmentBookingApp.util.DbUtil;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
@@ -17,11 +24,18 @@ import java.sql.SQLException;
  */
 public class BusinessHomepageController {
     @FXML
-    AnchorPane primary;
+    ComboBox<String> cbStyle;
     private MainApp mainApp;
     //Allow for the control of the main app.
     public void setMainApp(MainApp mainApp) {
         this.mainApp = mainApp;
+    }
+
+    //  Setup the FXML page on load
+    public void initialize(){
+        String[] styles = {"Modena","Black","Win7"};
+        cbStyle.getItems().addAll(styles);
+        setStyle();
     }
 
     @FXML
@@ -244,7 +258,33 @@ public class BusinessHomepageController {
     }
 
     @FXML
-    public void colour(){
-//        primary.setStyle("-fx-background-color: black;");
+    public void setStyle(){
+
+        cbStyle.valueProperty().addListener(((observable, oldValue, newValue) -> {
+            String css = "";
+            if(!mainApp.getPrimaryStage().getScene().getStylesheets().isEmpty()){
+                System.out.println("Current Style: "+ mainApp.getPrimaryStage().getScene().getStylesheets());
+                mainApp.getPrimaryStage().getScene().getStylesheets().clear();
+            }
+
+            switch (cbStyle.getValue()){
+                case "Black":
+                    css = "appointmentBookingApp/css/theme1.css";
+                    break;
+                case "Modena":
+                    css = "appointmentBookingApp/css/modena.css";
+                    break;
+                case "Win7":
+                    css = "appointmentBookingApp/css/Win7.css";
+                    break;
+                default:
+
+            }
+            String resource = this.getClass().getClassLoader().getResource(css).toExternalForm();
+            if(!css.isEmpty())
+                mainApp.getPrimaryStage().getScene().getStylesheets().add(resource);
+            System.out.println("New Style: "+ mainApp.getPrimaryStage().getScene().getStylesheets());
+            System.out.println();
+        }));
     }
 }
