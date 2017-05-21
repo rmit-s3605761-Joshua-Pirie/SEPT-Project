@@ -62,7 +62,7 @@ public class CustomerHomepageController {
             dialogStage.setScene(new Scene(BookAppointment));
             dialogStage.getScene().getStylesheets().addAll(MainApp.getPrimaryStage().getScene().getStylesheets());
 
-            CreateAppCustomerController controller = loader.getController();
+            CreateAppointmentCustomerController controller = loader.getController();
             controller.setDialogStage(dialogStage);
             controller.setMainApp(mainApp);
             controller.initialize(user);
