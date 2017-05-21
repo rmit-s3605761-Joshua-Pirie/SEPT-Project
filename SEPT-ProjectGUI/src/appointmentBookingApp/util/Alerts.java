@@ -1,5 +1,6 @@
 package appointmentBookingApp.util;
 
+import appointmentBookingApp.MainApp;
 import javafx.scene.control.Alert;
 
 /**
@@ -12,6 +13,7 @@ public class Alerts {
         alert.setTitle(title);
         alert.setHeaderText(header);
         alert.setContentText(content);
+        alert.getDialogPane().getStylesheets().addAll(MainApp.getPrimaryStage().getScene().getStylesheets());
 
         alert.showAndWait();
     }
@@ -21,6 +23,7 @@ public class Alerts {
         confirm.setTitle(title);
         confirm.setHeaderText(header);
         confirm.setContentText(content);
+        confirm.getDialogPane().getStylesheets().addAll(MainApp.getPrimaryStage().getScene().getStylesheets());
 
         confirm.showAndWait();
     }

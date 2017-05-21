@@ -58,9 +58,9 @@ public class CustomerHomepageController {
             Stage dialogStage = new Stage();
             dialogStage.setTitle("Book Appointment");
             dialogStage.initModality(Modality.WINDOW_MODAL);
-            dialogStage.initOwner(mainApp.getPrimaryStage());
-            Scene scene = new Scene(BookAppointment);
-            dialogStage.setScene(scene);
+            dialogStage.initOwner(MainApp.getPrimaryStage());
+            dialogStage.setScene(new Scene(BookAppointment));
+            dialogStage.getScene().getStylesheets().addAll(MainApp.getPrimaryStage().getScene().getStylesheets());
 
             CreateAppointmentCustomerController controller = loader.getController();
             controller.setDialogStage(dialogStage);
@@ -85,9 +85,9 @@ public class CustomerHomepageController {
             Stage dialogStage = new Stage();
             dialogStage.setTitle("Review Appointments");
             dialogStage.initModality(Modality.WINDOW_MODAL);
-            dialogStage.initOwner(mainApp.getPrimaryStage());
-            Scene scene = new Scene(RemainingAvailability);
-            dialogStage.setScene(scene);
+            dialogStage.initOwner(MainApp.getPrimaryStage());
+            dialogStage.setScene(new Scene(RemainingAvailability));
+            dialogStage.getScene().getStylesheets().addAll(MainApp.getPrimaryStage().getScene().getStylesheets());
 
             ReviewAppointmentsController controller = loader.getController();
             controller.setDialogStage(dialogStage);
@@ -114,9 +114,9 @@ public class CustomerHomepageController {
             Stage dialogStage = new Stage();
             dialogStage.setTitle("Update Details");
             dialogStage.initModality(Modality.WINDOW_MODAL);
-            dialogStage.initOwner(mainApp.getPrimaryStage());
-            Scene scene = new Scene(UpdateDetails);
-            dialogStage.setScene(scene);
+            dialogStage.initOwner(MainApp.getPrimaryStage());
+            dialogStage.setScene(new Scene(UpdateDetails));
+            dialogStage.getScene().getStylesheets().addAll(MainApp.getPrimaryStage().getScene().getStylesheets());
 
             UpdateDetailsController controller = loader.getController();
             controller.setDialogStage(dialogStage);

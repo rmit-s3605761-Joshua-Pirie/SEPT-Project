@@ -198,14 +198,14 @@ public class UpcomingBookingsController {
             // Load the fxml file and create a new stage for the popup dialog.
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(MainApp.class.getResource("view/UpcomingBookingsList.fxml"));
-            AnchorPane UpcomingBookingsList = (AnchorPane) loader.load();
+            AnchorPane UpcomingBookingsList = loader.load();
             // Create the dialog Stage.
             Stage dialogStage = new Stage();
             dialogStage.setTitle("Upcoming Booking List");
             dialogStage.initModality(Modality.WINDOW_MODAL);
             dialogStage.initOwner(this.dialogStage);
-            Scene scene = new Scene(UpcomingBookingsList);
-            dialogStage.setScene(scene);
+            dialogStage.setScene(new Scene(UpcomingBookingsList));
+            dialogStage.getScene().getStylesheets().addAll(MainApp.getPrimaryStage().getScene().getStylesheets());
 
             UpcomingBookingsListController controller = loader.getController();
             controller.setDialogStage(dialogStage);

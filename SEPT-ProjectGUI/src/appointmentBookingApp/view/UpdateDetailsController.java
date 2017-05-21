@@ -4,6 +4,7 @@ import appointmentBookingApp.util.Alerts;
 import appointmentBookingApp.util.DbUtil;
 import appointmentBookingApp.util.Validators;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -20,7 +21,7 @@ import static appointmentBookingApp.util.DbUtil.getConnection;
  */
 public class UpdateDetailsController {
     @FXML
-    private Text UserNameT;
+    private Label UserNameT;
 
     @FXML
     private TextField PasswordTB;
@@ -48,8 +49,8 @@ public class UpdateDetailsController {
 
     private Stage dialogStage;
     private String userName;
-    String oldPassword;
-    String newPassword;
+    private String oldPassword;
+    private String newPassword;
 
     public void setDialogStage(Stage dialogStage) {
         this.dialogStage = dialogStage;

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
@@ -10,9 +11,9 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="primary" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appointmentBookingApp.view.BusinessHomepageController">
+<AnchorPane fx:id="primary" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appointmentBookingApp.view.BusinessHomepageController">
    <children>
-      <Button cancelButton="true" defaultButton="true" layoutX="136.0" layoutY="261.0" mnemonicParsing="false" onAction="#logout" prefWidth="150.0" text="Logout" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="15.0" />
+      <Button cancelButton="true" layoutX="136.0" layoutY="261.0" mnemonicParsing="false" onAction="#logout" prefWidth="150.0" text="Logout" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="15.0" />
       <Label alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="30.0" layoutY="14.0" text="Business Owner Page" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="14.0">
          <font>
             <Font name="System Bold" size="24.0" />
@@ -114,7 +115,7 @@
                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                            </rowConstraints>
                            <children>
-                              <Button mnemonicParsing="false" onAction="#colour" text="Black" />
+                              <ComboBox fx:id="cbStyle" prefWidth="120.0" promptText="Select Style" />
                            </children>
                         </GridPane>
                      </children>
