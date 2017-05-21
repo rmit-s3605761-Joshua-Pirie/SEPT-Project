@@ -85,17 +85,17 @@ public class CreateAppointmentCustomerController extends Application {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-        try {
-            availability = AvailabilityList.remainingAvailability();
-        }
-        catch(SQLException e) {
-            e.printStackTrace();
-        }
     }
 
     @FXML
     void handleDate() {
+        try {
+            availability = AvailabilityList.remainingAvailability(datePicker.getValue(), datePicker.getValue());
+        }
+        catch(SQLException e) {
+            e.printStackTrace();
+        }
+
         setEnabled(true, true, false, false, false);
         clearInput(false, true, true, true);
     }
