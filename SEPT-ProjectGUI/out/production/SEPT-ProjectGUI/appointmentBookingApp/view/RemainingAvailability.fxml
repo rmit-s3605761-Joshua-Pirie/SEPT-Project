@@ -4,14 +4,13 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane focusTraversable="true" minHeight="400.0" minWidth="500.0" prefHeight="462.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appointmentBookingApp.view.RemainingAvailabilityController">
+<AnchorPane focusTraversable="true" minHeight="400.0" minWidth="480.0" prefHeight="475.0" prefWidth="475.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appointmentBookingApp.view.RemainingAvailabilityController">
    <children>
       <Label fx:id="title" contentDisplay="CENTER" focusTraversable="false" layoutX="86.0" layoutY="14.0" text="Remaining Staff Availability" textAlignment="CENTER">
          <font>
@@ -21,24 +20,16 @@
       <TextField fx:id="fStaffID" layoutX="60.0" layoutY="67.0" prefWidth="120.0" promptText="Filter by StaffID" />
       <TextField fx:id="fDay" layoutX="190.0" layoutY="67.0" prefWidth="120.0" promptText="Filter by Day" />
       <TextField fx:id="fsTime" layoutX="320.0" layoutY="67.0" prefWidth="120.0" promptText="Filter by Start Time" />
-      <ScrollPane focusTraversable="false" layoutY="103.0" prefHeight="319.0" prefWidth="500.0">
-         <content>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefWidth="485.0">
-               <children>
-                  <TableView fx:id="availabilityTable" focusTraversable="false" prefWidth="485.0">
-                     <columns>
-                        <TableColumn fx:id="staffIDColumn" minWidth="100.0" prefWidth="100.0" text="StaffID" />
-                        <TableColumn fx:id="nameColumn" minWidth="100.0" prefWidth="100.0" text="Name" />
-                        <TableColumn fx:id="dayColumn" minWidth="100.0" prefWidth="100.0" text="Day" />
-                        <TableColumn fx:id="sTimeColumn" minWidth="100.0" prefWidth="100.0" text="Start Time" />
-                        <TableColumn fx:id="eTimeColumn" minWidth="100.0" prefWidth="100.0" text="End Time" />
-                     </columns>
-                  </TableView>
-               </children>
-            </AnchorPane>
-         </content>
-      </ScrollPane>
-      <ButtonBar layoutY="422.0" prefHeight="40.0" prefWidth="500.0">
+      <TableView fx:id="availabilityTable" focusTraversable="false" layoutX="8.0" layoutY="111.0" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+         <columns>
+            <TableColumn fx:id="staffIDColumn" minWidth="95.0" prefWidth="-1.0" text="StaffID" />
+            <TableColumn fx:id="nameColumn" minWidth="95.0" prefWidth="-1.0" text="Name" />
+            <TableColumn fx:id="dayColumn" minWidth="95.0" prefWidth="-1.0" text="Day" />
+            <TableColumn fx:id="sTimeColumn" minWidth="95.0" prefWidth="-1.0" text="Start Time" />
+            <TableColumn fx:id="eTimeColumn" minWidth="95.0" prefWidth="-1.0" text="End Time" />
+         </columns>
+      </TableView>
+      <ButtonBar layoutY="422.0" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="15.0">
          <buttons>
             <Button defaultButton="true" mnemonicParsing="false" onAction="#handleCancel" prefHeight="25.0" prefWidth="100.0" text="Close" />
          </buttons>

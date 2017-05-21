@@ -1,30 +1,89 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane prefHeight="407.0" prefWidth="334.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appointmentBookingApp.view.UpdateDetailsController">
+<AnchorPane prefHeight="300.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appointmentBookingApp.view.UpdateDetailsController">
    <children>
-      <Text layoutX="57.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Name: " />
-      <Text layoutX="66.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password: " />
-      <Text layoutX="26.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Confirm Password: " />
-      <Text layoutX="36.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" text="e-Mail Address: " />
-      <Text layoutX="59.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name: " />
-      <Text layoutX="67.0" layoutY="236.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Surname: " />
-      <Text layoutX="53.0" layoutY="274.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mail Address: " />
-      <Text layoutX="89.0" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone: " />
-      <PasswordField fx:id="PasswordTB" layoutX="149.0" layoutY="64.0" promptText="Fill to change" />
-      <PasswordField fx:id="ConfirmPassworkTB" layoutX="149.0" layoutY="104.0" promptText="Else leave blank" />
-      <TextField fx:id="EmailTB" layoutX="149.0" layoutY="142.0" promptText="e.g, fred@cartoon.com" />
-      <TextField fx:id="FirstNameTB" layoutX="149.0" layoutY="182.0" promptText="e.g. Fred" />
-      <TextField fx:id="SurNameTB" layoutX="149.0" layoutY="219.0" promptText="e.g. Flinstone" />
-      <TextField fx:id="AddressTB" layoutX="149.0" layoutY="257.0" promptText="e.g. 123 Bedrock St" />
-      <TextField fx:id="PhoneTB" layoutX="149.0" layoutY="298.0" promptText="8 to 10 digits long" />
-      <Button fx:id="Submit" defaultButton="true" layoutX="176.0" layoutY="347.0" mnemonicParsing="false" onAction="#submit" text="Submit" />
-      <Button fx:id="Cancel" cancelButton="true" layoutX="246.0" layoutY="347.0" mnemonicParsing="false" onAction="#handleCancel" text="Cancel" />
-      <Text fx:id="UserNameT" layoutX="149.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <ButtonBar layoutX="120.0" layoutY="353.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="15.0">
+        <buttons>
+            <Button fx:id="Submit" defaultButton="true" mnemonicParsing="false" onAction="#submit" text="Submit" />
+            <Button fx:id="Cancel" cancelButton="true" mnemonicParsing="false" onAction="#handleCancel" text="Cancel" />
+        </buttons>
+      </ButtonBar>
+      <GridPane layoutX="128.0" layoutY="10.0" prefWidth="300.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columnConstraints>
+          <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0" />
+          <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label fx:id="UserNameT" minWidth="100.0" GridPane.columnIndex="1" />
+            <PasswordField fx:id="PasswordTB" promptText="Fill to change" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <PasswordField fx:id="ConfirmPassworkTB" promptText="Else leave blank" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="EmailTB" promptText="e.g, fred@cartoon.com" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="FirstNameTB" promptText="e.g. Fred" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField fx:id="SurNameTB" promptText="e.g. Flinstone" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextField fx:id="AddressTB" promptText="e.g. 123 Bedrock St" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <TextField fx:id="PhoneTB" promptText="8 to 10 digits long" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <Label text="User Name: ">
+               <GridPane.margin>
+                  <Insets right="10.0" />
+               </GridPane.margin>
+            </Label>
+            <Label text="Password: " GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets right="10.0" />
+               </GridPane.margin>
+            </Label>
+            <Label text="Confirm Password: " GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets right="10.0" />
+               </GridPane.margin>
+            </Label>
+            <Label text="e-Mail Address: " GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets right="10.0" />
+               </GridPane.margin>
+            </Label>
+            <Label text="First Name: " GridPane.rowIndex="4">
+               <GridPane.margin>
+                  <Insets right="10.0" />
+               </GridPane.margin>
+            </Label>
+            <Label text="Surname: " GridPane.rowIndex="5">
+               <GridPane.margin>
+                  <Insets right="10.0" />
+               </GridPane.margin>
+            </Label>
+            <Label text="Mail Address: " GridPane.rowIndex="6">
+               <GridPane.margin>
+                  <Insets right="10.0" />
+               </GridPane.margin>
+            </Label>
+            <Label text="Phone: " GridPane.rowIndex="7">
+               <GridPane.margin>
+                  <Insets right="10.0" />
+               </GridPane.margin>
+            </Label>
+         </children>
+      </GridPane>
    </children>
 </AnchorPane>

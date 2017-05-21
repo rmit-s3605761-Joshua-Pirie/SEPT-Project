@@ -117,7 +117,7 @@ public class SelectBusinessController {
             Stage dialogStage = new Stage();
             dialogStage.setTitle("Login");
             dialogStage.initModality(Modality.WINDOW_MODAL);
-            dialogStage.initOwner(mainApp.getPrimaryStage());
+            dialogStage.initOwner(MainApp.getPrimaryStage());
             Scene scene = new Scene(Login);
             dialogStage.setScene(scene);
 

@@ -1,0 +1,68 @@
+
+.root{
+    -fx-background-color: black;
+    -fx-background: black;
+}
+.split-pane{
+    -fx-background-color: black;
+}
+.split-pane .split-pane-divider{
+    -fx-background-color: #414141;
+}
+.label{
+    -fx-text-fill: aliceblue;
+}
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-background-color: #414141;
+}
+.tab-pane{
+    -fx-background-color: #414141;
+}
+.tab-pane .tab{
+    -fx-background-color: black;
+}
+.tab-pane .tab:selected{
+    -fx-background-color: #414141;
+}
+.tab .tab-label{
+    -fx-text-fill: aliceblue;
+}
+.tab:selected .tab-label{
+    -fx-text-fill: aliceblue;
+}
+.check-box:determinate .text{
+    -fx-fill: aliceblue;
+}
+.scroll-pane .viewport{
+    -fx-background-color: black;
+}
+.table-view{
+    -fx-background-color: derive(-fx-background,10%);
+    -fx-table-header-border-color: -fx-background;
+    -fx-table-cell-border-color: derive(-fx-background,10%);
+}
+.table-view *.column-header-background {
+    -fx-base: #414141;
+}
+.table-row-cell {
+    -fx-background: black;
+    -fx-background-color: derive(-fx-background,10%), -fx-background;
+    -fx-background-insets: 0, 0 0 0 0;
+    -fx-padding: 0;
+}
+.table-row-cell:odd {
+    -fx-background: derive(black,10%);
+}
+.scroll-bar {
+    -fx-background-color: -fx-background, derive(-fx-background,10%);
+}
+.scroll-bar > .thumb {
+    -fx-background-color: -fx-background, derive(-fx-background,10%), derive(-fx-background,20%);
+}
+.table-view > .virtual-flow > .corner{
+    -fx-background-color: -fx-background, derive(-fx-background,10%), derive(-fx-background,20%);
+}
+.scroll-pane .corner{
+    -fx-background-color: -fx-background, derive(-fx-background,10%), derive(-fx-background,20%);
+}
+

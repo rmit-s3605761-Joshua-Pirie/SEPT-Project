@@ -148,11 +148,11 @@ public class Bookings {
     public static ObservableList<Bookings> reviewAppointmentsCustomer(String customerUsername, String business) throws SQLException {
         ObservableList<Bookings> bookings = FXCollections.observableArrayList();
         LocalDate currentDate = LocalDate.now();
-        String sql = "SELECT * FROM bookings " +
-                "NATURAL JOIN staff " +
-                "JOIN customer on bookings.customerUsername = customer.username " +
-                "WHERE bookings.customerUsername =? AND date >= ? " +
-                "AND businessName = ?";
+        String sql = "SELECT * FROM bookings b " +
+                "NATURAL JOIN staff s " +
+                "JOIN customer c on b.customerUsername = c.username " +
+                "WHERE b.customerUsername =? AND date >= ? " +
+                "AND b.businessName = ?";
         ResultSet rs;
         PreparedStatement pstmt = DbUtil.getConnection().prepareStatement(sql);
         pstmt.setString(1,customerUsername);
@@ -163,7 +163,7 @@ public class Bookings {
             bookings.add(new Bookings(rs.getString("sTime"),
                     rs.getString("eTime"),
                     rs.getString("service"),
-                    rs.getString("staff.firstName"),
+                    rs.getString("s.firstName"),
                     rs.getString("date"),
                     Day.values()[rs.getInt("dayofWeek")]));
         }

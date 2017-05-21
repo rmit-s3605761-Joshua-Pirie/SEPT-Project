@@ -15,17 +15,18 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 
-public class MainApp extends Application {
-    public  Stage primaryStage;
+public final class MainApp extends Application {
+    private static Stage primaryStage;
     public  String business;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        this.primaryStage = primaryStage;
-//        showLogin();
+        setPrimaryStage(primaryStage);
         showSelectBusiness();
     }
 
@@ -40,10 +41,10 @@ public class MainApp extends Application {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(MainApp.class.getResource("view/SelectBusiness.fxml"));
             AnchorPane login = (AnchorPane) loader.load();
-            this.primaryStage.setTitle("Select Business");
-            this.primaryStage.setScene(new Scene(login));
+            getPrimaryStage().setTitle("Select Business");
+            getPrimaryStage().setScene(new Scene(login));
 
-            this.primaryStage.show();
+            getPrimaryStage().show();
             SelectBusinessController controller = loader.getController();
             controller.setMainApp(this);
         }catch(IOException e){
@@ -55,11 +56,16 @@ public class MainApp extends Application {
         try{
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(MainApp.class.getResource("view/Login.fxml"));
-            AnchorPane login = (AnchorPane) loader.load();
-            this.primaryStage.setTitle(business);
-            this.primaryStage.setScene(new Scene(login));
+            AnchorPane login = loader.load();
+            getPrimaryStage().setTitle(business);
+            if(getPrimaryStage().getScene().getStylesheets().isEmpty()){
+                System.out.println("Checking database for theme.");
+                setStyleDB();
+            }
+            getPrimaryStage().getScene().setRoot(login);
+            getPrimaryStage().sizeToScene();
 
-            this.primaryStage.show();
+            getPrimaryStage().show();
             LoginController controller = loader.getController();
             controller.setMainApp(this);
             controller.ini(business);
@@ -76,6 +82,7 @@ public class MainApp extends Application {
             AnchorPane businessHomepage = loader.load();
             primaryStage.close();
             primaryStage.getScene().setRoot(businessHomepage);
+            getPrimaryStage().sizeToScene();
             primaryStage.show();
             // Give the controller access to the main app.
             BusinessHomepageController controller = loader.getController();
@@ -92,6 +99,7 @@ public class MainApp extends Application {
             AnchorPane customerHomepage = loader.load();
             primaryStage.close();
             primaryStage.getScene().setRoot(customerHomepage);
+            getPrimaryStage().sizeToScene();
             primaryStage.show();
             // Give the controller access to the main app.
             CustomerHomepageController controller = loader.getController();
@@ -102,6 +110,30 @@ public class MainApp extends Application {
         }
     }
 
-    public Stage getPrimaryStage(){return primaryStage;}
+    public void setStyleDB(){
+        String sql = "SELECT * FROM customization WHERE businessName=?";
+
+        try {
+            PreparedStatement pstmt = DbUtil.getConnection().prepareStatement(sql);
+            pstmt.setObject(1,business);
+            ResultSet rs = pstmt.executeQuery();
+            while (rs.next()){
+                if(!rs.getString("theme").isEmpty() || rs.getString("theme").equals("")){
+                    String css = "appointmentBookingApp/css/"+rs.getString("theme")+".css";
+                    String resource = this.getClass().getClassLoader().getResource(css).toExternalForm();
+                    getPrimaryStage().getScene().getStylesheets().add(resource);
+                    System.out.println("New Style: "+ getPrimaryStage().getScene().getStylesheets()+"\n");
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static Stage getPrimaryStage(){return primaryStage;}
+
+    public static void setPrimaryStage(Stage primaryStage){
+        MainApp.primaryStage = primaryStage;
+    }
 }
 
