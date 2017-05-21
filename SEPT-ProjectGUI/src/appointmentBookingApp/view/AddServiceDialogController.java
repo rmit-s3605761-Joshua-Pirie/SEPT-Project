@@ -46,7 +46,7 @@ public class AddServiceDialogController {
     public void ini() {
         serviceName.setPromptText("Enter name of service");
         duration.setPromptText("hh:mm");
-        this.business = mainApp.business;
+        this.business = MainApp.getBusiness();
     }
 
     /**

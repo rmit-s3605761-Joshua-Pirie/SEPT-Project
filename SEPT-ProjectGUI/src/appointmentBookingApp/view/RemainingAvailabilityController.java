@@ -2,7 +2,6 @@ package appointmentBookingApp.view;
 
 import appointmentBookingApp.MainApp;
 import appointmentBookingApp.model.AvailabilityList;
-import appointmentBookingApp.model.Bookings;
 import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -60,14 +59,14 @@ public class RemainingAvailabilityController {
     }
 
     public void ini() throws SQLException {
-        this.business = mainApp.business;
-        System.out.println("BN from RemainingAvail: "+mainApp.business);
+        this.business = MainApp.getBusiness();
+        System.out.println("BN from RemainingAvail: "+MainApp.getBusiness());
         staffIDColumn.setCellValueFactory(cellData -> cellData.getValue().staffIDProperty());
         nameColumn.setCellValueFactory(cellData -> cellData.getValue().empNameProperty());
         dayColumn.setCellValueFactory(cellData -> cellData.getValue().dayProperty());
         sTimeColumn.setCellValueFactory(cellData -> cellData.getValue().sTimeProperty());
         eTimeColumn.setCellValueFactory(cellData -> cellData.getValue().eTimeProperty());
-        availability.setAll(AvailabilityList.remainingAvailability(business));
+        availability.setAll(AvailabilityList.remainingAvailability());
         availabilityTable.setItems(availability);
         filters();
     }

@@ -58,7 +58,7 @@ public class LoginController {
 
     public void ini(String business){
 	    this.business = business;
-        System.out.println("BN from Login: "+mainApp.business);
+        System.out.println("BN from Login: "+MainApp.getBusiness());
     }
 
 	/**

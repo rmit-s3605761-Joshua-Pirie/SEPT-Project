@@ -60,12 +60,11 @@ public class UpcomingBookingsListController {
     void setDialogStage(Stage dialogStage) { this.dialogStage = dialogStage; }
 
     public void ini() throws SQLException {
-        this.business = mainApp.business;
+        this.business = MainApp.getBusiness();
         sTimeColumn.setCellValueFactory(cellData -> cellData.getValue().sTimeProperty());
         serviceColumn.setCellValueFactory(cellData -> cellData.getValue().serviceProperty());
         customerColumn.setCellValueFactory(cellData -> cellData.getValue().customerProperty());
         employeeColumn.setCellValueFactory(cellData -> cellData.getValue().empNameProperty());
-//        employeeColumn.setCellValueFactory(cellData -> cellData.getValue().staffIDProperty());
         bookings.setAll(Bookings.setBookings(date, sTime, business));
         bookingTable.setItems(bookings);
         filters();
