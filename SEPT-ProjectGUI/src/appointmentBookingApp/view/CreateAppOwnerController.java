@@ -76,7 +76,7 @@ public class CreateAppOwnerController extends Application {
         customerUsernames = new ArrayList<>();
         try {
             PreparedStatement ps = DbUtil.getConnection().prepareStatement(sql);
-            ps.setString(1, mainApp.business);
+            ps.setString(1, MainApp.getBusiness());
             ResultSet rs = ps.executeQuery();
             while(rs.next()) {
                 customerUsernames.add(rs.getString("username"));
@@ -90,20 +90,13 @@ public class CreateAppOwnerController extends Application {
         services = new ArrayList<>();
         try {
             PreparedStatement ps = DbUtil.getConnection().prepareStatement(sql);
-            ps.setString(1, mainApp.business);
+            ps.setString(1, MainApp.getBusiness());
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 services.add(new String[]{rs.getString("service"), rs.getString("duration")});
                 serviceCombo.getItems().add(rs.getString("service") + " - " + rs.getString("duration"));
             }
         } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        try {
-            availability = AvailabilityList.remainingAvailability(mainApp.business);
-        }
-        catch(SQLException e) {
             e.printStackTrace();
         }
     }
@@ -116,6 +109,12 @@ public class CreateAppOwnerController extends Application {
 
     @FXML
     void handleDate() {
+        try {
+            availability = AvailabilityList.remainingAvailability(datePicker.getValue(), datePicker.getValue());
+        }
+        catch(SQLException e) {
+            e.printStackTrace();
+        }
         setEnabled(true, true, false, false, false);
         clearInput(false, true, true, true);
     }
@@ -179,7 +178,7 @@ public class CreateAppOwnerController extends Application {
                 ps.setString(6, staffID);
                 ps.setString(7, service);
                 ps.setString(8, customer);
-                ps.setString(9, mainApp.business);
+                ps.setString(9, MainApp.getBusiness());
                 ps.executeUpdate();
                 dialogStage.close();
             } catch (SQLException e) {

@@ -1,12 +1,24 @@
 package appointmentBookingApp.view;
 
+import appointmentBookingApp.MainApp;
 import appointmentBookingApp.model.Availability;
 import appointmentBookingApp.model.Day;
 import appointmentBookingApp.util.DbUtil;
+import com.sun.org.apache.xerces.internal.dom.ChildNode;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.event.EventType;
 import javafx.fxml.FXML;
+import javafx.geometry.Pos;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.RowConstraints;
 import javafx.stage.Stage;
 import javafx.scene.control.*;
 
+import javax.swing.*;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Time;
@@ -22,31 +34,15 @@ public class SetEmpAvailabilityController {
     @FXML
     private ComboBox dayCombo;
     @FXML
-    private CheckBox toggle8;
-    @FXML
-    private CheckBox toggle9;
-    @FXML
-    private CheckBox toggle10;
-    @FXML
-    private CheckBox toggle11;
-    @FXML
-    private CheckBox toggle12;
-    @FXML
-    private CheckBox toggle13;
-    @FXML
-    private CheckBox toggle14;
-    @FXML
-    private CheckBox toggle15;
-    @FXML
-    private CheckBox toggle16;
-    @FXML
-    private CheckBox toggle17;
+    private GridPane availabilityGrid;
 
     private Stage dialogStage;
     private boolean addClicked = false;
-    private CheckBox[] toggles;
+    private ArrayList<CheckBox> toggles = new ArrayList<>();
     private Availability availability;
     private Day day;
+    private int startHour = 0;
+    private int endHour = 0;
 
     /**
      *Initialize on controller load.
@@ -55,7 +51,7 @@ public class SetEmpAvailabilityController {
         dayCombo.getSelectionModel().select("Monday");
         day = Day.MONDAY;
         availability = new Availability();
-        toggles = new CheckBox[]{toggle8, toggle9, toggle10, toggle11, toggle12, toggle13, toggle14, toggle15, toggle16, toggle17};
+        populateGrid();
     }
 
     /**
@@ -68,6 +64,41 @@ public class SetEmpAvailabilityController {
      */
     boolean isAddClicked() {
         return addClicked;
+    }
+
+    void populateGrid() {
+        String sql = "SELECT sTime, eTime FROM businessowner WHERE businessName = ?";
+        try {
+            PreparedStatement ps = DbUtil.getConnection().prepareStatement(sql);
+            ps.setString(1, MainApp.getBusiness());
+            ResultSet rs = ps.executeQuery();
+            rs.next();
+            startHour = Integer.parseInt(rs.getString("sTime").substring(0, 2));
+            endHour = Integer.parseInt(rs.getString("eTime").substring(0, 2));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        int column = 0;
+        int row = 0;
+        for(int i = startHour; i < endHour; i++) {
+            CheckBox c = new CheckBox(i + ":00");
+            c.setAlignment(Pos.CENTER);
+            c.selectedProperty().addListener((observable, oldValue, newValue) -> {
+                availability.resetDay(day);
+                for(int j = 0; j < toggles.size(); j++)
+                    if(toggles.get(j).isSelected())
+                        availability.setAvailability(day, j + startHour);
+            });
+            toggles.add(c);
+            availabilityGrid.add(c, column, row);
+
+            column++;
+            if(column > 2) {
+                column = 0;
+                row++;
+            }
+        }
     }
 
     @FXML
@@ -84,18 +115,13 @@ public class SetEmpAvailabilityController {
     @FXML
     public void handleDay() {
         day = Day.values()[dayCombo.getSelectionModel().getSelectedIndex()];
-        for(CheckBox c : toggles)
-            c.setSelected(false);
-        for(int t : availability.getAvailability(day))
-            toggles[t - 8].setSelected(true);
-    }
-
-    @FXML
-    public void handleToggle() {
-        availability.resetDay(day);
-        for(int i = 0; i < toggles.length; i++)
-            if(toggles[i].isSelected())
-                availability.setAvailability(day, i + 8);
+        for(CheckBox c : toggles) {
+            boolean checked = false;
+            for(int t : availability.getAvailability(day))
+                if(toggles.get(t - startHour) == c)
+                    checked = true;
+            c.setSelected(checked);
+        }
     }
 
     /**

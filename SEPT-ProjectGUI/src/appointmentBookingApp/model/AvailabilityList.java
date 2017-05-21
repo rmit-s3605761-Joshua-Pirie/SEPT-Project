@@ -1,5 +1,6 @@
 package appointmentBookingApp.model;
 
+import appointmentBookingApp.MainApp;
 import appointmentBookingApp.util.DbUtil;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -12,6 +13,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -51,370 +53,128 @@ public class AvailabilityList {
         this.dayOfWeek = dayOfWeek;
     }
 
-
-    public static ObservableList<AvailabilityList> remainingAvailabilityDay(String staffID, LocalDate day, String business) throws SQLException {
-        String sql;
-        PreparedStatement pstmt;
-        ResultSet rs;
-
+//  Programmatically determine the remaining availability of employees.
+    public static ObservableList<AvailabilityList> remainingAvailability() throws SQLException {
+        LocalDate date = LocalDate.now();
+        return remainingAvailability(date, date.plusDays(6));
+    }
+    public static ObservableList<AvailabilityList> remainingAvailability(LocalDate startDate, LocalDate endDate) throws SQLException {
         ObservableList<AvailabilityList> remainingAvailability = FXCollections.observableArrayList();
-        Set<AvailabilityList> availableTimeRanges = new LinkedHashSet<>();
-        Set<AvailabilityList> bookingTimeRanges = new LinkedHashSet<>();
-        Set<AvailabilityList> remainingTimeRanges = new LinkedHashSet<>();
-        ArrayList<AvailabilityList> toRemove = new ArrayList<>();
+        Set<AvailabilityList> availableTimeRanges = getAvailableTimeRanges();
+        Set<AvailabilityList> bookingTimeRanges = getBookingTimeRanges(startDate, endDate);
+        Set<AvailabilityList> tempAvailabilities = new LinkedHashSet<>();
 
-        sql = "SELECT * FROM availability " +
-                "NATURAL JOIN staff " +
-                "WHERE staffID = ? " +
-                "AND dayOfWeek = ? " +
-                "AND businessName = ?";
-        pstmt = DbUtil.getConnection().prepareStatement(sql);
-        pstmt.setString(1,staffID);
-        pstmt.setInt(2,day.getDayOfWeek().ordinal());
-        pstmt.setString(3,business);
-        rs = pstmt.executeQuery();
-        while (rs.next()){
-            availableTimeRanges.add(new AvailabilityList(rs.getString("staffID"),
-                    Day.values()[rs.getInt("dayofWeek")],
-                    rs.getString("startTime"),
-                    rs.getString("endTime"),
-                    rs.getString("firstName")));
-        }
-        sql = "SELECT * FROM bookings " +
-                "NATURAL JOIN staff " +
-                "WHERE staffID = ? " +
-                "AND date = ? " +
-                "AND businessName = ?";
-        pstmt = DbUtil.getConnection().prepareStatement(sql);
-        pstmt.setString(1,staffID);
-        pstmt.setDate(2,Date.valueOf(day));
-        pstmt.setString(3,business);
-        rs = pstmt.executeQuery();
-        while (rs.next()){
-            bookingTimeRanges.add(new AvailabilityList(rs.getString("staffID"),
-                    Day.values()[rs.getInt("dayofWeek")],
-                    rs.getString("sTime"),
-                    rs.getString("eTime"),
-                    rs.getString("firstName"),
-                    rs.getString("date")));
-        }
+        for(AvailabilityList availableTimeRange : availableTimeRanges) {
+            tempAvailabilities.clear();
 
-        for(AvailabilityList bookingTimeRange : bookingTimeRanges) {
-            remainingTimeRanges.clear();
-            toRemove.clear();
-            for(AvailabilityList availableTimeRange : availableTimeRanges) {
-                if(bookingTimeRange.getStartTime().isAfter(availableTimeRange.getStartTime())
-                        && bookingTimeRange.getStartTime().isBefore(availableTimeRange.getEndTime())) {
-                    remainingTimeRanges.add(new AvailabilityList(bookingTimeRange.getDate(),
+            // start by assuming availability at that time every week within the range
+            for(LocalDate currDate = startDate; currDate.compareTo(endDate) <= 0; currDate = currDate.plusDays(1)) {
+                if(currDate.getDayOfWeek().ordinal() == availableTimeRange.getDayOfWeek().ordinal()) {
+                    tempAvailabilities.add(new AvailabilityList(currDate.format(DateTimeFormatter.ISO_LOCAL_DATE),
                             availableTimeRange.getDayOfWeek().toString(),
                             availableTimeRange.getStartTime().toString(),
-                            bookingTimeRange.getStartTime().toString(),
+                            availableTimeRange.getEndTime().toString(),
                             availableTimeRange.getEmpName(),
                             availableTimeRange.getStaffID(),
                             availableTimeRange.getDayOfWeek()));
-                    if(bookingTimeRange.getEndTime().isBefore(availableTimeRange.getEndTime())){
-                        remainingTimeRanges.add(new AvailabilityList(bookingTimeRange.getDate(),
-                                availableTimeRange.getDayOfWeek().toString(),
-                                bookingTimeRange.getEndTime().toString(),
-                                availableTimeRange.getEndTime().toString(),
-                                availableTimeRange.getEmpName(),
-                                availableTimeRange.getStaffID(),
-                                availableTimeRange.getDayOfWeek()));
-                    }
-                    toRemove.add(availableTimeRange);
-                }
-                else{
-                    remainingTimeRanges.add(availableTimeRange);
                 }
             }
-            if(!remainingTimeRanges.isEmpty()){
-                remainingAvailability.clear();
-                remainingAvailability.addAll(remainingTimeRanges);
-            }
-            availableTimeRanges.addAll(remainingTimeRanges);
-            availableTimeRanges.removeAll(toRemove);
-        }
-        System.out.println("Remaining Availability");
-        for(AvailabilityList print : remainingAvailability){
-            System.out.println(print.getStaffID()+" "+print.getsTime()+" "+print.geteTime()+" Day: "+print.getDayOfWeek()+" Date: "+print.getDate());
-        }
-        return remainingAvailability;
-    }
 
+            if(tempAvailabilities.size() == 0)
+                continue;
 
-    public static ObservableList<AvailabilityList> remainingAvailabilityDay(LocalDate day, String business) throws SQLException {
-        String sql;
-        PreparedStatement pstmt;
-        ResultSet rs;
+            for(AvailabilityList bookingTimeRange : bookingTimeRanges) {
+                for(AvailabilityList tempAvailability : tempAvailabilities) {
+                    if(tempAvailability.getStaffID().equals(bookingTimeRange.getStaffID())
+                        && tempAvailability.getDayOfWeek() == bookingTimeRange.getDayOfWeek()
+                        && bookingTimeRange.getStartTime().compareTo(tempAvailability.getStartTime()) >= 0
+                        && bookingTimeRange.getStartTime().compareTo(tempAvailability.getEndTime()) <= 0) {
 
-        ObservableList<AvailabilityList> remainingAvailability = FXCollections.observableArrayList();
-        Set<AvailabilityList> availableTimeRanges = new LinkedHashSet<>();
-        Set<AvailabilityList> bookingTimeRanges = new LinkedHashSet<>();
-        Set<AvailabilityList> remainingTimeRanges = new LinkedHashSet<>();
-        ArrayList<AvailabilityList> toRemove = new ArrayList<>();
-
-        sql = "SELECT * FROM availability " +
-                "NATURAL JOIN staff " +
-                "WHERE dayOfWeek = ? " +
-                "AND businessName = ?";
-        pstmt = DbUtil.getConnection().prepareStatement(sql);
-        pstmt.setInt(1,day.getDayOfWeek().ordinal());
-        pstmt.setString(2,business);
-        rs = pstmt.executeQuery();
-        while (rs.next()){
-            availableTimeRanges.add(new AvailabilityList(rs.getString("staffID"),
-                    Day.values()[rs.getInt("dayofWeek")],
-                    rs.getString("startTime"),
-                    rs.getString("endTime"),
-                    rs.getString("firstName")));
-        }
-        sql = "SELECT * FROM bookings " +
-                "NATURAL JOIN staff " +
-                "WHERE date = ? " +
-                "AND businessName = ?";
-        pstmt = DbUtil.getConnection().prepareStatement(sql);
-        pstmt.setDate(1,Date.valueOf(day));
-        pstmt.setString(2,business);
-        rs = pstmt.executeQuery();
-        while (rs.next()){
-            bookingTimeRanges.add(new AvailabilityList(rs.getString("staffID"),
-                    Day.values()[rs.getInt("dayofWeek")],
-                    rs.getString("sTime"),
-                    rs.getString("eTime"),
-                    rs.getString("firstName"),
-                    rs.getString("date")));
-        }
-
-        for(AvailabilityList bookingTimeRange : bookingTimeRanges) {
-            remainingTimeRanges.clear();
-            toRemove.clear();
-            for(AvailabilityList availableTimeRange : availableTimeRanges) {
-                if(availableTimeRange.getStaffID().equals(bookingTimeRange.getStaffID())) {
-                    if (bookingTimeRange.getStartTime().isAfter(availableTimeRange.getStartTime())
-                            && bookingTimeRange.getStartTime().isBefore(availableTimeRange.getEndTime())) {
-                        remainingTimeRanges.add(new AvailabilityList(bookingTimeRange.getDate(),
-                                availableTimeRange.getDayOfWeek().toString(),
-                                availableTimeRange.getStartTime().toString(),
-                                bookingTimeRange.getStartTime().toString(),
-                                availableTimeRange.getEmpName(),
-                                availableTimeRange.getStaffID(),
-                                availableTimeRange.getDayOfWeek()));
-                        if (bookingTimeRange.getEndTime().isBefore(availableTimeRange.getEndTime())) {
-                            remainingTimeRanges.add(new AvailabilityList(bookingTimeRange.getDate(),
-                                    availableTimeRange.getDayOfWeek().toString(),
-                                    bookingTimeRange.getEndTime().toString(),
-                                    availableTimeRange.getEndTime().toString(),
-                                    availableTimeRange.getEmpName(),
-                                    availableTimeRange.getStaffID(),
-                                    availableTimeRange.getDayOfWeek()));
+                        // add shortened availability
+                        if (tempAvailability.getStartTime().isBefore(bookingTimeRange.getStartTime())) {
+                            tempAvailabilities.add(new AvailabilityList(bookingTimeRange.getDate(),
+                                    tempAvailability.getDayOfWeek().toString(),
+                                    tempAvailability.getStartTime().toString(),
+                                    bookingTimeRange.getStartTime().toString(),
+                                    tempAvailability.getEmpName(),
+                                    tempAvailability.getStaffID(),
+                                    tempAvailability.getDayOfWeek()));
                         }
-                        toRemove.add(availableTimeRange);
-                    } else {
-                        remainingTimeRanges.add(availableTimeRange);
-                    }
-                } else {
-                    remainingTimeRanges.add(availableTimeRange);
-                }
-            }
-            if(!remainingTimeRanges.isEmpty()){
-                remainingAvailability.clear();
-                remainingAvailability.addAll(remainingTimeRanges);
-            }
-            availableTimeRanges.addAll(remainingTimeRanges);
-            availableTimeRanges.removeAll(toRemove);
-        }
-        System.out.println("Remaining Availability");
-        for(AvailabilityList print : remainingAvailability){
-            System.out.println(print.getStaffID()+" "+print.getsTime()+" "+print.geteTime()+" Day: "+print.getDayOfWeek()+" Date: "+print.getDate());
-        }
-        return remainingAvailability;
-    }
 
-
-    public static ObservableList<AvailabilityList> remainingAvailability(String staffID, String business) throws SQLException {
-        String sql;
-        PreparedStatement pstmt;
-        ResultSet rs;
-        LocalDate date1 = LocalDate.now();
-        LocalDate date2 = date1.plusDays(6);
-
-        ObservableList<AvailabilityList> remainingAvailability = FXCollections.observableArrayList();
-        Set<AvailabilityList> availableTimeRanges = new LinkedHashSet<>();
-        Set<AvailabilityList> bookingTimeRanges = new LinkedHashSet<>();
-        Set<AvailabilityList> remainingTimeRanges = new LinkedHashSet<>();
-        ArrayList<AvailabilityList> toRemove = new ArrayList<>();
-
-        sql = "SELECT * FROM availability " +
-                "NATURAL JOIN staff " +
-                "WHERE staffID = ? " +
-                "AND businessName = ?";
-        pstmt = DbUtil.getConnection().prepareStatement(sql);
-        pstmt.setString(1,staffID);
-        pstmt.setString(2,business);
-        rs = pstmt.executeQuery();
-        while (rs.next()){
-            availableTimeRanges.add(new AvailabilityList(rs.getString("staffID"),
-                    Day.values()[rs.getInt("dayofWeek")],
-                    rs.getString("startTime"),
-                    rs.getString("endTime"),
-                    rs.getString("firstName")));
-        }
-        sql = "SELECT * FROM bookings " +
-                "NATURAL JOIN staff " +
-                "WHERE staffID = ? " +
-                "AND date BETWEEN ? AND ? " +
-                "AND businessName = ?";
-        pstmt = DbUtil.getConnection().prepareStatement(sql);
-        pstmt.setString(1,staffID);
-        pstmt.setDate(2,Date.valueOf(date1));
-        pstmt.setDate(3,Date.valueOf(date2));
-        pstmt.setObject(4,business);
-        rs = pstmt.executeQuery();
-        while (rs.next()){
-            bookingTimeRanges.add(new AvailabilityList(rs.getString("staffID"),
-                    Day.values()[rs.getInt("dayofWeek")],
-                    rs.getString("sTime"),
-                    rs.getString("eTime"),
-                    rs.getString("firstName"),
-                    rs.getString("date")));
-        }
-
-        for(AvailabilityList bookingTimeRange : bookingTimeRanges) {
-            remainingTimeRanges.clear();
-            toRemove.clear();
-            for(AvailabilityList availableTimeRange : availableTimeRanges) {
-                if(availableTimeRange.getDayOfWeek() == bookingTimeRange.getDayOfWeek()){
-                    if(bookingTimeRange.getStartTime().isAfter(availableTimeRange.getStartTime())
-                            && bookingTimeRange.getStartTime().isBefore(availableTimeRange.getEndTime())) {
-                        remainingTimeRanges.add(new AvailabilityList(bookingTimeRange.getDate(),
-                                availableTimeRange.getDayOfWeek().toString(),
-                                availableTimeRange.getStartTime().toString(),
-                                bookingTimeRange.getStartTime().toString(),
-                                availableTimeRange.getEmpName(),
-                                availableTimeRange.getStaffID(),
-                                availableTimeRange.getDayOfWeek()));
-                        if(bookingTimeRange.getEndTime().isBefore(availableTimeRange.getEndTime())){
-                            remainingTimeRanges.add(new AvailabilityList(bookingTimeRange.getDate(),
-                                    availableTimeRange.getDayOfWeek().toString(),
+                        if (bookingTimeRange.getEndTime().isBefore(tempAvailability.getEndTime())) {
+                            tempAvailabilities.add(new AvailabilityList(bookingTimeRange.getDate(),
+                                    tempAvailability.getDayOfWeek().toString(),
                                     bookingTimeRange.getEndTime().toString(),
-                                    availableTimeRange.getEndTime().toString(),
-                                    availableTimeRange.getEmpName(),
-                                    availableTimeRange.getStaffID(),
-                                    availableTimeRange.getDayOfWeek()));
+                                    tempAvailability.getEndTime().toString(),
+                                    tempAvailability.getEmpName(),
+                                    tempAvailability.getStaffID(),
+                                    tempAvailability.getDayOfWeek()));
                         }
-                        toRemove.add(availableTimeRange);
+
+                        tempAvailabilities.remove(tempAvailability);
+
+                        break;
                     }
-                    else{
-                        remainingTimeRanges.add(availableTimeRange);
-                    }
-                }else {
-                    remainingTimeRanges.add(availableTimeRange);
                 }
             }
-            if(!remainingTimeRanges.isEmpty()){
-                remainingAvailability.clear();
-                remainingAvailability.addAll(remainingTimeRanges);
-            }
-            availableTimeRanges.addAll(remainingTimeRanges);
-            availableTimeRanges.removeAll(toRemove);
+
+            remainingAvailability.addAll(tempAvailabilities);
         }
         System.out.println("Remaining Availability");
-        for(AvailabilityList print : remainingAvailability){
+        for(AvailabilityList print : remainingAvailability) {
             System.out.println(print.getStaffID()+" "+print.getsTime()+" "+print.geteTime()+" Day: "+print.getDayOfWeek()+" Date: "+print.getDate());
         }
         return remainingAvailability;
     }
 
-
-    public static ObservableList<AvailabilityList> remainingAvailability(String business) throws SQLException {
-        String sql;
-        PreparedStatement pstmt;
-        ResultSet rs;
-        LocalDate date1 = LocalDate.now();
-        LocalDate date2 = date1.plusDays(6);
-
-        ObservableList<AvailabilityList> remainingAvailability = FXCollections.observableArrayList();
+//  Get employee availability from database.
+    private static Set<AvailabilityList> getAvailableTimeRanges(){
         Set<AvailabilityList> availableTimeRanges = new LinkedHashSet<>();
-        Set<AvailabilityList> bookingTimeRanges = new LinkedHashSet<>();
-        Set<AvailabilityList> remainingTimeRanges = new LinkedHashSet<>();
-        ArrayList<AvailabilityList> toRemove = new ArrayList<>();
-
-        sql = "SELECT * FROM availability " +
+        String sql = "SELECT * FROM availability " +
                 "NATURAL JOIN staff " +
                 "WHERE businessName = ?";
-        pstmt = DbUtil.getConnection().prepareStatement(sql);
-        pstmt.setObject(1,business);
-        rs = pstmt.executeQuery();
-        while (rs.next()){
-            availableTimeRanges.add(new AvailabilityList(rs.getString("staffID"),
-                    Day.values()[rs.getInt("dayofWeek")],
-                    rs.getString("startTime"),
-                    rs.getString("endTime"),
-                    rs.getString("firstName")));
+        try {
+            PreparedStatement pstmt = DbUtil.getConnection().prepareStatement(sql);
+            pstmt.setObject(1, MainApp.getBusiness());
+            ResultSet rs = pstmt.executeQuery();
+            while (rs.next()){
+                availableTimeRanges.add(new AvailabilityList(rs.getString("staffID"),
+                        Day.values()[rs.getInt("dayofWeek")],
+                        rs.getString("startTime"),
+                        rs.getString("endTime"),
+                        rs.getString("firstName")));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-        sql = "SELECT * FROM bookings " +
+        return availableTimeRanges;
+    }
+
+//  Get bookings from database.
+    private static Set<AvailabilityList> getBookingTimeRanges(LocalDate startDate, LocalDate endDate){
+        Set<AvailabilityList> bookingTimeRanges = new LinkedHashSet<>();
+        String sql = "SELECT * FROM bookings " +
                 "NATURAL JOIN staff " +
                 "WHERE date BETWEEN ? AND ? " +
                 "AND businessName = ?";
-        pstmt = DbUtil.getConnection().prepareStatement(sql);
-        pstmt.setDate(1,Date.valueOf(date1));
-        pstmt.setDate(2,Date.valueOf(date2));
-        pstmt.setObject(3,business);
-        rs = pstmt.executeQuery();
-        while (rs.next()){
-            bookingTimeRanges.add(new AvailabilityList(rs.getString("staffID"),
-                    Day.values()[rs.getInt("dayofWeek")],
-                    rs.getString("sTime"),
-                    rs.getString("eTime"),
-                    rs.getString("firstName"),
-                    rs.getString("date")));
-        }
-
-        for(AvailabilityList bookingTimeRange : bookingTimeRanges) {
-            remainingTimeRanges.clear();
-            toRemove.clear();
-            for(AvailabilityList availableTimeRange : availableTimeRanges) {
-                if(availableTimeRange.getStaffID().equals(bookingTimeRange.getStaffID())
-                        && availableTimeRange.getDayOfWeek() == bookingTimeRange.getDayOfWeek()){
-                    if(bookingTimeRange.getStartTime().isAfter(availableTimeRange.getStartTime())
-                            && bookingTimeRange.getStartTime().isBefore(availableTimeRange.getEndTime())) {
-                        remainingTimeRanges.add(new AvailabilityList(bookingTimeRange.getDate(),
-                                availableTimeRange.getDayOfWeek().toString(),
-                                availableTimeRange.getStartTime().toString(),
-                                bookingTimeRange.getStartTime().toString(),
-                                availableTimeRange.getEmpName(),
-                                availableTimeRange.getStaffID(),
-                                availableTimeRange.getDayOfWeek()));
-                        if(bookingTimeRange.getEndTime().isBefore(availableTimeRange.getEndTime())){
-                            remainingTimeRanges.add(new AvailabilityList(bookingTimeRange.getDate(),
-                                    availableTimeRange.getDayOfWeek().toString(),
-                                    bookingTimeRange.getEndTime().toString(),
-                                    availableTimeRange.getEndTime().toString(),
-                                    availableTimeRange.getEmpName(),
-                                    availableTimeRange.getStaffID(),
-                                    availableTimeRange.getDayOfWeek()));
-                        }
-                        toRemove.add(availableTimeRange);
-                    }
-                    else{
-                        remainingTimeRanges.add(availableTimeRange);
-                    }
-                }else {
-                        remainingTimeRanges.add(availableTimeRange);
-                }
+        try {
+            PreparedStatement pstmt = DbUtil.getConnection().prepareStatement(sql);
+            pstmt.setDate(1,Date.valueOf(startDate));
+            pstmt.setDate(2,Date.valueOf(endDate));
+            pstmt.setObject(3,MainApp.getBusiness());
+             ResultSet rs = pstmt.executeQuery();
+            while (rs.next()){
+                bookingTimeRanges.add(new AvailabilityList(rs.getString("staffID"),
+                        Day.values()[rs.getInt("dayofWeek")],
+                        rs.getString("sTime"),
+                        rs.getString("eTime"),
+                        rs.getString("firstName"),
+                        rs.getString("date")));
             }
-            if(!remainingTimeRanges.isEmpty()){
-                remainingAvailability.clear();
-                remainingAvailability.addAll(remainingTimeRanges);
-            }
-            availableTimeRanges.addAll(remainingTimeRanges);
-            availableTimeRanges.removeAll(toRemove);
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-        System.out.println("Remaining Availability");
-        for(AvailabilityList print : remainingAvailability){
-            System.out.println(print.getStaffID()+" "+print.getsTime()+" "+print.geteTime()+" Day: "+print.getDayOfWeek()+" Date: "+print.getDate());
-        }
-        return remainingAvailability;
+        return bookingTimeRanges;
     }
 
     public String getDay() {
@@ -500,6 +260,4 @@ public class AvailabilityList {
     public Day getDayOfWeek() {
         return dayOfWeek;
     }
-
-
 }

@@ -23,7 +23,7 @@ import java.sql.SQLException;
 
 public final class MainApp extends Application {
     private static Stage primaryStage;
-    public  static String business;
+    private   static String business;
 
     @Override
     public void start(Stage primaryStage) throws Exception{

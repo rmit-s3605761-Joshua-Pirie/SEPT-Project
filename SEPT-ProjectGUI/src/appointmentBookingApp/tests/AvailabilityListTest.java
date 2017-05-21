@@ -59,7 +59,7 @@ class AvailabilityListTest {
 
         AvailabilityList test = new AvailabilityList();
         try {
-            assertEquals(2,test.remainingAvailability(business).size());
+            assertEquals(2,test.remainingAvailability().size());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -84,7 +84,7 @@ class AvailabilityListTest {
         TestData.sendToDB(stmt2, data2);
 
         try {
-            assertEquals(2,AvailabilityList.remainingAvailability(business).size());
+            assertEquals(2,AvailabilityList.remainingAvailability().size());
         } catch (SQLException e) {
             e.printStackTrace();
         }

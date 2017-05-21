@@ -53,8 +53,8 @@ public class ReviewAppointmentsController {
     }
 
     public void ini(String customerUsername) throws SQLException {
-        this.business = mainApp.business;
-        System.out.println("BN from ReviewApp: "+mainApp.business);
+        this.business = MainApp.getBusiness();
+        System.out.println("BN from ReviewApp: "+MainApp.getBusiness());
         dateColumn.setCellValueFactory(cellData -> cellData.getValue().dateProperty());
         dayColumn.setCellValueFactory(cellData -> cellData.getValue().dayProperty());
         serviceColumn.setCellValueFactory(cellData -> cellData.getValue().serviceProperty());
