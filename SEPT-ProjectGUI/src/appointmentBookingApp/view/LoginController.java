@@ -51,6 +51,9 @@ public class LoginController {
         errorMessage.setText("");
         username.setPromptText("username");
         password.setPromptText("password");
+//        username.setText("b");
+//        password.setText("Qwerty1!");
+        System.out.println("Current Style: "+ MainApp.getPrimaryStage().getScene().getStylesheets()+"\n");
     }
 
     public void ini(String business){
@@ -141,9 +144,9 @@ public class LoginController {
 			Stage dialogStage = new Stage();
 			dialogStage.setTitle("Register Customer");
 			dialogStage.initModality(Modality.WINDOW_MODAL);
-			dialogStage.initOwner(mainApp.getPrimaryStage());
-			Scene scene = new Scene(RegisterCustomer);
-			dialogStage.setScene(scene);
+			dialogStage.initOwner(MainApp.getPrimaryStage());
+			dialogStage.setScene(new Scene(RegisterCustomer));
+            dialogStage.getScene().getStylesheets().addAll(MainApp.getPrimaryStage().getScene().getStylesheets());
 
 			RegisterCustomerController controller = loader.getController();
 			controller.setDialogStage(dialogStage);
@@ -179,14 +182,13 @@ public class LoginController {
         this.dialogStage = dialogStage;
     }
 
+//   Used to check if a superUser login is required, also modifies
+//
     void setIsSuperUser() {
         isSuperUser = true;
         button.setText("Cancel");
         button.setOnAction((event)->{
             dialogStage.close();
         });
-//        register.setDisable(true);
-//        register.setVisible(false);
-
     }
 }

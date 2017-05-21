@@ -39,7 +39,7 @@ public class AddStaffController {
 	private TextField AddressTxtBx;
 	
 	@FXML 
-	private Text newID;
+	private Label newID;
 
 	private Stage dialogStage;
 

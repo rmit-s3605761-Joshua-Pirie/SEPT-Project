@@ -39,19 +39,24 @@ public class BusinessHomepageController {
     }
 
     @FXML
+    public void logout(){
+        mainApp.showLogin();
+    }
+
+    @FXML
     public void showUpcomingBookings(){
         try {
             // Load the fxml file and create a new stage for the popup dialog.
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(MainApp.class.getResource("view/UpcomingBookings.fxml"));
-            AnchorPane UpcomingBookings = (AnchorPane) loader.load();
+            AnchorPane UpcomingBookings = loader.load();
             // Create the dialog Stage.
             Stage dialogStage = new Stage();
             dialogStage.setTitle("Upcoming Booking");
             dialogStage.initModality(Modality.WINDOW_MODAL);
-            dialogStage.initOwner(mainApp.getPrimaryStage());
-            Scene scene = new Scene(UpcomingBookings);
-            dialogStage.setScene(scene);
+            dialogStage.initOwner(MainApp.getPrimaryStage());
+            dialogStage.setScene(new Scene((UpcomingBookings)));
+            dialogStage.getScene().getStylesheets().addAll(MainApp.getPrimaryStage().getScene().getStylesheets());
 
             UpcomingBookingsController controller = loader.getController();
             controller.setDialogStage(dialogStage);
@@ -70,14 +75,14 @@ public class BusinessHomepageController {
             // Load the fxml file and create a new stage for the popup dialog.
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(MainApp.class.getResource("view/BookingHistory.fxml"));
-            AnchorPane BookingHistory = (AnchorPane) loader.load();
+            AnchorPane BookingHistory = loader.load();
             // Create the dialog Stage.
             Stage dialogStage = new Stage();
             dialogStage.setTitle("Booking History");
             dialogStage.initModality(Modality.WINDOW_MODAL);
-            dialogStage.initOwner(mainApp.getPrimaryStage());
-            Scene scene = new Scene(BookingHistory);
-            dialogStage.setScene(scene);
+            dialogStage.initOwner(MainApp.getPrimaryStage());
+            dialogStage.setScene(new Scene(BookingHistory));
+            dialogStage.getScene().getStylesheets().addAll(MainApp.getPrimaryStage().getScene().getStylesheets());
 
             BookingHistoryController controller = loader.getController();
             controller.setDialogStage(dialogStage);
@@ -96,14 +101,14 @@ public class BusinessHomepageController {
             // Load the fxml file and create a new stage for the popup dialog.
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(MainApp.class.getResource("view/AddServiceDialog.fxml"));
-            AnchorPane serviceDialog = (AnchorPane) loader.load();
+            AnchorPane serviceDialog = loader.load();
             // Create the dialog Stage.
             Stage dialogStage = new Stage();
             dialogStage.setTitle("Add Service");
             dialogStage.initModality(Modality.WINDOW_MODAL);
-            dialogStage.initOwner(mainApp.getPrimaryStage());
-            Scene scene = new Scene(serviceDialog);
-            dialogStage.setScene(scene);
+            dialogStage.initOwner(MainApp.getPrimaryStage());
+            dialogStage.setScene(new Scene(serviceDialog));
+            dialogStage.getScene().getStylesheets().addAll(MainApp.getPrimaryStage().getScene().getStylesheets());
 
             AddServiceDialogController controller = loader.getController();
             controller.setDialogStage(dialogStage);
@@ -125,14 +130,14 @@ public class BusinessHomepageController {
             // Load the fxml file and create a new stage for the popup dialog.
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(MainApp.class.getResource("view/RemainingAvailability.fxml"));
-            AnchorPane RemainingAvailability = (AnchorPane) loader.load();
+            AnchorPane RemainingAvailability = loader.load();
             // Create the dialog Stage.
             Stage dialogStage = new Stage();
             dialogStage.setTitle("Remaining Availability");
             dialogStage.initModality(Modality.WINDOW_MODAL);
-            dialogStage.initOwner(mainApp.getPrimaryStage());
-            Scene scene = new Scene(RemainingAvailability);
-            dialogStage.setScene(scene);
+            dialogStage.initOwner(MainApp.getPrimaryStage());
+            dialogStage.setScene(new Scene(RemainingAvailability));
+            dialogStage.getScene().getStylesheets().addAll(MainApp.getPrimaryStage().getScene().getStylesheets());
 
             RemainingAvailabilityController controller = loader.getController();
             controller.setDialogStage(dialogStage);
@@ -149,24 +154,19 @@ public class BusinessHomepageController {
     }
 
     @FXML
-    public void logout(){
-        mainApp.showLogin();
-    }
-
-    @FXML
     public void showAddStaffDialog(){
         try {
             // Load the fxml file and create a new stage for the popup dialog.
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(MainApp.class.getResource("view/AddStaff.fxml"));
-            AnchorPane AddStaff = (AnchorPane) loader.load();
+            AnchorPane AddStaff = loader.load();
             // Create the dialog Stage.
             Stage dialogStage = new Stage();
             dialogStage.setTitle("Add Staff");
             dialogStage.initModality(Modality.WINDOW_MODAL);
-            dialogStage.initOwner(mainApp.getPrimaryStage());
-            Scene scene = new Scene(AddStaff);
-            dialogStage.setScene(scene);
+            dialogStage.initOwner(MainApp.getPrimaryStage());
+            dialogStage.setScene(new Scene((AddStaff)));
+            dialogStage.getScene().getStylesheets().addAll(MainApp.getPrimaryStage().getScene().getStylesheets());
 
             AddStaffController controller = loader.getController();
             controller.setDialogStage(dialogStage);
@@ -184,14 +184,14 @@ public class BusinessHomepageController {
             // Load the fxml file and create a new stage for the popup dialog.
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(MainApp.class.getResource("view/SetEmpAvailability.fxml"));
-            AnchorPane empAvailabilityDialog = (AnchorPane) loader.load();
+            AnchorPane empAvailabilityDialog = loader.load();
             // Create the dialog Stage.
             Stage dialogStage = new Stage();
             dialogStage.setTitle("Set Employee Availability");
             dialogStage.initModality(Modality.WINDOW_MODAL);
-            dialogStage.initOwner(mainApp.getPrimaryStage());
-            Scene scene = new Scene(empAvailabilityDialog);
-            dialogStage.setScene(scene);
+            dialogStage.initOwner(MainApp.getPrimaryStage());
+            dialogStage.setScene(new Scene(empAvailabilityDialog));
+            dialogStage.getScene().getStylesheets().addAll(MainApp.getPrimaryStage().getScene().getStylesheets());
 
             SetEmpAvailabilityController controller = loader.getController();
             controller.setDialogStage(dialogStage);
@@ -216,9 +216,9 @@ public class BusinessHomepageController {
             Stage dialogStage = new Stage();
             dialogStage.setTitle("Update Staff Details");
             dialogStage.initModality(Modality.WINDOW_MODAL);
-            dialogStage.initOwner(mainApp.getPrimaryStage());
-            Scene scene = new Scene(UpdateStaff);
-            dialogStage.setScene(scene);
+            dialogStage.initOwner(MainApp.getPrimaryStage());
+            dialogStage.setScene(new Scene(UpdateStaff));
+            dialogStage.getScene().getStylesheets().addAll(MainApp.getPrimaryStage().getScene().getStylesheets());
 
             UpdateStaffDetailsController controller = loader.getController();
             controller.setDialogStage(dialogStage);
@@ -236,14 +236,14 @@ public class BusinessHomepageController {
             // Load the fxml file and create a new stage for the popup dialog.
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(MainApp.class.getResource("view/CreateAppOwner.fxml"));
-            AnchorPane CreateAppointment = (AnchorPane) loader.load();
+            AnchorPane CreateAppointment = loader.load();
             // Create the dialog Stage.
             Stage dialogStage = new Stage();
             dialogStage.setTitle("Create Appointments");
             dialogStage.initModality(Modality.WINDOW_MODAL);
-            dialogStage.initOwner(mainApp.getPrimaryStage());
-            Scene scene = new Scene(CreateAppointment);
-            dialogStage.setScene(scene);
+            dialogStage.initOwner(MainApp.getPrimaryStage());
+            dialogStage.setScene(new Scene(CreateAppointment));
+            dialogStage.getScene().getStylesheets().addAll(MainApp.getPrimaryStage().getScene().getStylesheets());
 
             CreateAppOwnerController controller = loader.getController();
             controller.setDialogStage(dialogStage);
@@ -261,30 +261,56 @@ public class BusinessHomepageController {
     public void setStyle(){
 
         cbStyle.valueProperty().addListener(((observable, oldValue, newValue) -> {
-            String css = "";
-            if(!mainApp.getPrimaryStage().getScene().getStylesheets().isEmpty()){
-                System.out.println("Current Style: "+ mainApp.getPrimaryStage().getScene().getStylesheets());
-                mainApp.getPrimaryStage().getScene().getStylesheets().clear();
+            String theme = "";
+            if(!MainApp.getPrimaryStage().getScene().getStylesheets().isEmpty()){
+                System.out.println("Current Style: "+ MainApp.getPrimaryStage().getScene().getStylesheets());
+                MainApp.getPrimaryStage().getScene().getStylesheets().clear();
             }
 
             switch (cbStyle.getValue()){
                 case "Black":
-                    css = "appointmentBookingApp/css/theme1.css";
+                    theme = "black";
                     break;
                 case "Modena":
-                    css = "appointmentBookingApp/css/modena.css";
+                    theme = "modena";
                     break;
                 case "Win7":
-                    css = "appointmentBookingApp/css/Win7.css";
+                    theme = "Win7";
                     break;
                 default:
-
             }
-            String resource = this.getClass().getClassLoader().getResource(css).toExternalForm();
-            if(!css.isEmpty())
-                mainApp.getPrimaryStage().getScene().getStylesheets().add(resource);
-            System.out.println("New Style: "+ mainApp.getPrimaryStage().getScene().getStylesheets());
-            System.out.println();
+            setTheme(theme);
+            System.out.println("New Style: "+ MainApp.getPrimaryStage().getScene().getStylesheets()+"\n");
         }));
+    }
+
+    public void setTheme(String theme){
+        String css = "appointmentBookingApp/css/"+theme+".css";
+        String resource = this.getClass().getClassLoader().getResource(css).toExternalForm();
+        String sql;
+        PreparedStatement pstmt;
+        try {
+            sql = "SELECT * FROM customization WHERE businessName = ?";
+            pstmt = DbUtil.getConnection().prepareStatement(sql);
+            pstmt.setObject(1,mainApp.business);
+            ResultSet rs = pstmt.executeQuery();
+            if(rs.next()){
+                sql = "UPDATE customization SET theme = ? WHERE businessName = ?";
+                pstmt = DbUtil.getConnection().prepareStatement(sql);
+                pstmt.setObject(1,theme);
+                pstmt.setObject(2,mainApp.business);
+            }else{
+                sql = "INSERT INTO customization(businessName, theme) VALUES (?,?)";
+                pstmt = DbUtil.getConnection().prepareStatement(sql);
+                pstmt.setObject(1,mainApp.business);
+                pstmt.setObject(2,theme);
+            }
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        if(!theme.isEmpty())
+            MainApp.getPrimaryStage().getScene().getStylesheets().add(resource);
     }
 }
