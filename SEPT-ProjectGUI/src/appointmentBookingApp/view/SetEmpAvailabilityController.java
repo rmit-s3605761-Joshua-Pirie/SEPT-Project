@@ -11,6 +11,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.event.EventType;
 import javafx.fxml.FXML;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.RowConstraints;
@@ -81,10 +82,12 @@ public class SetEmpAvailabilityController {
 
         int column = 0;
         int row = 0;
+        availabilityGrid.setPadding(new Insets(0, 0, 0, 20));
         for(int i = startHour; i < endHour; i++) {
             CheckBox c = new CheckBox(i + ":00");
-            c.setAlignment(Pos.CENTER);
-            c.selectedProperty().addListener((observable, oldValue, newValue) -> {
+            c.setMinHeight(30);
+            c.setMinWidth(100);
+            c.setOnMouseClicked(e -> {
                 availability.resetDay(day);
                 for(int j = 0; j < toggles.size(); j++)
                     if(toggles.get(j).isSelected())
@@ -115,13 +118,12 @@ public class SetEmpAvailabilityController {
     @FXML
     public void handleDay() {
         day = Day.values()[dayCombo.getSelectionModel().getSelectedIndex()];
-        for(CheckBox c : toggles) {
-            boolean checked = false;
-            for(int t : availability.getAvailability(day))
-                if(toggles.get(t - startHour) == c)
-                    checked = true;
-            c.setSelected(checked);
-        }
+
+        for(CheckBox c : toggles)
+            c.setSelected(false);
+
+        for(int t : availability.getAvailability(day))
+            toggles.get(t - startHour).setSelected(true);
     }
 
     /**
