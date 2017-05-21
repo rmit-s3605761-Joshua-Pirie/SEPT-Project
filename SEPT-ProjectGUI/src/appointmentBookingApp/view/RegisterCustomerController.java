@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ResourceBundle;
 
+import appointmentBookingApp.MainApp;
 import appointmentBookingApp.util.Alerts;
 import appointmentBookingApp.util.DbUtil;
 import appointmentBookingApp.util.Validators;
@@ -94,7 +95,7 @@ public class RegisterCustomerController {
 	
 	public static boolean addToDB( String UserNameSt, String PasswordSt,
 			String FirstNameSt, String SurnameSt, String eMailSt, String addressSt, String phoneSt) {
-    String sql = "INSERT INTO customer VALUES ( ?, ?, ?, ?, ?, ?, ?)";
+    String sql = "INSERT INTO customer VALUES ( ?, ?, ?, ?, ?, ?, ?, ?)";
 	    try {
 	        PreparedStatement ps = DbUtil.getConnection().prepareStatement(sql);
 	        ps.setString(1, UserNameSt);
@@ -104,6 +105,7 @@ public class RegisterCustomerController {
 	        ps.setObject(5, eMailSt);
 	        ps.setObject(6, addressSt);
 	        ps.setObject(7, phoneSt);
+	     	ps.setObject(8, MainApp.getBusiness());
 	        ps.executeUpdate();
 	        return true;
 	    } catch (SQLException e) {
