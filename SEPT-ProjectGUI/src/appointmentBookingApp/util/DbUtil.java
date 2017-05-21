@@ -11,7 +11,7 @@ public class DbUtil {
 	 * Opens connection to the database.
 	 * @return
 	 */
-	public static Statement databaseConnect(){
+	public static void databaseConnect(){
 
 		String driver = "com.mysql.jdbc.Driver";
 //		String url = "jdbc:mysql://localhost:3306/bookingsystem?useSSL=false";
@@ -25,19 +25,16 @@ public class DbUtil {
 		   	Class.forName(driver);
 		   	connection = DriverManager.getConnection(url, user, password);
 		   	System.out.println("connected...");
-		   	return connection.createStatement();
 		}catch(Exception e){
 //			e.printStackTrace();
+			System.out.println("Failed to connect");
 		}
-		  return null;		
 	}
-	
-	
+
 	public static Connection getConnection(){
 		return connection;
 	}
-	
-	
+
 	/**
 	 * Creates new statement to be used for a result set.
 	 * @return

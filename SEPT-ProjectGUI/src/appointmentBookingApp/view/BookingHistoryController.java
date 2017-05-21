@@ -3,6 +3,7 @@ package appointmentBookingApp.view;
 import appointmentBookingApp.MainApp;
 import appointmentBookingApp.model.Bookings;
 import appointmentBookingApp.model.Day;
+import appointmentBookingApp.util.CreateStage;
 import appointmentBookingApp.util.DbUtil;
 import javafx.beans.property.ObjectProperty;
 import javafx.collections.FXCollections;
@@ -253,26 +254,16 @@ public class BookingHistoryController {
 
     private void showBookingHistoryList(String day, String sTime, String date) {
         try {
-            // Load the fxml file and create a new stage for the popup dialog.
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(MainApp.class.getResource("view/BookingHistoryList.fxml"));
-            AnchorPane BookingHistoryList = (AnchorPane) loader.load();
-            // Create the dialog Stage.
-            Stage dialogStage = new Stage();
-            dialogStage.setTitle("Booking History");
-            dialogStage.initModality(Modality.WINDOW_MODAL);
-            dialogStage.initOwner(this.dialogStage);
-            dialogStage.setScene(new Scene(BookingHistoryList));
-            dialogStage.getScene().getStylesheets().addAll(MainApp.getPrimaryStage().getScene().getStylesheets());
-
-            BookingHistoryListController controller = loader.getController();
-            controller.setDialogStage(dialogStage);
+            String fxml = "view/BookingHistoryList.fxml";
+            String title = "Booking History List";
+            BookingHistoryListController controller = CreateStage.newDialogStage(fxml,title).getController();
+            controller.setDialogStage(CreateStage.getDialogStage());
             controller.setDayTime(day,sTime,date);
             controller.setMainApp(mainApp);
             controller.ini();
 
             // Show the dialog and wait until the user closes it
-            dialogStage.showAndWait();
+            CreateStage.getDialogStage().showAndWait();
         } catch (IOException e) {
             e.printStackTrace();
         } catch (SQLException e) {
