@@ -99,7 +99,7 @@ public class SelectBusinessController {
     @FXML
     public void handleOK(){
         if(!SB_CBox.getSelectionModel().isEmpty()){
-            mainApp.business = SB_CBox.getValue();
+            MainApp.setBusiness(SB_CBox.getValue());
             System.out.println(SB_CBox.getValue());
             mainApp.showLogin();
         } else {

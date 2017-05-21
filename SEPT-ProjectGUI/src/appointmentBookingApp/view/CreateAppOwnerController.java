@@ -76,7 +76,7 @@ public class CreateAppOwnerController extends Application {
         customerUsernames = new ArrayList<>();
         try {
             PreparedStatement ps = DbUtil.getConnection().prepareStatement(sql);
-            ps.setString(1, mainApp.business);
+            ps.setString(1, MainApp.getBusiness());
             ResultSet rs = ps.executeQuery();
             while(rs.next()) {
                 customerUsernames.add(rs.getString("username"));
@@ -90,7 +90,7 @@ public class CreateAppOwnerController extends Application {
         services = new ArrayList<>();
         try {
             PreparedStatement ps = DbUtil.getConnection().prepareStatement(sql);
-            ps.setString(1, mainApp.business);
+            ps.setString(1, MainApp.getBusiness());
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 services.add(new String[]{rs.getString("service"), rs.getString("duration")});
@@ -101,7 +101,7 @@ public class CreateAppOwnerController extends Application {
         }
 
         try {
-            availability = AvailabilityList.remainingAvailability(mainApp.business);
+            availability = AvailabilityList.remainingAvailability();
         }
         catch(SQLException e) {
             e.printStackTrace();
@@ -179,7 +179,7 @@ public class CreateAppOwnerController extends Application {
                 ps.setString(6, staffID);
                 ps.setString(7, service);
                 ps.setString(8, customer);
-                ps.setString(9, mainApp.business);
+                ps.setString(9, MainApp.getBusiness());
                 ps.executeUpdate();
                 dialogStage.close();
             } catch (SQLException e) {

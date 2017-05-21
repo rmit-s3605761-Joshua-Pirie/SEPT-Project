@@ -54,7 +54,7 @@ public class BookingHistoryListController {
     void setDialogStage(Stage dialogStage) { this.dialogStage = dialogStage; }
 
     public void ini() throws SQLException {
-        this.business = mainApp.business;
+        this.business = MainApp.getBusiness();
         sTimeColumn.setCellValueFactory(cellData -> cellData.getValue().sTimeProperty());
         serviceColumn.setCellValueFactory(cellData -> cellData.getValue().serviceProperty());
         customerColumn.setCellValueFactory(cellData -> cellData.getValue().customerProperty());

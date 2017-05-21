@@ -48,6 +48,7 @@ public class Bookings {
         this.dayOfWeek = dayOfWeek;
     }
 
+//  Generate a list of bookings based on date, start time, customer and business;
     public static ObservableList<Bookings> setBookings(String date, String iniTime, String business) throws SQLException {
         int minutes = 29;
         ObservableList<Bookings> bookings = FXCollections.observableArrayList();
@@ -89,6 +90,7 @@ public class Bookings {
         return bookings;
     }
 
+    //  Generate a list of bookings based on availability selection, date, start time, customer and business;
     public static ObservableList<Bookings> setBookings(String selection, String date, String iniTime, String business) throws SQLException {
 //        String iniTime = "09:30";
         int minutes = 29;
@@ -145,6 +147,7 @@ public class Bookings {
         return bookings;
     }
 
+    //  Generate a list of bookings based on  current date, customer and business;
     public static ObservableList<Bookings> reviewAppointmentsCustomer(String customerUsername, String business) throws SQLException {
         ObservableList<Bookings> bookings = FXCollections.observableArrayList();
         LocalDate currentDate = LocalDate.now();
