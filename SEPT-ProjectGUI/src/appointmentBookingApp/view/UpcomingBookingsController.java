@@ -23,6 +23,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -45,8 +47,7 @@ public class UpcomingBookingsController {
 
     private Stage dialogStage;
     private MainApp mainApp;
-    private Date startDate, endDate;
-    private SimpleDateFormat dateFormat;
+    private LocalDate startDate, endDate;
     private ArrayList<Bookings> bookings;
     private Button[][] buttons;
     private int[][] numBookings;
@@ -66,19 +67,11 @@ public class UpcomingBookingsController {
      *Initialize on controller load.
      */
     public void initialize() {
-        Calendar c = Calendar.getInstance();
-        c.setTime(new Date());
-        c.set(Calendar.HOUR_OF_DAY, 0);
-        c.set(Calendar.MINUTE, 0);
-        c.set(Calendar.SECOND, 0);
-        c.set(Calendar.MILLISECOND, 0);
-        startDate = c.getTime();
-        c.add(Calendar.DATE, 7);
-        c.add(Calendar.SECOND, -1);
-        endDate = c.getTime();
+        startDate = LocalDate.now();
+        endDate = startDate.plusDays(6);
 
-        dateFormat = new SimpleDateFormat("dd/MM");
-        dateRangeLabel.setText(dateFormat.format(startDate) + " - " + dateFormat.format(endDate));
+        dateRangeLabel.setText(startDate.getDayOfMonth() + "/" + startDate.getMonthValue() + " - "
+                + endDate.getDayOfMonth() + "/" + endDate.getMonthValue());
 
         setDayLabels();
         getBookings();
@@ -95,12 +88,10 @@ public class UpcomingBookingsController {
     }
 
     private void setDayLabels() {
-        Calendar c = Calendar.getInstance();
-        c.setTime(startDate);
-        SimpleDateFormat df = new SimpleDateFormat("EEEE");
+        LocalDate d = startDate;
         for(int i = 0; i < 7; i++) {
-            ((Label)dayPane.getChildren().get(i)).setText(df.format(c.getTime()));
-            c.add(Calendar.DATE, 1);
+            ((Label)dayPane.getChildren().get(i)).setText(d.getDayOfWeek().toString());
+            d = d.plusDays(1);
         }
     }
 
@@ -108,11 +99,12 @@ public class UpcomingBookingsController {
         bookings = new ArrayList<>();
 
         try {
-            String sql = "SELECT * FROM bookings NATURAL JOIN staff WHERE date >= ? AND date <= ?";
+            String sql = "SELECT * FROM bookings NATURAL JOIN staff WHERE date >= ? AND date <= ? AND businessName = ?";
             PreparedStatement pstmt = DbUtil.getConnection().prepareStatement(sql);
 
-            pstmt.setDate(1, new java.sql.Date(startDate.getTime()));
-            pstmt.setDate(2, new java.sql.Date(endDate.getTime()));
+            pstmt.setString(1, startDate.format(DateTimeFormatter.ISO_LOCAL_DATE));
+            pstmt.setString(2, endDate.format(DateTimeFormatter.ISO_LOCAL_DATE));
+            pstmt.setString(3, MainApp.getBusiness());
 
             ResultSet rs = pstmt.executeQuery();
 
@@ -150,10 +142,8 @@ public class UpcomingBookingsController {
 
                 temp.setOnAction(e -> {
                     String[] data = (String[])temp.getUserData();
-                    Calendar c = Calendar.getInstance();
-                    c.setTime(startDate);
-                    c.add(Calendar.DATE, Integer.parseInt(data[2]));
-                    showUpcomingBookingsList(data[0], data[1], new SimpleDateFormat("yyyy-MM-dd").format(c.getTime()));
+                    LocalDate newDate = startDate.plusDays(Integer.parseInt(data[2]));
+                    showUpcomingBookingsList(data[0], data[1], newDate.format(DateTimeFormatter.ISO_LOCAL_DATE));
                 });
 
                 buttons[x][y] = temp;
@@ -171,21 +161,18 @@ public class UpcomingBookingsController {
                 bookedStaff[i][j] = new ArrayList<String>();
 
         for(Bookings b : bookings) {
-            try {
-                Date date = new SimpleDateFormat("yyyy-MM-dd").parse(b.getDate());
-                if(date.compareTo(startDate) >= 0 && date.compareTo(endDate) <= 0) {
-                    int x = b.getDayOfWeek().ordinal();
-                    int y = (Integer.parseInt(b.getsTime().substring(0, 2)) - 8) * 2;
-                    if(Integer.parseInt(b.getsTime().substring(3, 5)) >= 30)
-                        y++;
+            LocalDate date = LocalDate.parse(b.getDate(), DateTimeFormatter.ISO_LOCAL_DATE);
+            if(date.compareTo(startDate) >= 0 && date.compareTo(endDate) <= 0) {
+                int xa = b.getDayOfWeek().ordinal();
+                int xb = startDate.getDayOfWeek().ordinal();
+                int x = (xa - xb) % 7;
+                int y = (Integer.parseInt(b.getsTime().substring(0, 2)) - 8) * 2;
+                if(Integer.parseInt(b.getsTime().substring(3, 5)) >= 30)
+                    y++;
 
-                    numBookings[x][y]++;
-                    if(!bookedStaff[x][y].contains(b.getEmpName()))
-                        bookedStaff[x][y].add(b.getEmpName());
-                }
-            }
-            catch(ParseException e) {
-                e.printStackTrace();
+                numBookings[x][y]++;
+                if(!bookedStaff[x][y].contains(b.getEmpName()))
+                    bookedStaff[x][y].add(b.getEmpName());
             }
         }
 
