@@ -2,6 +2,7 @@ package appointmentBookingApp.view;
 
 
 import appointmentBookingApp.MainApp;
+import appointmentBookingApp.util.CreateStage;
 import appointmentBookingApp.util.DbUtil;
 import appointmentBookingApp.util.Util;
 import javafx.fxml.FXML;
@@ -50,25 +51,15 @@ public class CustomerHomepageController {
     @FXML
     public void showBookAppointment(){
         try {
-            // Load the fxml file and create a new stage for the popup dialog.
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(MainApp.class.getResource("view/CreateAppointmentCustomer.fxml"));
-            AnchorPane BookAppointment = (AnchorPane) loader.load();
-            // Create the dialog Stage.
-            Stage dialogStage = new Stage();
-            dialogStage.setTitle("Book Appointment");
-            dialogStage.initModality(Modality.WINDOW_MODAL);
-            dialogStage.initOwner(MainApp.getPrimaryStage());
-            dialogStage.setScene(new Scene(BookAppointment));
-            dialogStage.getScene().getStylesheets().addAll(MainApp.getPrimaryStage().getScene().getStylesheets());
-
-            CreateAppointmentCustomerController controller = loader.getController();
-            controller.setDialogStage(dialogStage);
+            String fxml = "view/CreateAppointmentCustomer.fxml";
+            String title = "Book Appointment";
+            CreateAppointmentCustomerController controller = CreateStage.newDialogStage(fxml,title).getController();
+            controller.setDialogStage(CreateStage.getDialogStage());
             controller.setMainApp(mainApp);
             controller.initialize(user);
 
             // Show the dialog and wait until the user closes it
-            dialogStage.showAndWait();
+            CreateStage.getDialogStage().showAndWait();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -77,25 +68,15 @@ public class CustomerHomepageController {
     @FXML
     public void showReviewAppointments(){
         try {
-            // Load the fxml file and create a new stage for the popup dialog.
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(MainApp.class.getResource("view/ReviewAppointments.fxml"));
-            AnchorPane RemainingAvailability = (AnchorPane) loader.load();
-            // Create the dialog Stage.
-            Stage dialogStage = new Stage();
-            dialogStage.setTitle("Review Appointments");
-            dialogStage.initModality(Modality.WINDOW_MODAL);
-            dialogStage.initOwner(MainApp.getPrimaryStage());
-            dialogStage.setScene(new Scene(RemainingAvailability));
-            dialogStage.getScene().getStylesheets().addAll(MainApp.getPrimaryStage().getScene().getStylesheets());
-
-            ReviewAppointmentsController controller = loader.getController();
-            controller.setDialogStage(dialogStage);
+            String fxml = "view/ReviewAppointments.fxml";
+            String title = "Review Appointments";
+            ReviewAppointmentsController controller = CreateStage.newDialogStage(fxml,title).getController();
+            controller.setDialogStage(CreateStage.getDialogStage());
             controller.setMainApp(mainApp);
             controller.ini(user);
 
             // Show the dialog and wait until the user closes it
-            dialogStage.showAndWait();
+            CreateStage.getDialogStage().showAndWait();
         } catch (IOException e) {
             e.printStackTrace();
         } catch (SQLException e) {
@@ -106,24 +87,14 @@ public class CustomerHomepageController {
     @FXML
     public void showUpdateDetails(){
         try {
-            // Load the fxml file and create a new stage for the popup dialog.
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(MainApp.class.getResource("view/UpdateDetails.fxml"));
-            AnchorPane UpdateDetails = (AnchorPane) loader.load();
-            // Create the dialog Stage.
-            Stage dialogStage = new Stage();
-            dialogStage.setTitle("Update Details");
-            dialogStage.initModality(Modality.WINDOW_MODAL);
-            dialogStage.initOwner(MainApp.getPrimaryStage());
-            dialogStage.setScene(new Scene(UpdateDetails));
-            dialogStage.getScene().getStylesheets().addAll(MainApp.getPrimaryStage().getScene().getStylesheets());
-
-            UpdateDetailsController controller = loader.getController();
-            controller.setDialogStage(dialogStage);
+            String fxml = "view/UpdateDetails.fxml";
+            String title = "Update Details";
+            UpdateDetailsController controller = CreateStage.newDialogStage(fxml,title).getController();
+            controller.setDialogStage(CreateStage.getDialogStage());
             controller.ini(user);
 
             // Show the dialog and wait until the user closes it
-            dialogStage.showAndWait();
+            CreateStage.getDialogStage().showAndWait();
         } catch (IOException e) {
             e.printStackTrace();
         }

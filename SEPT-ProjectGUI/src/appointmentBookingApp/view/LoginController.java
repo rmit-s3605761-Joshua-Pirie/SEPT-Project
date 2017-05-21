@@ -51,8 +51,8 @@ public class LoginController {
         errorMessage.setText("");
         username.setPromptText("username");
         password.setPromptText("password");
-//        username.setText("b");
-//        password.setText("Qwerty1!");
+        username.setText("b");
+        password.setText("Qwerty1!");
         System.out.println("Current Style: "+ MainApp.getPrimaryStage().getScene().getStylesheets()+"\n");
     }
 

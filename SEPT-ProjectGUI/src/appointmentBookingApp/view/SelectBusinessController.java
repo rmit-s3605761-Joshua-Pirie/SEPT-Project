@@ -2,6 +2,7 @@ package appointmentBookingApp.view;
 
 import appointmentBookingApp.MainApp;
 import appointmentBookingApp.util.Alerts;
+import appointmentBookingApp.util.CreateStage;
 import appointmentBookingApp.util.DbUtil;
 import javafx.beans.binding.Bindings;
 import javafx.beans.value.ChangeListener;
@@ -106,28 +107,19 @@ public class SelectBusinessController {
         }
     }
 
+//    Calls login window for a superUser.
     @FXML
     public void showLoginDialog(){
         try {
-            // Load the fxml file and create a new stage for the popup dialog.
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(MainApp.class.getResource("view/Login.fxml"));
-            AnchorPane Login = loader.load();
-            // Create the dialog Stage.
-            Stage dialogStage = new Stage();
-            dialogStage.setTitle("Login");
-            dialogStage.initModality(Modality.WINDOW_MODAL);
-            dialogStage.initOwner(MainApp.getPrimaryStage());
-            Scene scene = new Scene(Login);
-            dialogStage.setScene(scene);
-
-            LoginController controller = loader.getController();
-            controller.setDialogStage(dialogStage);
+            String fxml = "view/Login.fxml";
+            String title = "Login";
+            LoginController controller = CreateStage.newDialogStage(fxml,title).getController();
+            controller.setDialogStage(CreateStage.getDialogStage());
             controller.setMainApp(mainApp);
             controller.setIsSuperUser();
 
             // Show the dialog and wait until the user closes it
-            dialogStage.showAndWait();
+            CreateStage.getDialogStage().showAndWait();
         } catch (IOException e) {
             e.printStackTrace();
         }
